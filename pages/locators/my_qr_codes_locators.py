@@ -21,4 +21,3 @@ class MyQrCodesLocators:
         self.sign_up_success_image = page.locator("//img[contains(@class,'dl-modal-head-img')]")
         self.create_qr_code_button = page.locator("//button[@data-target='#CreateQrCodeModal']")
         self.header_create_qr_code_button = page.locator("(//div[contains(@class, 'content-end')]/div)[2]")
-

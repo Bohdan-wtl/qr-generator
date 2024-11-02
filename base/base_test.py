@@ -14,6 +14,7 @@ from pytest import fixture
 
 class BaseTest:
     _main_page = None
+    _admin_page = None
     _login_page = None
     _menu_page = None
     _account_page = None
@@ -22,7 +23,6 @@ class BaseTest:
     _plan_and_prices_page = None
     _qr_creation_page = None
     _register_page = None
-
 
     @fixture(autouse=True)
     def setup(self, request, page):
