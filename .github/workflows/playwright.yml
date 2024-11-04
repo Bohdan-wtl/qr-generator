@@ -1,0 +1,27 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    timeout-minutes: 180
+    runs-on: ubuntu-latest
+    container:
+      image: white779/playwtight-python:wtl
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Run Playwright tests with Xvfb
+      run: xvfb-run -a pytest tests/
+
+    - uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: allure-reports
+        path: reports

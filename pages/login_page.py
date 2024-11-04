@@ -1,7 +1,6 @@
 from base.base_page import BasePage
 from pages.locators.login_page_locators import LoginPageLocators
 
-
 class LogInPage(BasePage):
     def __init__(self, page):
         super().__init__(page)

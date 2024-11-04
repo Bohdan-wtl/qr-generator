@@ -1,4 +1,5 @@
 class QrCreationLocators:
+
     def __init__(self, page):
         # QR Code Types From Step 1 screen
         self.step1_breadcrumbs_section_to_verify_page = page.locator("//span[@id='tab1text']")
@@ -24,6 +25,7 @@ class QrCreationLocators:
         # Common Locators from Step 2 screen
         self.back_button = page.locator("//button[@id='cancel']")
         self.next_button = page.locator("//button[@id='temp_next']")
+        self.step2_qr_frame = page.locator("//iframe[@id='iframesrc']")
         self.modal_window_step2 = "//div[@id='helpCarousel']"
         self.help_modal_close_button = page.locator("//div[@id='helpCarousel']//button[@id='closeBtn']")
         # QR code name
@@ -109,6 +111,8 @@ class QrCreationLocators:
         # Links QR code locators
         self.basic_info_links_qr_code_dropdown = page.locator("//button[@data-target='#acc_listInfo']")
         self.basic_info_links_qr_code_image_input = page.locator("//input[@id='companyLogo']")
+        self.basic_info_links_qr_code_image_input = "//input[@id='companyLogo']"
+        self.basic_info_company_logo_input = page.locator("//input[@id='companyLogo']")
         self.basic_info_links_qr_code_title_input = page.locator("//input[@id='list_title']")
         self.basic_info_links_qr_code_description_input = page.locator("//textarea[@id='list_description']")
         self.list_of_links_qr_code_dropdown = page.locator("//button[@data-target='#acc_link']")
@@ -249,6 +253,12 @@ class QrCreationLocators:
 
         # Social Media QR code locators
         self.social_media_design_dropdown = page.locator("//button[@data-target='#acc_Design']")
+        self.social_media_design_color1_input = page.locator("//div[@id='formcolorPalette1']")
+        self.social_media_design_color2_input = page.locator("//div[@id='formcolorPalette2']")
+        self.social_media_design_color4_input = page.locator("//div[@id='formcolorPalette4']")
+        self.social_media_design_color5_input = page.locator("//div[@id='formcolorPalette5']")
+        self.social_media_design_color6_input = page.locator("//div[@id='formcolorPalette6']")
+        self.social_media_design_color7_input = page.locator("//div[@id='formcolorPalette7']")
         self.social_media_basic_info_dropdown = page.locator("//button[@data-target='#social-media']")
         self.social_media_basic_info_title = page.locator("//input[@id='social_title']")
         self.social_media_basic_info_description = page.locator("//textarea[@id='social_description']")

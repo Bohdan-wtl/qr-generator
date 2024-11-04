@@ -5,14 +5,13 @@ import pytest
 from pytest import hookimpl
 from playwright.sync_api import sync_playwright
 
-headless = True
-slow_mo = 0
+headless = False
 
 
 @pytest.fixture(scope="session")
 def browser(request):
     with sync_playwright() as p:
-        browser = getattr(p, request.param).launch(headless=headless, slow_mo=slow_mo)
+        browser = getattr(p, request.param).launch(headless=headless)
         yield browser
         browser.close()
 
@@ -35,7 +34,6 @@ def page(context, request):
         page.video.save_as(path=f"videos/{request.node.name}.webm")
 
 
-
 @hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
     outcome = yield
@@ -55,7 +53,7 @@ def artifacts(request):
 
 @pytest.fixture(scope="session", autouse=True)
 def clean_folders():
-    folders_to_clean = ["generated_files", "downloaded_qr_codes", "reports", "screenshots", "videos", "frame"]
+    folders_to_clean = ["generated_files", "downloaded_qr_codes", "reports", "screenshots", "videos"]
     for folder in folders_to_clean:
         if os.path.exists(folder):
             shutil.rmtree(folder)

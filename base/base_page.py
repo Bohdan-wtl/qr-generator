@@ -11,12 +11,15 @@ class BasePage:
     def is_visible(self, locator):
         self.expect(self.page.locator(locator)).to_be_visible()
 
+    def is_invisible(self, locator):
+        self.expect(self.page.locator(locator)).to_be_hidden()
+
     def get_text(self, locator):
         return self.page.locator(locator).text_content()
 
     def open_in_new_tab(self, locator):
         with self.page.expect_popup() as popup_info:
-            locator.click(button="middle")
+            locator.click(button="left")
         new_page = popup_info.value
         return new_page
 

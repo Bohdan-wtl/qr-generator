@@ -12,7 +12,7 @@ class TestSandBox(BaseTest):
     @pytest.fixture(autouse=True)
     def setup_faker(self):
         self.faker = Faker()
-        self.random_number = Random().randint(99999, 99999999999)
+        self.random_number = Random().randint(1000, 3000)
         self.fake_email = "wtl-automation" + str(self.random_number) + "@test.com"
 
     @pytest.fixture(scope='function', autouse=True)

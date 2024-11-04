@@ -6,6 +6,7 @@ class RegisterPage(BasePage):
         super().__init__(page)
         self.locator = RegisterPageLocators(page)
 
+
     def sign_up(self, temporary_mail, signup_password):
         self.locator.email_input_field.is_visible()
         self.locator.email_input_field.fill(temporary_mail)

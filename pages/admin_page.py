@@ -1,7 +1,6 @@
 from base.base_page import BasePage
 from pages.locators.admin_page_locators import AdminPageLocators
 
-
 class AdminPage(BasePage):
 
     def __init__(self, page):

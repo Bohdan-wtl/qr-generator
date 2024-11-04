@@ -2,11 +2,8 @@ from random import Random
 import pytest
 from faker import Faker
 from base.base_test import BaseTest
-from config import languages_urls, languages_dpf_urls
+from config import languages_urls, languages_dpf_urls, get_env
 
-link_to_admin = "https://oqg-staging.test-qr.com/helpdesk"
-admin_email = "oqg-dev@outlook.com"
-admin_password = "12345678"
 refund_alert_text = "The refund was successfully completed."
 
 @pytest.mark.parametrize("browser", ["chromium"], indirect=True)
@@ -15,7 +12,7 @@ class TestAdminLinkGeneration(BaseTest):
     @pytest.fixture(autouse=True)
     def setup_faker(self):
         self.faker = Faker()
-        self.random_number = Random().randint(99999, 99999999999)
+        self.random_number = Random().randint(3000, 3000000)
         self.fake_email = "wtl-automation" + str(self.random_number) + "@test.com"
 
     @pytest.fixture(scope='function')
@@ -48,10 +45,10 @@ class TestAdminLinkGeneration(BaseTest):
         self.my_qr_codes_page.locator.download_modal_close_button.click()
         self.menu_page.locator.my_account.click()
         self.my_account_page.locator.log_out_button.click()
-        self.my_account_page.open_page(link_to_admin)
-        self.admin_page.locator.admin_email_input.fill(admin_email)
+        self.my_account_page.open_page(get_env("STAGE_ADMIN_LINK"))
+        self.admin_page.locator.admin_email_input.fill(get_env("STAGE_ADMIN_EMAIL"))
         self.admin_page.locator.admin_log_in_button.click()
-        self.admin_page.locator.admin_password_input.fill(admin_password)
+        self.admin_page.locator.admin_password_input.fill(get_env("STAGE_ADMIN_PASSWORD"))
         self.admin_page.locator.admin_log_in_button.click()
         self.admin_page.locator.global_search_input.fill(user_email)
         self.admin_page.locator.search_button.click()
@@ -75,7 +72,6 @@ class TestAdminLinkGeneration(BaseTest):
         self.qr_creation_page.locator.congrats_download_button.wait_for(state="visible")
         self.qr_creation_page.expect(self.qr_creation_page.locator.congrats_download_button).to_be_visible()
 
-
     @pytest.mark.flaky(reruns=0)
     @pytest.mark.parametrize("dpf_language", languages_dpf_urls.keys())
     @pytest.mark.parametrize("refund_button", [
@@ -94,10 +90,10 @@ class TestAdminLinkGeneration(BaseTest):
         self.my_qr_codes_page.locator.download_modal_close_button.click()
         self.menu_page.locator.my_account.click()
         self.my_account_page.locator.log_out_button.click()
-        self.my_account_page.open_page(link_to_admin)
-        self.admin_page.locator.admin_email_input.fill(admin_email)
+        self.my_account_page.open_page(get_env("STAGE_ADMIN_LINK"))
+        self.admin_page.locator.admin_email_input.fill(get_env("STAGE_ADMIN_EMAIL"))
         self.admin_page.locator.admin_log_in_button.click()
-        self.admin_page.locator.admin_password_input.fill(admin_password)
+        self.admin_page.locator.admin_password_input.fill(get_env("STAGE_ADMIN_PASSWORD"))
         self.admin_page.locator.admin_log_in_button.click()
         self.admin_page.locator.menu_payments_button.click()
         self.admin_page.get_user_menu_dots_button_payments_tab(fake_email).click()
@@ -106,7 +102,6 @@ class TestAdminLinkGeneration(BaseTest):
         self.admin_page.locator.refund_confirm_button_payments_tab.click()
         self.admin_page.expect(self.admin_page.locator.refund_alert_message).to_be_visible(timeout=10000)
         self.admin_page.expect(self.admin_page.locator.refund_alert_message).to_have_text(refund_alert_text)
-
 
     @pytest.mark.flaky(reruns=0)
     @pytest.mark.parametrize("dpf_language", languages_dpf_urls.keys())
@@ -126,10 +121,10 @@ class TestAdminLinkGeneration(BaseTest):
         self.my_qr_codes_page.locator.download_modal_close_button.click()
         self.menu_page.locator.my_account.click()
         self.my_account_page.locator.log_out_button.click()
-        self.my_account_page.open_page(link_to_admin)
-        self.admin_page.locator.admin_email_input.fill(admin_email)
+        self.my_account_page.open_page(get_env("STAGE_ADMIN_LINK"))
+        self.admin_page.locator.admin_email_input.fill(get_env("STAGE_ADMIN_EMAIL"))
         self.admin_page.locator.admin_log_in_button.click()
-        self.admin_page.locator.admin_password_input.fill(admin_password)
+        self.admin_page.locator.admin_password_input.fill(get_env("STAGE_ADMIN_PASSWORD"))
         self.admin_page.locator.admin_log_in_button.click()
         self.admin_page.locator.menu_payments_button.click()
         self.admin_page.get_user_menu_dots_button_payments_tab(fake_email).click()

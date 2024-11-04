@@ -8,7 +8,9 @@ from pages.payment_page import PaymentPage
 from pages.plans_and_prices_page import PlanAndPricesPage
 from pages.qr_creation_flow_page import QrCreationPage
 from pages.register_page import RegisterPage
+
 from pytest import fixture
+
 
 class BaseTest:
     _main_page = None
@@ -21,7 +23,6 @@ class BaseTest:
     _plan_and_prices_page = None
     _qr_creation_page = None
     _register_page = None
-
 
     @fixture(autouse=True)
     def setup(self, request, page):
