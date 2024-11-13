@@ -29,7 +29,7 @@ run_tests:
     - tar -zxvf allure-2.25.0.tgz -C /opt/
     - ln -s /opt/allure-2.25.0/bin/allure /usr/bin/allure
   script:
-    - xvfb-run -a pytest -s -v --alluredir=allure-results
+    - xvfb-run -a pytest -n auto -s -v --alluredir=allure-results
   after_script:
     - allure generate -c allure-results -o allure-report
 
