@@ -155,15 +155,11 @@ class QrCodeHelper:
         self.page.locator(random_locator).click()
         return random_locator
 
-    @allure.step("Select iframe on step 3")
+    @allure.step("Select qr frame on step 3")
     def select_frame_step3(self):
-        self.locator.frame_step3_dropdown.is_visible()
         self.locator.frame_step3_dropdown.is_enabled()
         self.locator.frame_step3_dropdown.click()
-        frame_locators = [
-            "//button[@id='qr_frame_id_{}']".format(i) for i in range(16)
-        ]
-        return self.select_random_option(frame_locators)
+        self.select_random_child_by_attribute("#acc_frame .frameWrapper", "button", "id")
 
     @allure.step("Select QR cornets on step 3")
     def select_qrcode_corners_step3(self):
