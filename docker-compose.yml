@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   chrome-tests:
-    image: ui-tests:v1
+    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v1
     build:
       context: .
       dockerfile: Dockerfile
@@ -18,7 +18,7 @@ services:
       STAGE_ADMIN_PASSWORD: ${STAGE_ADMIN_PASSWORD}
 
   webkit-tests:
-    image: ui-tests:v1
+    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v1
     build:
       context: .
       dockerfile: Dockerfile
@@ -34,7 +34,7 @@ services:
       STAGE_ADMIN_PASSWORD: ${STAGE_ADMIN_PASSWORD}
 
   firefox-tests:
-    image: ui-tests:v1
+    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v1
     build:
       context: .
       dockerfile: Dockerfile
