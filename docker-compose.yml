@@ -8,8 +8,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/app/workspace
-      - ./allure-results-chrome:/app/workspace/allure-results
-    command: /bin/sh -c "ls -la && xvfb-run -a pytest -sv -n 20 --alluredir=allure-results"
+    command: /bin/sh -c "ls -la && xvfb-run -a pytest tests/test-debug.py -sv -n 20 --alluredir=allure-results"
     working_dir: /app/workspace
     environment:
       BROWSER: "chromium"
@@ -24,8 +23,7 @@ services:
       dockerfile: Dockerfile
     volumes:
         - ./:/app/workspace
-        - ./allure-results-webkit:/app/workspace/allure-results
-    command: /bin/sh -c "ls -la && xvfb-run -a pytest -sv -n 20 --alluredir=allure-results"
+    command: /bin/sh -c "ls -la && xvfb-run -a pytest tests/test-debug.py -sv -n 20 --alluredir=allure-results"
     working_dir: /app/workspace
     environment:
       BROWSER: "webkit"
@@ -40,10 +38,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/app/workspace
-      - ./allure-results-firefox:/app/workspace/allure-results
-    command: >
-      /bin/sh -c "ls -la && 
-      xvfb-run -a pytest -sv -n 20 --alluredir=allure-results"
+    command: /bin/sh -c "ls -la && xvfb-run -a pytest tests/test-debug.py -sv -n 20 --alluredir=allure-results"
     working_dir: /app/workspace
     environment:
       BROWSER: "firefox"
