@@ -7,8 +7,8 @@ from config import languages_urls
 
 
 @pytest.mark.parametrize("language", languages_urls.keys())
-@pytest.mark.skip
 @allure.feature("Frame comparatives")
+@pytest.mark.skip("Fix is not ready yet")
 @pytest.mark.parametrize("browser", ["chromium", "webkit"], indirect=True)
 class TestFrameComparatives(BaseTest):
 

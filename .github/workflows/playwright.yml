@@ -1,5 +1,6 @@
 name: UI Tests
 
+<<<<<<< HEAD
 on: workflow_dispatch
 
 jobs:
@@ -10,11 +11,26 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Checkout (copy) gh-pages repository to GitHub runner
+=======
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check out gh-pages branch
+>>>>>>> main
         uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: ./.github/gh-pages
 
+<<<<<<< HEAD
       - name: Run your tests
         env:
           STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
@@ -35,10 +51,73 @@ jobs:
         run: |
           sudo cp -R allure-report/history/* ./.github/gh-pages/history/
 
+=======
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        id: pip-cache
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        if: steps.pip-cache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update && \
+          sudo apt-get install -y wget xvfb default-jre && \
+          python -m pip install --upgrade pip && \
+          pip install -r requirements.txt && \
+          wget https://github.com/allure-framework/allure2/releases/download/2.25.0/allure-2.25.0.tgz && \
+          tar -zxvf allure-2.25.0.tgz -C /opt/ && \
+          sudo rm -f /usr/local/bin/allure && \
+          sudo ln -s /opt/allure-2.25.0/bin/allure /usr/local/bin/allure && \
+          sudo chmod +x /usr/local/bin/allure
+
+      - name: Install Requirements
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright Browsers
+        run: |
+          python -m pip install pytest-playwright && \
+          playwright install --with-deps chromium && \
+          playwright install --with-deps webkit
+
+      - name: Run your tests
+        env:
+          STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
+          STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
+          STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
+        run: xvfb-run -a pytest -sv --dist=loadscope -n 20 --alluredir=allure-results
+        continue-on-error: true
+
+      - name: Copy history from gh-pages to allure-results
+        run: |
+          sudo mkdir -p allure-results/history
+          sudo cp -R ./.github/gh-pages/history/* allure-results/history/
+
+      - name: Build test report
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          gh_pages: gh-pages
+          allure_history: allure-results/history
+          allure_results: allure-results
+
+>>>>>>> main
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           token: ${{ secrets.CI_TOKEN }}
           branch: gh-pages
           folder: allure-report
+<<<<<<< HEAD
           clean: true
+=======
+          clean: false
+>>>>>>> main
