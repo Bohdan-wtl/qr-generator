@@ -37,7 +37,6 @@ class QrCreationPage(BasePage):
         self.locator.qrcode_add_logo_step3_dropdown.scroll_into_view_if_needed()
         self.locator.qrcode_add_logo_step3_dropdown.click()
         self.helper.set_file(self.locator.qrcode_upload_logo_input, 'image')
-        self.helper.preview_loader_active_and_not_active_state()
         self.locator.create_button.click()
 
     @allure.step("Create Webiste QR code")
@@ -56,7 +55,6 @@ class QrCreationPage(BasePage):
         self.helper.select_qrcode_corners_step3()
         self.locator.qrcode_add_logo_step3_dropdown.click()
         self.helper.set_file(self.locator.qrcode_upload_logo_input, 'image')
-        self.helper.preview_loader_active_and_not_active_state()
         self.locator.create_button.click()
 
     @allure.step("Create PDF QR code")
@@ -306,7 +304,6 @@ class QrCreationPage(BasePage):
         self.helper.select_qrcode_corners_step3()
         self.locator.qrcode_add_logo_step3_dropdown.click()
         self.helper.set_file(self.locator.qrcode_upload_logo_input, 'image')
-        self.helper.preview_loader_active_and_not_active_state()
         self.locator.create_button.click()
 
     @allure.step("Create Wi-Fi QR code")
