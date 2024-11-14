@@ -16,6 +16,11 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
+    env:
+      BROWSER: ${{ github.event.inputs.browser }}
+      STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
+      STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
+      STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
 
     steps:
       - name: Check out repository
@@ -28,31 +33,22 @@ jobs:
           path: ./.github/gh-pages
 
       - name: Run Chrome tests
-        if: ${{ github.event.inputs.browser == 'chrome' }}
+        if: ${{ env.BROWSER == 'chrome' }}
         env:
           BROWSER: "chromium"
-          STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
-          STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
-          STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
-        run: docker-compose up chrome-tests --exit-code-from regression || true
+        run: docker-compose up chrome-tests --exit-code-from chrome-tests || true
 
       - name: Run Webkit tests
-        if: ${{ github.event.inputs.browser == 'webkit' }}
+        if: ${{ env.BROWSER == 'webkit' }}
         env:
           BROWSER: "webkit"
-          STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
-          STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
-          STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
-        run: docker-compose up webkit-tests --exit-code-from regression || true
+        run: docker-compose up webkit-tests --exit-code-from webkit-tests || true
 
       - name: Run Firefox tests
-        if: ${{ github.event.inputs.browser == 'firefox' }}
+        if: ${{ env.BROWSER == 'firefox' }}
         env:
           BROWSER: "firefox"
-          STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
-          STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
-          STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
-        run: docker-compose up firefox-tests --exit-code-from regression || true
+        run: docker-compose up firefox-tests --exit-code-from firefox-tests || true
 
       - name: Copy history from gh-pages to allure-results
         run: |
@@ -61,14 +57,14 @@ jobs:
 
       - name: Generate Allure report
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
+          if [ "$BROWSER" == "chrome" ]; then
             sudo docker-compose run --rm chrome-tests /bin/sh -c "allure generate allure-results --clean -o allure-report"
-          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
+          elif [ "$BROWSER" == "webkit" ]; then
             sudo docker-compose run --rm webkit-tests /bin/sh -c "allure generate allure-results --clean -o allure-report"
-          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
+          elif [ "$BROWSER" == "firefox" ]; then
             sudo docker-compose run --rm firefox-tests /bin/sh -c "allure generate allure-results --clean -o allure-report"
           else
-            echo "Invalid browser selected: ${{ github.event.inputs.browser }}"
+            echo "Invalid browser selected: $BROWSER"
           fi
 
 
