@@ -30,7 +30,7 @@ jobs:
             /opt/allure-2.25.0
           key: ${{ runner.os }}-system-dependencies-allure
           restore-keys: |
-            ${{ runner.os }}-system-dependencies-
+            ${{ runner.os }}-system-dependencies-allure
 
       - name: Install dependencies
         if: steps.cache-allure.outputs.cache-hit != 'true'
@@ -54,7 +54,7 @@ jobs:
             ~/.cache/pip
           key: ${{ runner.os }}-playwright-browsers
           restore-keys: |
-            ${{ runner.os }}-playwright-
+            ${{ runner.os }}-playwright-browsers
 
       - name: Install Playwright Browsers
         if: steps.cache-playwright.outputs.cache-hit != 'true'
@@ -73,7 +73,7 @@ jobs:
       - name: Copy history from gh-pages to allure-results
         run: |
           sudo mkdir -p allure-results/history
-          sudo cp -R ./github/gh-pages/history/* allure-results/history/
+          sudo cp -R ./.github/gh-pages/history/* allure-results/history/
 
       - name: Build test report
         uses: simple-elf/allure-report-action@v1.7
