@@ -73,6 +73,12 @@ jobs:
       - name: Copy history from gh-pages to allure-results
         run: |
           sudo mkdir -p allure-results/history
+          echo "Current directory:"
+          pwd
+          echo "Listing files:"
+          ls -la
+          echo "Listing files in gh-pages:"
+          ls -la gh-pages
           sudo cp -R gh-pages/history/* allure-results/history/
 
       - name: Build test report
