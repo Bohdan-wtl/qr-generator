@@ -44,23 +44,13 @@ jobs:
           sudo ln -s /opt/allure-2.25.0/bin/allure /usr/local/bin/allure && \
           sudo chmod +x /usr/local/bin/allure
 
-      - name: Cache Playwright browsers
-        uses: actions/cache@v3
-        id: playwright-cache
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-playwright-
-
       - name: Install Requirements
         run: pip install -r requirements.txt
 
       - name: Install Playwright Browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: |
           python -m pip install pytest-playwright && \
-          playwright install --with-deps
+          playwright install-deps
 
       - name: Run your tests
         env:
