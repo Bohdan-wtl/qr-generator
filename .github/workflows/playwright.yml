@@ -70,10 +70,10 @@ jobs:
         run: xvfb-run -a pytest tests/test-debug.py -sv -n 10 --alluredir=allure-results
         continue-on-error: true
 
-#      - name: Copy history from gh-pages to allure-results
-#        run: |
-#          sudo mkdir -p allure-results/history
-#          sudo cp -R gh-pages/history/* allure-results/history/
+      - name: Copy history from gh-pages to allure-results
+        run: |
+          sudo mkdir -p allure-results/history
+          sudo cp -R gh-pages/history/* allure-results/history/
 
       - name: Build test report
         uses: simple-elf/allure-report-action@v1.7
