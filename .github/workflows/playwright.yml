@@ -73,7 +73,7 @@ jobs:
       - name: Copy history from gh-pages to allure-results
         run: |
           sudo mkdir -p allure-results/history
-          sudo cp -R ./.github/gh-pages/history/* allure-results/history/
+          sudo cp -R ./gh-pages/history/* allure-results/history/
 
       - name: Build test report
         uses: simple-elf/allure-report-action@v1.7
