@@ -30,3 +30,20 @@ services:
       STAGE_ADMIN_LINK: ${STAGE_ADMIN_LINK}
       STAGE_ADMIN_EMAIL: ${STAGE_ADMIN_EMAIL}
       STAGE_ADMIN_PASSWORD: ${STAGE_ADMIN_PASSWORD}
+
+  firefox-tests:
+    image: ui-tests:v1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app/workspace
+    command: >
+      /bin/sh -c "ls -la && 
+      xvfb-run -a pytest tests/test-debug.py -sv -n 20 --alluredir=allure-results"
+    working_dir: /app/workspace
+    environment:
+      BROWSER: "firefox"
+      STAGE_ADMIN_LINK: ${STAGE_ADMIN_LINK}
+      STAGE_ADMIN_EMAIL: ${STAGE_ADMIN_EMAIL}
+      STAGE_ADMIN_PASSWORD: ${STAGE_ADMIN_PASSWORD}
