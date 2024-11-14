@@ -37,29 +37,37 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
+      - name: Set up Docker cache
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.docker
+          key: ${{ runner.os }}-docker-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
+
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.CI_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Pull Docker images
-        run: docker-compose pull
+        run: docker-compose pull || true
 
       - name: Run Chrome tests
         if: ${{ env.BROWSER == 'chromium' }}
         env:
           BROWSER: "chromium"
-        run: docker-compose up --exit-code-from chrome-tests || true
+        run: docker-compose up chrome-tests --exit-code-from chrome-tests || true
 
       - name: Run Webkit tests
         if: ${{ env.BROWSER == 'webkit' }}
         env:
           BROWSER: "webkit"
-        run: docker-compose up --exit-code-from webkit-tests || true
+        run: docker-compose up webkit-tests --exit-code-from webkit-tests || true
 
       - name: Run Firefox tests
         if: ${{ env.BROWSER == 'firefox' }}
         env:
           BROWSER: "firefox"
-        run: docker-compose up --exit-code-from firefox-tests || true
+        run: docker-compose up firefox-tests --exit-code-from firefox-tests || true
 
       - name: Copy history from gh-pages to allure-results
         run: |
