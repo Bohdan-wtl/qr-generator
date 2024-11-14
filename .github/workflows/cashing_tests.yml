@@ -63,7 +63,7 @@ jobs:
           STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
           STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
           STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
-        run: xvfb-run -a pytest -sv -n 10 --alluredir=allure-results
+        run: xvfb-run -a pytest tests/test-debug.py -sv -n 10 --alluredir=allure-results
         continue-on-error: true
 
       - name: Copy history from gh-pages to allure-results
