@@ -17,7 +17,8 @@ DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 @allure.title("Set up browser")
 def browser(request):
     with sync_playwright() as p:
-        browser = getattr(p, request.param).launch(headless=headless)
+        browser_type = os.getenv("BROWSER", "chromium")
+        browser = getattr(p, browser_type).launch(headless=headless)
         yield browser
         browser.close()
 
@@ -52,20 +53,21 @@ def artifacts(request):
     if request.node.rep_call.failed:
         allure.attach.file(f"artifacts/screenshots/{request.node.name}.png", name="screenshot",
                            attachment_type=allure.attachment_type.PNG)
+        shutil.rmtree("artifacts/screenshots")
         allure.attach.file(f"artifacts/videos/{request.node.name}.webm", name="video",
                            attachment_type=allure.attachment_type.WEBM)
+        shutil.rmtree("artifacts/videos")
 
 
-@pytest.fixture(scope="session", autouse=True)
-@allure.title("Clean folders before tests")
-def clean_folders():
-    folders_to_clean = ["artifacts/generated_files", "artifacts/downloaded_qr_codes", "artifacts/screenshots",
-                        "artifacts/videos", "artifacts/snapshots"]
-    for folder in folders_to_clean:
-        if os.path.exists(folder):
-            shutil.rmtree(folder)
-        os.makedirs(folder, exist_ok=True)
-    yield
+# @pytest.fixture(scope="session", autouse=True)
+# @allure.title("Clean folders before tests")
+# def clean_folders():
+#     generated_filed = ["artifacts/generated_files", "artifacts/downloaded_qr_codes"]
+#     for folder in generated_filed:
+#         if os.path.exists(folder):
+#             shutil.rmtree(folder)
+#         os.makedirs(folder, exist_ok=True)
+#     yield
 
 
 @pytest.fixture(scope='function')
