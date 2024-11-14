@@ -1,3 +1,5 @@
+import os
+
 import allure
 from PIL import Image
 from utils.comparison_module import allure_attach_image_diff
@@ -7,9 +9,8 @@ from config import languages_urls
 
 
 @pytest.mark.parametrize("language", languages_urls.keys())
-@allure.feature("Frame comparatives")
+@allure.feature(f"Frame comparatives - {os.getenv('BROWSER')}")
 @pytest.mark.skip("Fix is not ready yet")
-@pytest.mark.parametrize("browser", ["chromium", "webkit"], indirect=True)
 class TestFrameComparatives(BaseTest):
 
     @pytest.mark.parametrize("qr_create_method", [
@@ -19,7 +20,7 @@ class TestFrameComparatives(BaseTest):
         "image_qr_create", "business_qr_create", "vcard_qr_create",
         "pdf_qr_create", "apps_qr_create"
     ])
-    @allure.title("Comparative mobile preview and web view")
+    @allure.title(f"Comparative mobile preview and web view - {os.getenv('BROWSER')}")
     def test_comparative_preview_and_view(self, sign_up_fixture, browser, request, qr_create_method):
         test_func = request.node.originalname
         expected_image_path = (f"artifacts/snapshots/preview/Expected/{test_func}"

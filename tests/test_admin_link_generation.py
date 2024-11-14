@@ -1,3 +1,4 @@
+import os
 import random
 
 import allure
@@ -7,8 +8,7 @@ from config import get_env, languages_urls, languages_dpf_urls
 
 refund_alert_text = "The refund was successfully completed."
 
-@allure.feature("Admin link generation")
-@pytest.mark.parametrize("browser", ["chromium", "webkit"], indirect=True)
+@allure.feature(f"Admin link generation - {os.getenv('BROWSER')}")
 class TestAdminLinkGeneration(BaseTest):
 
     @pytest.mark.flaky(reruns=0)
@@ -21,6 +21,7 @@ class TestAdminLinkGeneration(BaseTest):
         "discount_8_99_monthly_button",
         "discount_50_one_time_button"
     ])
+    @allure.title(f"Admin create payment link - {os.getenv('BROWSER')}")
     def test_admin_create_uniq_payment_link(self, language, sign_up_fixture, discount_button_locator, fake_email):
         discount_locator = getattr(self.admin_page.locator, discount_button_locator)
         self.qr_creation_page.website_qr_create()
@@ -66,6 +67,7 @@ class TestAdminLinkGeneration(BaseTest):
         "full_refund_plan_button_cancel_subscription",
         "full_refund_plan_button_keep_subscription"
     ])
+    @allure.title(f"Admin full refund options - {os.getenv('BROWSER')}")
     def test_admin_full_refund_options(self, navigate_to_dpf_page, dpf_language, refund_button, fake_email):
         self.qr_creation_page.website_qr_create()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
@@ -97,6 +99,7 @@ class TestAdminLinkGeneration(BaseTest):
         "partial_refund_plan_button_cancel_subscription",
         "partial_refund_plan_button_keep_subscription"
     ])
+    @allure.title(f"Admin partial refund options - {os.getenv('BROWSER')}")
     def test_admin_partial_refund_options(self, navigate_to_dpf_page, dpf_language, refund_button, fake_email):
         self.qr_creation_page.website_qr_create()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
