@@ -55,19 +55,19 @@ jobs:
         if: ${{ env.BROWSER == 'chromium' }}
         env:
           BROWSER: "chromium"
-        run: docker-compose up chrome-tests --exit-code-from chrome-tests || true
+        run: docker-compose up chrome-tests || true
 
       - name: Run Webkit tests
         if: ${{ env.BROWSER == 'webkit' }}
         env:
           BROWSER: "webkit"
-        run: docker-compose up webkit-tests --exit-code-from webkit-tests || true
+        run: docker-compose up webkit-tests || true
 
       - name: Run Firefox tests
         if: ${{ env.BROWSER == 'firefox' }}
         env:
           BROWSER: "firefox"
-        run: docker-compose up firefox-tests --exit-code-from firefox-tests || true
+        run: docker-compose up firefox-tests || true
 
       - name: Copy history from gh-pages to allure-results
         run: |
