@@ -17,7 +17,6 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     env:
-      BROWSER: ${{ github.event.inputs.browser }}
       STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
       STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
       STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
@@ -37,6 +36,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          install: true
+
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.CI_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
@@ -45,7 +49,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: "<registry>/<image>:latest"
+          tags: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v1
           cache-from: type=gha
           cache-to: type=gha,mode=max
           github-token: ${{ secrets.CI_TOKEN }}
@@ -53,20 +57,14 @@ jobs:
 
       - name: Run Chrome tests
         if: ${{ github.event.inputs.browser == 'chromium' }}
-        env:
-          BROWSER: ${{ secrets.CHROME }}
         run: docker-compose up --exit-code-from chrome-tests || true
 
       - name: Run Webkit tests
         if: ${{ github.event.inputs.browser == 'webkit' }}
-        env:
-          BROWSER: ${{ secrets.WEBKIT }}
         run: docker-compose up --exit-code-from webkit-tests || true
 
       - name: Run Firefox tests
         if: ${{ github.event.inputs.browser == 'firefox' }}
-        env:
-          BROWSER: ${{ secrets.FIREFOX }}
         run: docker-compose up --exit-code-from firefox-tests || true
 
       - name: Copy history from gh-pages to allure-results
