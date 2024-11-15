@@ -13,7 +13,7 @@ slow_mo = 0
 
 DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 @allure.title(f"Set up browser: {os.getenv('BROWSER')}")
 def browser(request):
     with sync_playwright() as p:
