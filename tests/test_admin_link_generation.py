@@ -8,6 +8,7 @@ from config import get_env, languages_urls, languages_dpf_urls
 
 refund_alert_text = "The refund was successfully completed."
 
+
 @allure.feature(f"Admin link generation - {os.getenv('BROWSER')}")
 class TestAdminLinkGeneration(BaseTest):
 
@@ -21,10 +22,21 @@ class TestAdminLinkGeneration(BaseTest):
         "discount_8_99_monthly_button",
         "discount_50_one_time_button"
     ])
+    @pytest.mark.parametrize("qr_create_method", ["wifi_qr_create",
+                                                  "mp3_qr_create", "website_qr_create", "coupon_qr_create"
+                                                                                        "menu_menu_qr_create",
+                                                  "links_qr_create", "menu_pdf_qr_create",
+                                                  "social_media_qr_create", "whatsapp_qr_create", "video_qr_create",
+                                                  "image_qr_create", "business_qr_create", "vcard_qr_create",
+                                                  "instagram_qr_create",
+                                                  "pdf_qr_create", "apps_qr_create", "menu_link_qr_create",
+                                                  "facebook_qr_create"
+                                                  ])
     @allure.title(f"Admin create payment link - {os.getenv('BROWSER')}")
-    def test_admin_create_uniq_payment_link(self, language, sign_up_fixture, discount_button_locator, fake_email):
+    def test_admin_create_uniq_payment_link(self, language, sign_up_fixture, discount_button_locator, qr_create_method, fake_email):
         discount_locator = getattr(self.admin_page.locator, discount_button_locator)
-        self.qr_creation_page.website_qr_create()
+        qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
+        qr_create_method_func()
         self.my_qr_codes_page.locator.download_modal_close_button.click()
         self.menu_page.locator.my_account.click()
         self.my_account_page.locator.log_out_button.click()
@@ -67,9 +79,21 @@ class TestAdminLinkGeneration(BaseTest):
         "full_refund_plan_button_cancel_subscription",
         "full_refund_plan_button_keep_subscription"
     ])
+    @pytest.mark.parametrize("qr_create_method", ["wifi_qr_create",
+                                                  "mp3_qr_create", "website_qr_create", "coupon_qr_create"
+                                                                                        "menu_menu_qr_create",
+                                                  "links_qr_create", "menu_pdf_qr_create",
+                                                  "social_media_qr_create", "whatsapp_qr_create", "video_qr_create",
+                                                  "image_qr_create", "business_qr_create", "vcard_qr_create",
+                                                  "instagram_qr_create",
+                                                  "pdf_qr_create", "apps_qr_create", "menu_link_qr_create",
+                                                  "facebook_qr_create"
+                                                  ])
     @allure.title(f"Admin full refund options - {os.getenv('BROWSER')}")
-    def test_admin_full_refund_options(self, navigate_to_dpf_page, dpf_language, refund_button, fake_email):
-        self.qr_creation_page.website_qr_create()
+    def test_admin_full_refund_options(self, navigate_to_dpf_page, dpf_language, refund_button, fake_email,
+                                       qr_create_method):
+        qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
+        qr_create_method_func()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
         self.qr_creation_page.locator.dpf_form_submit_button.click()
         self.qr_creation_page.select_dpf_plan()
@@ -99,9 +123,18 @@ class TestAdminLinkGeneration(BaseTest):
         "partial_refund_plan_button_cancel_subscription",
         "partial_refund_plan_button_keep_subscription"
     ])
+    @pytest.mark.parametrize("qr_create_method", ["wifi_qr_create",
+                                                  "mp3_qr_create", "website_qr_create", "coupon_qr_create"
+                                                    "menu_menu_qr_create", "facebook_qr_create", "pdf_qr_create",
+                                                  "links_qr_create", "menu_pdf_qr_create", "menu_link_qr_create",
+                                                  "social_media_qr_create", "whatsapp_qr_create", "video_qr_create",
+                                                  "image_qr_create", "business_qr_create", "vcard_qr_create",
+                                                  "instagram_qr_create", "apps_qr_create"
+                                                  ])
     @allure.title(f"Admin partial refund options - {os.getenv('BROWSER')}")
-    def test_admin_partial_refund_options(self, navigate_to_dpf_page, dpf_language, refund_button, fake_email):
-        self.qr_creation_page.website_qr_create()
+    def test_admin_partial_refund_options(self, navigate_to_dpf_page, dpf_language, qr_create_method, refund_button, fake_email):
+        qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
+        qr_create_method_func()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
         self.qr_creation_page.locator.dpf_form_submit_button.click()
         self.qr_creation_page.select_dpf_plan()
