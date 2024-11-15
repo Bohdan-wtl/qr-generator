@@ -11,7 +11,6 @@ from config import languages_urls
 class TestDefaultSignUpFlow(BaseTest):
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
-    @pytest.mark.flaky(reruns=1)
     @pytest.mark.parametrize("qr_create_method", ["wifi_qr_create", "instagram_qr_create",
                                                   "mp3_qr_create", "coupon_qr_create",
                                                   "menu_menu_qr_create", "facebook_qr_create", "apps_qr_create",
@@ -30,7 +29,6 @@ class TestDefaultSignUpFlow(BaseTest):
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
-    @pytest.mark.flaky(reruns=1)
     @pytest.mark.parametrize("qr_create_method", ["website_qr_create", "menu_link_qr_create"])
     def test_default_sign_up_website_qr_type(self, sign_up_fixture, qr_create_method, fake_email):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)

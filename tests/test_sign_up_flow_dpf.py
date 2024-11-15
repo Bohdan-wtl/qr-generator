@@ -18,7 +18,6 @@ class TestDPFSignUpFlow(BaseTest):
                                                   "social_media_qr_create", "whatsapp_qr_create", "video_qr_create",
                                                   "image_qr_create", "business_qr_create", "vcard_qr_create",
                                                   ])
-    @pytest.mark.flaky(reruns=1)
     def test_dpf_sign_up_qr_type(self, sign_up_fixture, qr_create_method, fake_email):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
@@ -30,7 +29,6 @@ class TestDPFSignUpFlow(BaseTest):
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
-    @pytest.mark.flaky(reruns=1)
     @pytest.mark.parametrize("qr_create_method", ["website_qr_create", "menu_link_qr_create"])
     def test_dpf_sign_up_website_qr_type(self, sign_up_fixture, qr_create_method, fake_email):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
