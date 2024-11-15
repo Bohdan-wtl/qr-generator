@@ -1,2 +1,7 @@
 "Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
-"","CFF sign up flow - webkit","","0","0","4","0","0"
+"","Frame comparatives - chromium","","0","0","0","50","0"
+"","DPF sign up flow - chromium","","0","10","80","0","0"
+"","Default sign up flow - chromium - chromium","","0","5","85","0","0"
+"","NSF sign up flow - chromium","","0","10","80","0","0"
+"","CFF sign up flow - chromium","","0","5","85","0","0"
+"","Admin link generation - chromium","","0","4","36","0","0"
