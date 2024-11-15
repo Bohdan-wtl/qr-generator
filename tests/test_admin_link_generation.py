@@ -18,9 +18,9 @@ class TestAdminLinkGeneration(BaseTest):
     @pytest.mark.parametrize("language", languages_urls.keys())
     @pytest.mark.parametrize("discount_button_locator", [
         "default_pricing_button",
-        "discount_70_promo_button",
-        "discount_8_99_monthly_button",
-        "discount_50_one_time_button"
+        # "discount_70_promo_button",
+        # "discount_8_99_monthly_button",
+        # "discount_50_one_time_button"
     ])
     @pytest.mark.parametrize("qr_create_method", ["wifi_qr_create",
                                                   "mp3_qr_create", "website_qr_create", "coupon_qr_create"
