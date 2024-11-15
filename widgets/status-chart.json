@@ -1,1 +1,1 @@
-[]
+[{"uid":"33ff78be583ca99c","name":"PDF QR type - chromium","time":{"start":1731711623942,"stop":1731711646807,"duration":22865},"status":"passed","severity":"normal"},{"uid":"a5747c42a8553042","name":"Website QR type -  chromium","time":{"start":1731711623982,"stop":1731711643581,"duration":19599},"status":"passed","severity":"normal"}]
