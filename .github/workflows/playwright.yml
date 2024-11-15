@@ -1,4 +1,4 @@
-name: UI Tests
+name: Docker UI Tests
 
 on:
   workflow_dispatch:
