@@ -6,8 +6,9 @@ from base.base_test import BaseTest
 from config import languages_urls
 
 
-@pytest.mark.parametrize("language", languages_urls.keys())
+
 @allure.feature(f"CFF sign up flow - {os.getenv('BROWSER')}")
+@pytest.mark.parametrize("language", languages_urls.keys())
 class TestDebug(BaseTest):
 
     @allure.title(f"Website QR type -  {os.getenv('BROWSER')}")
