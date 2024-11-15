@@ -101,3 +101,28 @@ jobs:
           branch: gh-pages
           folder: allure-report
           clean: false
+
+      - name: Send notification to Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          REPORT_URL="https://bohdan-wtl.github.io/qr-generator/"  # Замените на ваш URL GitHub Pages
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "Результаты UI тестов",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*Results of UI tests:*"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": ":white_check_mark: Tests are finished on: *'"${{ github.event.inputs.browser }}"'*. Link to report: <'"${REPORT_URL}"'|Open report>"
+                }
+              }
+            ]
+          }' $SLACK_WEBHOOK_URL
