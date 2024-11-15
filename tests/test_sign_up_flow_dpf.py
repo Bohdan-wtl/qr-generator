@@ -1,15 +1,16 @@
+import os
+
 import allure
 import pytest
 from base.base_test import BaseTest
 from config import languages_dpf_urls
 
 
-@pytest.mark.parametrize("dpf_language", languages_dpf_urls.keys())
-@allure.feature("DPF sign up flow")
-@pytest.mark.parametrize("browser", ["chromium", "webkit"], indirect=True)
+@pytest.mark.parametrize(f"dpf_language", languages_dpf_urls.keys())
+@allure.feature(f"DPF sign up flow - {os.getenv('BROWSER')}")
 class TestDPFSignUpFlow(BaseTest):
 
-    @allure.title("Website QR type")
+    @allure.title(f"Website QR type - {os.getenv('BROWSER')}")
     def test_sign_up_website_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.website_qr_create()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
@@ -20,9 +21,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("PDF QR type")
+    @allure.title(f"PDF QR type - {os.getenv('BROWSER')}")
     def test_sign_up_pdf_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.pdf_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -35,9 +36,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Links QR type")
+    @allure.title(f"Links QR type - {os.getenv('BROWSER')}")
     def test_sign_up_links_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.links_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -50,9 +51,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("VCard QR type")
+    @allure.title(f"VCard QR type - {os.getenv('BROWSER')}")
     def test_sign_up_vcard_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.vcard_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -65,9 +66,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Business QR type")
+    @allure.title(f"Business QR type - {os.getenv('BROWSER')}")
     def test_sign_up_business_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.business_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -80,9 +81,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Image QR type")
+    @allure.title(f"Image QR type - {os.getenv('BROWSER')}")
     def test_sign_up_images_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.image_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -95,9 +96,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Video QR type")
+    @allure.title(f"Video QR type - {os.getenv('BROWSER')}")
     def test_sign_up_video_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.video_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -110,9 +111,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Apps QR type")
+    @allure.title(f"Apps QR type - {os.getenv('BROWSER')}")
     def test_sign_up_apps_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.apps_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -125,9 +126,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Coupon QR type")
+    @allure.title(f"Coupon QR type - {os.getenv('BROWSER')}")
     def test_sign_up_coupon_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.coupon_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -140,9 +141,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("MP3 QR type")
+    @allure.title(f"MP3 QR type - {os.getenv('BROWSER')}")
     def test_sign_up_mp3_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.mp3_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -155,9 +156,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Menu-Menu QR type")
+    @allure.title(f"Menu-Menu QR type - {os.getenv('BROWSER')}")
     def test_sign_up_menu_menu_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.menu_menu_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -170,9 +171,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Menu-PDF QR type")
+    @allure.title(f"Menu-PDF QR type - {os.getenv('BROWSER')}")
     def test_sign_up_menu_pdf_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.menu_pdf_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -185,9 +186,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Menu-Link QR type")
+    @allure.title(f"Menu-Link QR type - {os.getenv('BROWSER')}")
     def test_sign_up_menu_link_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.menu_link_qr_create()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
@@ -198,9 +199,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("WiFi QR type")
+    @allure.title(f"WiFi QR type - {os.getenv('BROWSER')}")
     def test_sign_up_wifi_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.wifi_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -213,9 +214,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Facebook QR type")
+    @allure.title(f"Facebook QR type - {os.getenv('BROWSER')}")
     def test_sign_up_facebook_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.facebook_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -228,9 +229,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.locator.submit_payment_button.click()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Instagram QR type")
+    @allure.title(f"Instagram QR type - {os.getenv('BROWSER')}")
     def test_sign_up_instagram_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.instagram_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -243,9 +244,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("Social_media QR type")
+    @allure.title(f"Social_media QR type - {os.getenv('BROWSER')}")
     def test_sign_up_social_media_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.social_media_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -258,9 +259,9 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")
 
-    @allure.title("WhatsApp QR type")
+    @allure.title(f"WhatsApp QR type - {os.getenv('BROWSER')}")
     def test_sign_up_whatsapp_qr_type(self, navigate_to_dpf_page, fake_email):
         self.qr_creation_page.whatsapp_qr_create()
         self.qr_creation_page.click_next_button_step2()
@@ -273,4 +274,4 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        #self.my_qr_codes_page.file_download("downloaded_qr_codes/")
+        #self.my_qr_codes_page.file_download(f"downloaded_qr_codes/ - {os.getenv('BROWSER')}")

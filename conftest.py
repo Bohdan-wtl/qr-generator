@@ -14,10 +14,11 @@ slow_mo = 0
 DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 
 @pytest.fixture(scope="function")
-@allure.title("Set up browser")
+@allure.title(f"Set up browser: {os.getenv('BROWSER')}")
 def browser(request):
     with sync_playwright() as p:
-        browser = getattr(p, request.param).launch(headless=headless)
+        browser_type = os.getenv("BROWSER", "chromium")
+        browser = getattr(p, browser_type).launch(headless=headless)
         yield browser
         browser.close()
 
@@ -56,7 +57,6 @@ def artifacts(request):
         allure.attach.file(f"artifacts/videos/{request.node.name}.webm", name="video",
                            attachment_type=allure.attachment_type.WEBM)
         shutil.rmtree("artifacts/videos")
-
 
 @pytest.fixture(scope="session", autouse=True)
 @allure.title("Clean folders before tests")
