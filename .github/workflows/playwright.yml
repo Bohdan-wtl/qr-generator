@@ -65,15 +65,15 @@ jobs:
 
       - name: Run Chrome tests
         if: ${{ github.event.inputs.browser == 'chromium' }}
-        run: docker-compose up --exit-code-from chrome-tests || true
+        run: docker-compose up chrome-tests || true
 
       - name: Run Webkit tests
         if: ${{ github.event.inputs.browser == 'webkit' }}
-        run: docker-compose up --exit-code-from webkit-tests || true
+        run: docker-compose up webkit-tests || true
 
       - name: Run Firefox tests
         if: ${{ github.event.inputs.browser == 'firefox' }}
-        run: docker-compose up --exit-code-from firefox-tests || true
+        run: docker-compose up firefox-tests || true
 
       - name: Copy history from gh-pages to allure-results
         run: |
