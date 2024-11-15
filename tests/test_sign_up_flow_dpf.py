@@ -18,7 +18,7 @@ class TestDPFSignUpFlow(BaseTest):
                                                   "social_media_qr_create", "whatsapp_qr_create", "video_qr_create",
                                                   "image_qr_create", "business_qr_create", "vcard_qr_create",
                                                   ])
-    def test_dpf_sign_up_qr_type(self, sign_up_fixture, qr_create_method, fake_email):
+    def test_dpf_sign_up_qr_type(self, navigate_to_dpf_page, qr_create_method, fake_email):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
         self.qr_creation_page.click_next_button_step2()
@@ -30,7 +30,7 @@ class TestDPFSignUpFlow(BaseTest):
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", ["website_qr_create", "menu_link_qr_create"])
-    def test_dpf_sign_up_website_qr_type(self, sign_up_fixture, qr_create_method, fake_email):
+    def test_dpf_sign_up_website_qr_type(self, navigate_to_dpf_page, qr_create_method, fake_email):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
