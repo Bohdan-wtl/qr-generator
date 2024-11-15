@@ -1,1 +1,1 @@
-{"total":0,"items":[]}
+{"total":2,"items":[{"uid":"3ac8bc88ca73d0ef92947f066b0f33ca","name":"CFF sign up flow - chromium","statistic":{"failed":0,"broken":3,"skipped":0,"passed":0,"unknown":0,"total":3}},{"uid":"635283e399736879b863c1b24636313a","name":"CFF sign up flow - firefox","statistic":{"failed":0,"broken":1,"skipped":0,"passed":0,"unknown":0,"total":1}}]}
