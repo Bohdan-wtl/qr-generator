@@ -124,6 +124,7 @@ jobs:
       - name: Update Allure history
         run: |
           if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
+            sudo mkdir -p ./.github/chrome_reports/history
             sudo cp -R allure-report/chromium/history/* ./.github/chrome_reports/history/
           elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
             sudo cp -R allure-report/webkit/history/* ./.github/webkit_reports/history/
