@@ -105,11 +105,11 @@ jobs:
 #          sudo mkdir -p allure-results/history
 #          sudo cp -R ./.github/webkit_reports/history/* allure-results/history/
 #
-#      - name: Copy history from chrome_reports to allure-results
-#        if: ${{ github.event.inputs.browser == 'chromium' }}
-#        run: |
-#          sudo mkdir -p allure-results/history
-#          sudo cp -R ./.github/chrome_reports/history/* allure-results/history/
+      - name: Copy history from chrome_reports to allure-results
+        if: ${{ github.event.inputs.browser == 'chromium' }}
+        run: |
+          sudo mkdir -p allure-results/history
+          sudo cp -R ./.github/chrome_reports/history/* allure-results/history/
 
       - name: Generate Allure report
         run: |
