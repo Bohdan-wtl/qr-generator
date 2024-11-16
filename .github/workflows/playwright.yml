@@ -134,6 +134,9 @@ jobs:
             sudo cp -R allure-report/firefox/history/* ./.github/firefox_reports/history/
           fi
 
+      - name: List Allure report directory
+        run: ls -R allure-report/${{ github.event.inputs.browser }}
+
       - name: Deploy Chrome report to GitHub Pages
         if: ${{ github.event.inputs.browser == 'chromium' }}
         uses: JamesIves/github-pages-deploy-action@4.1.5
