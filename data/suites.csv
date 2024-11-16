@@ -1,3 +1,3 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sat Nov 16 00:12:14 UTC 2024","Sat Nov 16 00:12:39 UTC 2024","24582","tests","test-debug","TestDebug","","","PDF QR type - chromium",""
-"passed","Sat Nov 16 00:12:14 UTC 2024","Sat Nov 16 00:12:33 UTC 2024","18718","tests","test-debug","TestDebug","","","Website QR type -  chromium",""
+"passed","Sat Nov 16 00:32:49 UTC 2024","Sat Nov 16 00:33:06 UTC 2024","16837","tests","test-debug","TestDebug","","","Website QR type -  chromium",""
+"passed","Sat Nov 16 00:32:49 UTC 2024","Sat Nov 16 00:33:13 UTC 2024","23802","tests","test-debug","TestDebug","","","PDF QR type - chromium",""
