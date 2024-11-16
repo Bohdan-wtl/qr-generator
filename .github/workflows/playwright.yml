@@ -93,23 +93,23 @@ jobs:
         if: ${{ github.event.inputs.browser == 'firefox' }}
         run: docker-compose up firefox-tests || true
 
-#      - name: Copy history from firefox_reports to allure-results
-#        if: ${{ github.event.inputs.browser == 'firefox' }}
-#        run: |
-#          sudo mkdir -p allure-results/history
-#          sudo cp -R ./.github/firefox_reports/history/* allure-results/history/
-#
-#      - name: Copy history from webkit_reports to allure-results
-#        if: ${{ github.event.inputs.browser == 'webkit' }}
-#        run: |
-#          sudo mkdir -p allure-results/history
-#          sudo cp -R ./.github/webkit_reports/history/* allure-results/history/
-#
-#      - name: Copy history from chrome_reports to allure-results
-#        if: ${{ github.event.inputs.browser == 'chromium' }}
-#        run: |
-#          sudo mkdir -p allure-results/history
-#          sudo cp -R ./.github/chrome_reports/history/* allure-results/history/
+      - name: Copy history from firefox_reports to allure-results
+        if: ${{ github.event.inputs.browser == 'firefox' }}
+        run: |
+          sudo mkdir -p allure-results/history
+          sudo cp -R ./.github/firefox_reports/history/* allure-results/history/
+
+      - name: Copy history from webkit_reports to allure-results
+        if: ${{ github.event.inputs.browser == 'webkit' }}
+        run: |
+          sudo mkdir -p allure-results/history
+          sudo cp -R ./.github/webkit_reports/history/* allure-results/history/
+
+      - name: Copy history from chrome_reports to allure-results
+        if: ${{ github.event.inputs.browser == 'chromium' }}
+        run: |
+          sudo mkdir -p allure-results/history
+          sudo cp -R ./.github/chrome_reports/history/* allure-results/history/
 
       - name: Generate Allure report
         run: |
