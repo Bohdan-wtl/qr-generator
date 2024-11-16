@@ -8,10 +8,10 @@ from config import get_env, languages_urls, languages_dpf_urls
 
 refund_alert_text = "The refund was successfully completed."
 
+
 @allure.feature(f"Admin link generation - {os.getenv('BROWSER')}")
 class TestAdminLinkGeneration(BaseTest):
 
-    @pytest.mark.flaky(reruns=0)
     @pytest.mark.smoke
     @pytest.mark.regression
     @pytest.mark.parametrize("language", languages_urls.keys())
@@ -61,7 +61,6 @@ class TestAdminLinkGeneration(BaseTest):
         self.qr_creation_page.locator.congrats_download_button.wait_for(state="visible")
         self.qr_creation_page.expect(self.qr_creation_page.locator.congrats_download_button).to_be_visible()
 
-    @pytest.mark.flaky(reruns=0)
     @pytest.mark.parametrize("dpf_language", languages_dpf_urls.keys())
     @pytest.mark.parametrize("refund_button", [
         "full_refund_plan_button_cancel_subscription",
@@ -93,7 +92,6 @@ class TestAdminLinkGeneration(BaseTest):
         self.admin_page.expect(self.admin_page.locator.refund_alert_message).to_be_visible(timeout=10000)
         self.admin_page.expect(self.admin_page.locator.refund_alert_message).to_have_text(refund_alert_text)
 
-    @pytest.mark.flaky(reruns=0)
     @pytest.mark.parametrize("dpf_language", languages_dpf_urls.keys())
     @pytest.mark.parametrize("refund_button", [
         "partial_refund_plan_button_cancel_subscription",

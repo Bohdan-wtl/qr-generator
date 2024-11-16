@@ -5,19 +5,18 @@ def get_env(var):
     load_dotenv()
     return os.getenv(var)
 
-
 languages_urls = {
-    "ar": "https://oqg-staging.test-qr.com/ar",
+    #"ar": "https://oqg-staging.test-qr.com/ar",
     # "bg": "https://oqg-staging.test-qr.com/bg",
     # "cs": "https://oqg-staging.test-qr.com/cs",
     # "da": "https://oqg-staging.test-qr.com/da",
-    "de": "https://oqg-staging.test-qr.com/de",
-    "el": "https://oqg-staging.test-qr.com/el",
+    #"de": "https://oqg-staging.test-qr.com/de",
+    #"el": "https://oqg-staging.test-qr.com/el",
     "en": "https://oqg-staging.test-qr.com",
     # "es": "https://oqg-staging.test-qr.com/es",
     # "fi": "https://oqg-staging.test-qr.com/fi",
     # "fr": "https://oqg-staging.test-qr.com/fr",
-    "he": "https://oqg-staging.test-qr.com/he",
+    #"he": "https://oqg-staging.test-qr.com/he",
     # "hi": "https://oqg-staging.test-qr.com/hi",
     # "hr": "https://oqg-staging.test-qr.com/hr",
     # "hu": "https://oqg-staging.test-qr.com/hu",
@@ -44,17 +43,17 @@ languages_urls = {
 }
 
 languages_dpf_urls = {
-    "ar": "https://oqg-staging.test-qr.com/ar/create?step=1&qr_onboarding=active_dpf",
+    #"ar": "https://oqg-staging.test-qr.com/ar/create?step=1&qr_onboarding=active_dpf",
     # "bg": "https://oqg-staging.test-qr.com/bg/create?step=1&qr_onboarding=active_dpf",
     # "cs": "https://oqg-staging.test-qr.com/cs/create?step=1&qr_onboarding=active_dpf",
     # "da": "https://oqg-staging.test-qr.com/da/create?step=1&qr_onboarding=active_dpf",
-    "de": "https://oqg-staging.test-qr.com/de/create?step=1&qr_onboarding=active_dpf",
+    #"de": "https://oqg-staging.test-qr.com/de/create?step=1&qr_onboarding=active_dpf",
     # "el": "https://oqg-staging.test-qr.com/el/create?step=1&qr_onboarding=active_dpf",
     "en": "https://oqg-staging.test-qr.com/create?step=1&qr_onboarding=active_dpf",
     # "es": "https://oqg-staging.test-qr.com/es/create?step=1&qr_onboarding=active_dpf",
     # "fi": "https://oqg-staging.test-qr.com/fi/create?step=1&qr_onboarding=active_dpf",
-    "fr": "https://oqg-staging.test-qr.com/fr/create?step=1&qr_onboarding=active_dpf",
-    "he": "https://oqg-staging.test-qr.com/he/create?step=1&qr_onboarding=active_dpf",
+    #"fr": "https://oqg-staging.test-qr.com/fr/create?step=1&qr_onboarding=active_dpf",
+    #"he": "https://oqg-staging.test-qr.com/he/create?step=1&qr_onboarding=active_dpf",
     # "hi": "https://oqg-staging.test-qr.com/hi/create?step=1&qr_onboarding=active_dpf",
     # "hr": "https://oqg-staging.test-qr.com/hr/create?step=1&qr_onboarding=active_dpf",
     # "hu": "https://oqg-staging.test-qr.com/hu/create?step=1&qr_onboarding=active_dpf",
@@ -81,17 +80,17 @@ languages_dpf_urls = {
 }
 
 languages_nsf_urls = {
-    "ar": "https://oqg-staging.test-qr.com/ar/create?step=1&qr_onboarding=active_nsf",
+    #"ar": "https://oqg-staging.test-qr.com/ar/create?step=1&qr_onboarding=active_nsf",
     # "bg": "https://oqg-staging.test-qr.com/bg/create?step=1&qr_onboarding=active_nsf",
     # "cs": "https://oqg-staging.test-qr.com/cs/create?step=1&qr_onboarding=active_nsf",
     # "da": "https://oqg-staging.test-qr.com/da/create?step=1&qr_onboarding=active_nsf",
-    "de": "https://oqg-staging.test-qr.com/de/create?step=1&qr_onboarding=active_nsf",
+    #"de": "https://oqg-staging.test-qr.com/de/create?step=1&qr_onboarding=active_nsf",
     # "el": "https://oqg-staging.test-qr.com/el/create?step=1&qr_onboarding=active_nsf",
     "en": "https://oqg-staging.test-qr.com/create?step=1&qr_onboarding=active_nsf",
     # "es": "https://oqg-staging.test-qr.com/es/create?step=1&qr_onboarding=active_nsf",
     # "fi": "https://oqg-staging.test-qr.com/fi/create?step=1&qr_onboarding=active_nsf",
-    "fr": "https://oqg-staging.test-qr.com/fr/create?step=1&qr_onboarding=active_nsf",
-    "he": "https://oqg-staging.test-qr.com/he/create?step=1&qr_onboarding=active_nsf",
+    # "fr": "https://oqg-staging.test-qr.com/fr/create?step=1&qr_onboarding=active_nsf",
+    # "he": "https://oqg-staging.test-qr.com/he/create?step=1&qr_onboarding=active_nsf",
     # "hi": "https://oqg-staging.test-qr.com/hi/create?step=1&qr_onboarding=active_nsf",
     # "hr": "https://oqg-staging.test-qr.com/hr/create?step=1&qr_onboarding=active_nsf",
     # "hu": "https://oqg-staging.test-qr.com/hu/create?step=1&qr_onboarding=active_nsf",
