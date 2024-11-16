@@ -142,8 +142,9 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           token: ${{ secrets.CI_TOKEN }}
-          branch: chrome_reports
+          branch: gh-pages
           folder: allure-report/chromium
+          target-folder: chrome_report
           clean: true
 
       - name: Deploy Webkit report to GitHub Pages
