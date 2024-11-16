@@ -29,7 +29,7 @@ services:
     image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v1
     volumes:
       - ./:/app/workspace
-    command: /bin/sh -c "ls -la && xvfb-run -a pytest -n auto --alluredir=allure-results"
+    command: /bin/sh -c "ls -la && xvfb-run -a pytest tests/test-debug.py -n auto --alluredir=allure-results"
     working_dir: /app/workspace
     environment:
       BROWSER: "firefox"
