@@ -125,11 +125,6 @@ jobs:
           folder: .
           clean: true
 
-      - name: Log Deployment URL
-        run:
-          echo "Deployed to: ${{ steps.deployment.outputs.page_url }}"
-
-
       - name: Send notification to Slack
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
