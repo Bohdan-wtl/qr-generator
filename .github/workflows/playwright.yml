@@ -25,24 +25,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Check out chrome_reports branch
-        uses: actions/checkout@v4
-        with:
-          ref: chrome_reports
-          path: ./.github/chrome_reports
-
-      - name: Check out webkit_reports branch
-        uses: actions/checkout@v4
-        with:
-          ref: webkit_reports
-          path: ./.github/webkit_reports
-
-      - name: Check out firefox_reports branch
-        uses: actions/checkout@v4
-        with:
-          ref: firefox_reports
-          path: ./.github/firefox_reports
-
       - name: Set up Docker cache
         uses: actions/cache@v4
         with:
