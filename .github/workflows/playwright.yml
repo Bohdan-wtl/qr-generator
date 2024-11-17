@@ -138,7 +138,6 @@ jobs:
           token: ${{ secrets.CI_TOKEN }}
           branch: chrome_reports
           folder: allure-report/chromium
-          target-folder: chrome_report
           clean: true
 
       - name: Deploy Webkit report
