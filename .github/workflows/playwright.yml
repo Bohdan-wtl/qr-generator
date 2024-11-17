@@ -71,25 +71,27 @@ jobs:
     runs-on: ubuntu-latest
     needs: tests
     steps:
-      - name: Check out repository
+      - name: Check out branch
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.browser }}_reports
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-#      - name: Copy history for Allure
-#        run: |
-#          sudo mkdir -p allure-results/history
-#          if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
-#            sudo mkdir -p allure-results/history
-#            sudo cp -R ./.github/chrome_reports/history/* allure-results/history/
-#          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-#            sudo mkdir -p allure-results/history
-#            sudo cp -R ./.github/webkit_reports/history/* allure-results/history/
-#          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-#            sudo mkdir -p allure-results/history
-#            sudo cp -R ./.github/firefox_reports/history/* allure-results/history/
-#          fi
+      - name: Copy history for Allure
+        run: |
+          sudo mkdir -p allure-results/history
+          if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
+            sudo mkdir -p allure-results/history
+            sudo cp -R ./.github/chrome_reports/history/* allure-results/history/
+          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
+            sudo mkdir -p allure-results/history
+            sudo cp -R ./.github/webkit_reports/history/* allure-results/history/
+          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
+            sudo mkdir -p allure-results/history
+            sudo cp -R ./.github/firefox_reports/history/* allure-results/history/
+          fi
 
       - name: Generate Allure report
         run: |
