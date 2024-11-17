@@ -25,12 +25,6 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Check out gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: ./.github/gh-pages
-
       - name: Check out chrome_reports branch
         uses: actions/checkout@v4
         with:
@@ -137,17 +131,17 @@ jobs:
       - name: List Allure report directory
         run: ls -R allure-report/${{ github.event.inputs.browser }}
 
-      - name: Deploy Chrome report to GitHub Pages
+      - name: Deploy Chrome report
         if: ${{ github.event.inputs.browser == 'chromium' }}
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           token: ${{ secrets.CI_TOKEN }}
-          branch: gh-pages
+          branch: chrome_reports
           folder: allure-report/chromium
           target-folder: chrome_report
           clean: true
 
-      - name: Deploy Webkit report to GitHub Pages
+      - name: Deploy Webkit report
         if: ${{ github.event.inputs.browser == 'webkit' }}
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
@@ -156,7 +150,7 @@ jobs:
           folder: allure-report/webkit
           clean: true
 
-      - name: Deploy Firefox report to GitHub Pages
+      - name: Deploy Firefox report
         if: ${{ github.event.inputs.browser == 'firefox' }}
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
