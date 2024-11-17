@@ -6,10 +6,10 @@ on:
       browser:
         description: "Select browser"
         required: true
-        default: "chromium"
+        default: "chrome"
         type: choice
         options:
-          - "chromium"
+          - "chrome"
           - "webkit"
           - "firefox"
 
@@ -59,7 +59,7 @@ jobs:
 
       - name: Run tests
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
+          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
             docker-compose up chrome-tests || true
           elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
             docker-compose up webkit-tests || true
@@ -95,7 +95,7 @@ jobs:
       - name: Copy history for Allure
         run: |
           sudo mkdir -p allure-results/history
-          if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
+          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
             sudo mkdir -p allure-results/history
             sudo cp -R ./.github/chrome_reports/history/* allure-results/history/
           elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
@@ -108,8 +108,8 @@ jobs:
 
       - name: Generate Allure report
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
-            sudo docker-compose run chrome-tests /bin/sh -c "allure generate allure-results --clean -o allure-report/chromium"
+          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
+            sudo docker-compose run chrome-tests /bin/sh -c "allure generate allure-results --clean -o allure-report/chrome"
           elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
             sudo docker-compose run webkit-tests /bin/sh -c "allure generate allure-results --clean -o allure-report/webkit"
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
