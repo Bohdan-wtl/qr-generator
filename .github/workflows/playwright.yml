@@ -1,4 +1,4 @@
-name: Docker UI Tests with Allure Reports
+name: Docker UI Tests
 
 on:
   workflow_dispatch:
@@ -25,6 +25,24 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Check out chrome_reports branch
+        uses: actions/checkout@v4
+        with:
+          ref: chrome_reports
+          path: ./.github/chrome_reports
+
+      - name: Check out webkit_reports branch
+        uses: actions/checkout@v4
+        with:
+          ref: webkit_reports
+          path: ./.github/webkit_reports
+
+      - name: Check out firefox_reports branch
+        uses: actions/checkout@v4
+        with:
+          ref: firefox_reports
+          path: ./.github/firefox_reports
+
       - name: Set up Docker cache
         uses: actions/cache@v4
         with:
@@ -38,8 +56,24 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          install: true
+
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.CI_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v1
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          github-token: ${{ secrets.CI_TOKEN }}
+
 
       - name: Run tests
         run: |
@@ -50,6 +84,16 @@ jobs:
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
             docker-compose up firefox-tests || true
           fi
+
+  build-report:
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Copy history for Allure
         run: |
@@ -64,39 +108,45 @@ jobs:
 
       - name: Generate Allure report
         run: |
-          sudo docker-compose run ${GITHUB_EVENT_INPUTS_BROWSER}-tests /bin/sh -c "allure generate allure-results --clean -o allure-report/${{ github.event.inputs.browser }}"
+          if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
+            sudo docker-compose run chrome-tests /bin/sh -c "allure generate allure-results --clean -o allure-report/chromium"
+          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
+            sudo docker-compose run webkit-tests /bin/sh -c "allure generate allure-results --clean -o allure-report/webkit"
+          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
+            sudo docker-compose run firefox-tests /bin/sh -c "allure generate allure-results --clean -o allure-report/firefox"
+          fi
 
       - name: Upload Allure Report as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: allure-report-${{ github.event.inputs.browser }}
           path: allure-report/${{ github.event.inputs.browser }}
 
-  deploy:
-    needs: tests
+  deploy-report:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    needs: build-report
     steps:
       - name: Download Allure Report Artifact
         uses: actions/download-artifact@v3
         with:
-          name: allure-report-${{ github.event.inputs.browser }}
-          path: allure-report
-
-      - name: Configure GitHub Pages
-        run: |
-          echo 'Setting GitHub Pages for ${{ github.event.inputs.browser }}_reports'
-          git init
-          git remote add origin https://github.com/${{ github.repository }}.git
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          name: pages-artifact
+          path: .
 
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           token: ${{ secrets.CI_TOKEN }}
           branch: ${{ github.event.inputs.browser }}_reports
-          folder: allure-report/${{ github.event.inputs.browser }}
+          folder: .
           clean: true
+
+      - name: Log Deployment URL
+        run:
+          echo "Deployed to: ${{ steps.deployment.outputs.page_url }}"
+
 
       - name: Send notification to Slack
         env:
