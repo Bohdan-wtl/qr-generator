@@ -75,35 +75,26 @@ jobs:
           github-token: ${{ secrets.CI_TOKEN }}
 
 
-      - name: Run Chrome tests
-        if: ${{ github.event.inputs.browser == 'chromium' }}
-        run: docker-compose up chrome-tests || true
+      - name: Run tests
+        run: |
+          if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
+            docker-compose up chrome-tests || true
+          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
+            docker-compose up webkit-tests || true
+          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
+            docker-compose up firefox-tests || true
+          fi
 
-      - name: Run Webkit tests
-        if: ${{ github.event.inputs.browser == 'webkit' }}
-        run: docker-compose up webkit-tests || true
-
-      - name: Run Firefox tests
-        if: ${{ github.event.inputs.browser == 'firefox' }}
-        run: docker-compose up firefox-tests || true
-
-      - name: Copy history from firefox_reports to allure-results
-        if: ${{ github.event.inputs.browser == 'firefox' }}
+      - name: Copy history for Allure
         run: |
           sudo mkdir -p allure-results/history
-          sudo cp -R ./.github/firefox_reports/history/* allure-results/history/
-
-      - name: Copy history from webkit_reports to allure-results
-        if: ${{ github.event.inputs.browser == 'webkit' }}
-        run: |
-          sudo mkdir -p allure-results/history
-          sudo cp -R ./.github/webkit_reports/history/* allure-results/history/
-
-      - name: Copy history from chrome_reports to allure-results
-        if: ${{ github.event.inputs.browser == 'chromium' }}
-        run: |
-          sudo mkdir -p allure-results/history
-          sudo cp -R ./.github/chrome_reports/history/* allure-results/history/
+          if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
+            sudo cp -R ./.github/chrome_reports/history/* allure-results/history/
+          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
+            sudo cp -R ./.github/webkit_reports/history/* allure-results/history/
+          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
+            sudo cp -R ./.github/firefox_reports/history/* allure-results/history/
+          fi
 
       - name: Generate Allure report
         run: |
@@ -115,61 +106,40 @@ jobs:
             sudo docker-compose run firefox-tests /bin/sh -c "allure generate allure-results --clean -o allure-report/firefox"
           fi
 
-      - name: Update Allure history
+      - name: Upload Allure Report as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-report-${{ github.event.inputs.browser }}
+          path: allure-report/${{ github.event.inputs.browser }}
+  deploy:
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Allure Report Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: allure-report-${{ github.event.inputs.browser }}
+          path: allure-report
+
+      - name: Configure GitHub Pages
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
-            sudo mkdir -p ./.github/chrome_reports/history
-            sudo cp -R allure-report/chromium/history/* ./.github/chrome_reports/history/
-          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-          sudo mkdir -p ./.github/webkit_reports/history
-            sudo cp -R allure-report/webkit/history/* ./.github/webkit_reports/history/
-          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-          sudo mkdir -p ./.github/firefox_reports/history
-            sudo cp -R allure-report/firefox/history/* ./.github/firefox_reports/history/
-          fi
+          echo 'Setting GitHub Pages for ${{ github.event.inputs.browser }}_reports'
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
 
-      - name: List Allure report directory
-        run: ls -R allure-report/${{ github.event.inputs.browser }}
-
-      - name: Deploy Chrome report
-        if: ${{ github.event.inputs.browser == 'chromium' }}
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           token: ${{ secrets.CI_TOKEN }}
-          branch: chrome_reports
-          folder: allure-report/chromium
-          clean: true
-
-      - name: Deploy Webkit report
-        if: ${{ github.event.inputs.browser == 'webkit' }}
-        uses: JamesIves/github-pages-deploy-action@4.1.5
-        with:
-          token: ${{ secrets.CI_TOKEN }}
-          branch: webkit_reports
-          folder: allure-report/webkit
-          clean: true
-
-      - name: Deploy Firefox report
-        if: ${{ github.event.inputs.browser == 'firefox' }}
-        uses: JamesIves/github-pages-deploy-action@4.1.5
-        with:
-          token: ${{ secrets.CI_TOKEN }}
-          branch: firefox_reports
-          folder: allure-report/firefox
+          branch: ${{ github.event.inputs.browser }}_reports
+          folder: allure-report/${{ github.event.inputs.browser }}
           clean: true
 
       - name: Send notification to Slack
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
-            REPORT_URL="https://chromereport-git-firefoxreports-bohdan-wtls-projects.vercel.app/"
-          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-            REPORT_URL="https://chromereport-git-webkitreports-bohdan-wtls-projects.vercel.app/"
-          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-            REPORT_URL="https://chromereport-git-chromereports-bohdan-wtls-projects.vercel.app/"
-          fi
-          
+          REPORT_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.inputs.browser }}_reports"
           curl -X POST -H 'Content-type: application/json' --data '{
             "text": "Tests results for browser: '"${{ github.event.inputs.browser }}"'",
             "blocks": [
