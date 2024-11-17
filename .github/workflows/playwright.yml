@@ -170,11 +170,11 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
           if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
-            REPORT_URL="https://bohdan-wtl.github.io/qr-generator/chrome_reports/"
+            REPORT_URL="https://chromereport-git-firefoxreports-bohdan-wtls-projects.vercel.app/"
           elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-            REPORT_URL="https://bohdan-wtl.github.io/qr-generator/webkit_reports/"
+            REPORT_URL="https://chromereport-git-webkitreports-bohdan-wtls-projects.vercel.app/"
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-            REPORT_URL="https://bohdan-wtl.github.io/qr-generator/firefox_reports/"
+            REPORT_URL="https://chromereport-git-chromereports-bohdan-wtls-projects.vercel.app/"
           fi
           
           curl -X POST -H 'Content-type: application/json' --data '{
