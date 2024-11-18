@@ -22,11 +22,11 @@ jobs:
       STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
 
     steps:
-      - name: Check out repository
+      - name: Checkout gh-pages branch
         uses: actions/checkout@v4
         with:
-          ref: main
-          path:  .
+          ref: gh-pages
+          path: .
 
 
       - name: Set up Docker cache
@@ -111,11 +111,6 @@ jobs:
           pwd
           echo "Contents of current directory:"
           ls -la
-
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
 
       - name: Prepare subdirectory for branch ${{ github.event.inputs.browser }}
         run: |
