@@ -68,10 +68,9 @@ jobs:
 
       - name: Check out branch
         uses: actions/checkout@v4
-        permissions:
-          contents: write
         with:
           ref: ${{ github.event.inputs.browser }}_reports
+          clean: 'true'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
