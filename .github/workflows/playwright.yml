@@ -68,14 +68,13 @@ jobs:
 
       - name: Check file permissions
         run: |
-          ls -la ${{ github.workspace }}
+          sudo chown -R runner:docker ${{ github.workspace }}
 
       - name: Check out branch
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.browser }}_reports
           clean: 'true'
-
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
