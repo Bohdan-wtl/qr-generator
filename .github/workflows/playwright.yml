@@ -61,6 +61,11 @@ jobs:
           echo "Contents of current directory:"
           ls -la
 
+      # Создание подкаталога для отчётов текущего браузера
+      - name: Ensure target directory exists
+        run: |
+          mkdir -p ./gh-pages/${{ github.event.inputs.browser }}
+
       # Копирование отчёта Allure в подкаталог браузера
 #      - name: Copy Allure report to subdirectory
 #        run: |
