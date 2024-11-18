@@ -24,6 +24,10 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.browser }}_reports
+          path: ./.github/${{ github.event.inputs.browser }}_reports
+
 
       - name: Set up Docker cache
         uses: actions/cache@v4
@@ -56,10 +60,6 @@ jobs:
           cache-to: type=gha,mode=max
           github-token: ${{ secrets.CI_TOKEN }}
 
-      - name: Check out branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.inputs.browser }}_reports
 
       - name: Run tests
         run: |
