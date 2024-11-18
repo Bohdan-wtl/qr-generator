@@ -76,25 +76,25 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-#      - name: Copy history for Allure
-#        run: |
-#          sudo mkdir -p allure-results/history
-#          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
-#            sudo cp -R ./history/* allure-results/history/
-#          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-#            sudo cp -R ./history/* allure-results/history/
-#          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-#            sudo cp -R ./history/* allure-results/history/
-#          fi
+      - name: Copy history for Allure
+        run: |
+          sudo mkdir -p allure-results/history
+          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
+            sudo cp -R ./history/* allure-results/history/
+          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
+            sudo cp -R ./history/* allure-results/history/
+          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
+            sudo cp -R ./history/* allure-results/history/
+          fi
 
       - name: Generate Allure report
         run: |
           if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
-            sudo docker-compose run chrome-tests /bin/sh -c "allure generate allure-results --clean -o allure-report/chrome"
+            sudo docker-compose run chrome-tests /bin/sh -c "allure generate allure-results --clean -o allure-report"
           elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-            sudo docker-compose run webkit-tests /bin/sh -c "allure generate allure-results --clean -o allure-report/webkit"
+            sudo docker-compose run webkit-tests /bin/sh -c "allure generate allure-results --clean -o allure-report"
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-            sudo docker-compose run firefox-tests /bin/sh -c "allure generate allure-results --clean -o allure-report/firefox"
+            sudo docker-compose run firefox-tests /bin/sh -c "allure generate allure-results --clean -o allure-report"
           fi
 
       - name: Verify Allure Report Generation
@@ -105,7 +105,7 @@ jobs:
       - name: Upload Allure Report as Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: allure-report/${{ github.event.inputs.browser }}
+          path: allure-report
           name: 'pages-artifacts'
 
   deploy-report:
