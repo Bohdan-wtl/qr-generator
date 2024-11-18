@@ -115,7 +115,7 @@ jobs:
       - name: Prepare subdirectory for branch ${{ github.event.inputs.browser }}
         run: |
           mkdir -p ./${{ github.event.inputs.browser }}_reports
-          cp -R ./dist/* ./${{ github.event.inputs.browser }}_reports/
+          cp -R allure-report/* ./${{ github.event.inputs.browser }}_reports/
 
       - name: Deploy to GitHub Pages
         id: deployment
