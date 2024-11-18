@@ -98,9 +98,9 @@ jobs:
           echo "Contents of current directory:"
           ls -la
 
-      - name: Update Allure history
-        run: |
-          sudo cp -R allure-report/history/* ./history/
+#      - name: Update Allure history
+#        run: |
+#          sudo cp -R allure-report/history/* ./history/
 
       - name: Debug current directory
         run: |
