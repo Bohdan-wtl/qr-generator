@@ -67,6 +67,7 @@ jobs:
         with:
           ref: gh-pages
           path: ./gh-pages
+          clean: 'true'
 
       - name: Debug current directory and files
         run: |
@@ -78,7 +79,7 @@ jobs:
       # Создание директории для текущего браузера
       - name: Create directory for browser reports
         run: |
-          mkdir -p ./gh-pages/${{ github.event.inputs.browser }}
+          mkdir -p ./${{ github.event.inputs.browser }}
 
       # Копирование отчётов в директорию для текущего браузера
 #      - name: Copy Allure report to browser directory
@@ -86,10 +87,12 @@ jobs:
 #          cp -R allure-report/* ./gh-pages/${{ github.event.inputs.browser }}
 
       # Отладка перед деплоем
-      - name: Debug deployment directory
+      - name: Debug current directory and files
         run: |
-          echo "Contents of ./gh-pages/${{ github.event.inputs.browser }}:"
-          ls -la ./gh-pages/${{ github.event.inputs.browser }}
+          echo "Current working directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls -la
 
       # Деплой отчётов в ветку gh-pages
       - name: Deploy to GitHub Pages
@@ -97,8 +100,7 @@ jobs:
         with:
           token: ${{ secrets.CI_TOKEN }}
           branch: gh-pages
-          folder: ./gh-pages
-          clean: true
+          folder: ./${{ github.event.inputs.browser }}
 
       - name: Debug current directory and files
         run: |
