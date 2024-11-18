@@ -70,7 +70,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.browser }}_reports
-          clean: 'true'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
