@@ -92,4 +92,4 @@ jobs:
         with:
           token: ${{ secrets.CI_TOKEN }}
           branch: gh-pages
-          folder: ./gh-pages
+          folder: ./gh-pages/${{ github.event.inputs.browser }}
