@@ -105,14 +105,23 @@ jobs:
           sudo mkdir -p allure-results/history
           sudo cp -R allure-report/history/* allure-results/history/
 
+      - name: Verify Allure Report directory
+        run: |
+          echo "Checking if allure-report exists..."
+          pwd
+          ls -la allure-report
+
       - name: Upload Allure Report as Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: allure-report
+          path: /github/workspace/allure-report
           name: 'pages-artifacts'
 
-      - name: Current dir
+      - name: Print current working directory and contents
         run: |
+          echo "Current working directory:"
+          pwd
+          echo "Contents of current directory:"
           ls -la
 
   deploy-report:
@@ -136,8 +145,11 @@ jobs:
           name: pages-artifact
           path: .
 
-      - name: Current dir
+      - name: Print current working directory and contents
         run: |
+          echo "Current working directory:"
+          pwd
+          echo "Contents of current directory:"
           ls -la
 
       - name: Deploy to GitHub Pages
