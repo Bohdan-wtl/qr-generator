@@ -98,9 +98,12 @@ jobs:
           echo "Contents of current directory:"
           ls -la
 
-#      - name: Update Allure history
-#        run: |
-#          sudo cp -R allure-report/history/* ./history/
+      - name: Update Allure history
+        run: |
+          mkdir -p ./history
+          if [ -d allure-report/history ]; then
+            cp -R allure-report/history/* ./history/
+          fi
 
       - name: Debug current directory
         run: |
@@ -109,13 +112,23 @@ jobs:
           echo "Contents of current directory:"
           ls -la
 
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+
+      - name: Prepare subdirectory for branch ${{ github.event.inputs.browser }}
+        run: |
+          mkdir -p ./${{ github.event.inputs.browser }}_reports
+          cp -R ./dist/* ./${{ github.event.inputs.browser }}_reports/
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           token: ${{ secrets.CI_TOKEN }}
           branch: ${{ github.event.inputs.browser }}_reports
-          folder: allure-report
+          folder: .
           clean: true
 
       - name: Send notification to Slack
