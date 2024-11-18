@@ -130,11 +130,14 @@ jobs:
           echo "Contents of current directory:"
           ls -la
 
-      - name: Change to workspace directory
-        run: cd ./
+      - name: Change to repository root
+        run: cd /github/workspace && ls -la
 
-      - name: Current dir
+      - name: Print current working directory and contents
         run: |
+          echo "Current working directory:"
+          pwd
+          echo "Contents of current directory:"
           ls -la
 
       - name: Download Allure Report Artifact
