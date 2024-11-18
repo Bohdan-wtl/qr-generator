@@ -76,15 +76,25 @@ jobs:
           echo "Contents of current directory:"
           ls -la
 
-      # Создание директории для текущего браузера
-      - name: Create directory for browser reports
+      # Создание папки gh-pages/${{ github.event.inputs.browser }}
+      - name: Create directory for browser
         run: |
           mkdir -p ./gh-pages/${{ github.event.inputs.browser }}
+          echo "Created directory: ./gh-pages/${{ github.event.inputs.browser }}"
 
-      # Копирование отчётов в директорию для текущего браузера
+      # Копирование отчётов Allure в папку браузера
       - name: Copy Allure report to browser directory
         run: |
-          cp -R allure-report/* ./gh-pages/${{ github.event.inputs.browser }}
+          cp -R allure-report/* ./gh-pages/${{ github.event.inputs.browser }}/
+          echo "Copied Allure report to ./gh-pages/${{ github.event.inputs.browser }}"
+
+      # Отладка перед деплоем
+      - name: Debug gh-pages folder
+        run: |
+          echo "Contents of gh-pages directory:"
+          ls -la ./gh-pages
+          echo "Contents of ./gh-pages/${{ github.event.inputs.browser }}:"
+          ls -la ./gh-pages/${{ github.event.inputs.browser }}
 
       # Деплой отчётов в ветку gh-pages
       - name: Deploy to GitHub Pages
