@@ -100,7 +100,7 @@ jobs:
 
       - name: Update Allure history
         run: |
-          sudo cp -R allure-report/history/* ./${{ github.event.inputs.browser }}_reports/history/
+          sudo cp -R allure-report/history/* ./history/
 
       - name: Debug current directory
         run: |
