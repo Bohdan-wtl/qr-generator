@@ -19,12 +19,12 @@ jobs:
 
     steps:
 
-      # Чекаут ветки gh-pages для сохранения отчётов
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
+      # Чекаут основной ветки main для запуска тестов
+      - name: Checkout main branch
+        uses: actions/checkout@v2
         with:
-          ref: gh-pages
-          path: ./gh-pages
+          ref: main
+          path: .
 
       # Установка Docker Compose
       - name: Install Docker Compose
@@ -46,6 +46,13 @@ jobs:
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
             docker-compose up firefox-tests || true
           fi
+
+      # Чекаут ветки gh-pages для сохранения отчётов
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: ./gh-pages
 
       # Генерация Allure отчёта
       - name: Generate Allure report
