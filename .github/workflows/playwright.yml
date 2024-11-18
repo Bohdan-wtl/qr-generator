@@ -21,7 +21,7 @@ jobs:
 
       # Чекаут основной ветки main для запуска тестов
       - name: Checkout main branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: main
           path: .
@@ -60,7 +60,7 @@ jobs:
 
       # Чекаут ветки gh-pages для сохранения отчётов
       - name: Checkout gh-pages branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: gh-pages
           path: ./gh-pages
