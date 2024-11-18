@@ -102,7 +102,7 @@ jobs:
           
       - name: Update Allure history
         run: |
-          mkdir -p allure-results/history
+          sudo mkdir -p allure-results/history
           sudo cp -R allure-report/history/* allure-results/history/
 
       - name: Upload Allure Report as Artifact
