@@ -60,7 +60,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: ${{ github.event.inputs.browser }}_reports
+          context: ./.github/${{ github.event.inputs.browser }}_reports
           push: true
           tags: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v1
           cache-from: type=gha
