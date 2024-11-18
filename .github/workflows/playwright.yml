@@ -56,6 +56,12 @@ jobs:
           cache-to: type=gha,mode=max
           github-token: ${{ secrets.CI_TOKEN }}
 
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.browser }}_reports
+          clean: 'true'
+
       - name: Run tests
         run: |
           if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
@@ -65,25 +71,21 @@ jobs:
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
             docker-compose up firefox-tests || true
           fi
-
-      - name: Check out branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.inputs.browser }}_reports
+          
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Copy history for Allure
-        run: |
-          sudo mkdir -p allure-results/history
-          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
-            sudo cp -R ./history/* allure-results/history/
-          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-            sudo cp -R ./history/* allure-results/history/
-          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-            sudo cp -R ./history/* allure-results/history/
-          fi
+#      - name: Copy history for Allure
+#        run: |
+#          sudo mkdir -p allure-results/history
+#          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
+#            sudo cp -R ./history/* allure-results/history/
+#          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
+#            sudo cp -R ./history/* allure-results/history/
+#          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
+#            sudo cp -R ./history/* allure-results/history/
+#          fi
 
       - name: Generate Allure report
         run: |
@@ -107,11 +109,18 @@ jobs:
     runs-on: ubuntu-latest
     needs: tests
     steps:
+
+      - name: List directories before downloading artifact
+        run: ls -R .
+
       - name: Download Allure Report Artifact
         uses: actions/download-artifact@v3
         with:
           name: pages-artifact
           path: .
+
+      - name: List directories after downloading artifact
+        run: ls -R .
 
       - name: Deploy to GitHub Pages
         id: deployment
