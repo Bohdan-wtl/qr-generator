@@ -132,26 +132,6 @@ jobs:
     needs: tests
     steps:
 
-      - name: Print current working directory and contents
-        run: |
-          echo "Current working directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
-
-      - name: Download Allure Report Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: pages-artifact
-          path: .
-
-      - name: Print current working directory and contents
-        run: |
-          echo "Current working directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: JamesIves/github-pages-deploy-action@4.1.5
