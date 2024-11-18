@@ -86,12 +86,6 @@ jobs:
         run: |
           cp -R allure-report/* ./${{ github.event.inputs.browser }}
 
-      - name: Debug browser directory before deploy
-        run: |
-          cd ${{ github.event.inputs.browser }}
-          pwd
-          ls -la
-
       # Деплой отчётов в ветку gh-pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
@@ -99,10 +93,3 @@ jobs:
           token: ${{ secrets.CI_TOKEN }}
           branch: gh-pages
           folder: ./${{ github.event.inputs.browser }}
-
-      - name: Debug current directory and files
-        run: |
-          echo "Current working directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
