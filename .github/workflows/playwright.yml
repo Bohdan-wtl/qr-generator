@@ -82,7 +82,7 @@ jobs:
         run: |
             REPORT_URL="https://qr-generator-${{ github.event.inputs.browser }}.vercel.app/"
           
-          curl -X POST -H 'Content-type: application/json' --data '{
+            curl -X POST -H 'Content-type: application/json' --data '{
             "text": "Tests are finished",
             "blocks": [
               {
@@ -93,4 +93,4 @@ jobs:
                 }
               }
             ]
-          }' $SLACK_WEBHOOK_URL
+            }' $SLACK_WEBHOOK_URL
