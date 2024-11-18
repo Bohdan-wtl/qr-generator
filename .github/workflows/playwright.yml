@@ -101,6 +101,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: allure-report/${{ github.event.inputs.browser }}
+          name: 'pages-artifacts'
 
   deploy-report:
     environment:
@@ -110,8 +111,12 @@ jobs:
     needs: tests
     steps:
 
-      - name: List directories before downloading artifact
-        run: ls -R .
+      - name: Debug current directory
+        run: |
+          echo "Current Directory:"
+          pwd
+          echo "Listing all files and directories recursively:"
+          ls -lahR .
 
       - name: Download Allure Report Artifact
         uses: actions/download-artifact@v3
@@ -119,8 +124,12 @@ jobs:
           name: pages-artifact
           path: .
 
-      - name: List directories after downloading artifact
-        run: ls -R .
+      - name: Debug current directory
+        run: |
+          echo "Current Directory:"
+          pwd
+          echo "Listing all files and directories recursively:"
+          ls -lahR .
 
       - name: Deploy to GitHub Pages
         id: deployment
