@@ -28,13 +28,6 @@ jobs:
           ref: ${{ github.event.inputs.browser }}_reports
           path:  ./.github/${{ github.event.inputs.browser }}_reports
 
-      - name: Debug current directory
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
-
 
       - name: Set up Docker cache
         uses: actions/cache@v4
@@ -77,6 +70,13 @@ jobs:
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
             docker-compose up firefox-tests || true
           fi
+
+      - name: Debug current directory
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls -la
 
       - name: Copy history for Allure
         run: |
