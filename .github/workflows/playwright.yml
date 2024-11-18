@@ -18,9 +18,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Чекаут основной ветки (для работы)
-      - name: Checkout main branch
-        uses: actions/checkout@v2
 
       # Чекаут ветки gh-pages (для сохранения отчетов)
       - name: Checkout gh-pages branch
@@ -82,4 +79,4 @@ jobs:
           token: ${{ secrets.CI_TOKEN }}
           branch: gh-pages
           folder: ./gh-pages
-          clean: false
+          clean: true
