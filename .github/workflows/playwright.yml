@@ -124,7 +124,7 @@ jobs:
     steps:
 
       - name: Change to workspace directory
-        run: cd /github
+        run: cd ./github
 
       - name: Current dir
         run: |
