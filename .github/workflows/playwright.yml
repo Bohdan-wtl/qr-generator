@@ -123,6 +123,10 @@ jobs:
     needs: tests
     steps:
 
+      - name: Current dir
+        run: |
+          ls -la
+
       - name: Download Allure Report Artifact
         uses: actions/download-artifact@v3
         with:
