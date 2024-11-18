@@ -56,6 +56,12 @@ jobs:
           cache-to: type=gha,mode=max
           github-token: ${{ secrets.CI_TOKEN }}
 
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.browser }}_reports
+          clean: 'true'
+
       - name: Run tests
         run: |
           if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
@@ -65,12 +71,7 @@ jobs:
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
             docker-compose up firefox-tests || true
           fi
-
-      - name: Check out branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.inputs.browser }}_reports
-          clean: 'true'
+          
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
