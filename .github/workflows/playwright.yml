@@ -123,8 +123,15 @@ jobs:
     needs: tests
     steps:
 
+      - name: Print current working directory and contents
+        run: |
+          echo "Current working directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls -la
+
       - name: Change to workspace directory
-        run: cd ./.github/
+        run: cd ./
 
       - name: Current dir
         run: |
