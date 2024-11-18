@@ -123,6 +123,9 @@ jobs:
     needs: tests
     steps:
 
+      - name: Change to workspace directory
+        run: cd /github
+
       - name: Current dir
         run: |
           ls -la
