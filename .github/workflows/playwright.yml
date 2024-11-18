@@ -51,10 +51,17 @@ jobs:
             docker-compose up firefox-tests || true
           fi
 
+      - name: Debug current directory and files
+        run: |
+          echo "Current working directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls -la
+
       - name: Copy history from gh-pages to allure-results
         run: |
           sudo mkdir -p allure-results/history
-          sudo cp -R ./${{ github.event.inputs.browser }}/history/* allure-results/history/
+          sudo cp -R ./gh-pages/${{ github.event.inputs.browser }}/history/* allure-results/history/
 
       # Генерация Allure отчёта
       - name: Generate Allure report
