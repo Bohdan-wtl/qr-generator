@@ -79,12 +79,12 @@ jobs:
       # Создание директории для текущего браузера
       - name: Create directory for browser reports
         run: |
-          mkdir -p ./${{ github.event.inputs.browser }}
+          mkdir -p ./gh-pages/${{ github.event.inputs.browser }}
 
       # Копирование отчётов в директорию для текущего браузера
       - name: Copy Allure report to browser directory
         run: |
-          cp -R allure-report/* ./${{ github.event.inputs.browser }}
+          cp -R allure-report/* ./gh-pages/${{ github.event.inputs.browser }}
 
       # Деплой отчётов в ветку gh-pages
       - name: Deploy to GitHub Pages
