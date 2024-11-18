@@ -41,20 +41,20 @@ jobs:
           sudo apt-get install -y docker-compose
 
       # Запуск тестов для выбранного браузера
-      - name: Run tests for ${{ github.event.inputs.browser }}
+      - name: Run tests
         run: |
-          docker-compose up $${{ github.event.inputs.browser }}-tests || true
+          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
+            docker-compose up chrome-tests || true
+          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
+            docker-compose up webkit-tests || true
+          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
+            docker-compose up firefox-tests || true
+          fi
 
       # Генерация Allure отчёта
       - name: Generate Allure report
         run: |
           docker-compose run ${{ github.event.inputs.browser }}-tests /bin/sh -c "allure generate allure-results --clean -o allure-report"
-
-      # Проверка отчётов
-      - name: Debug Allure report
-        run: |
-          echo "Allure report directory contents:"
-          ls -la allure-report
 
       # Чекаут ветки gh-pages
       - name: Checkout gh-pages branch
@@ -76,14 +76,6 @@ jobs:
           cp -R allure-report/* ./gh-pages/${{ github.event.inputs.browser }}/
           echo "Copied Allure report to ./gh-pages/${{ github.event.inputs.browser }}"
 
-      # Проверка содержимого папки перед деплоем
-      - name: Debug gh-pages directory
-        run: |
-          echo "gh-pages directory:"
-          ls -la ./gh-pages
-          echo "Contents of ./${{ github.event.inputs.browser }}:"
-          ls -la ./gh-pages/${{ github.event.inputs.browser }}
-
       # Деплой отчётов на gh-pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
@@ -93,9 +85,3 @@ jobs:
           folder: ./gh-pages/${{ github.event.inputs.browser }}
           target-folder: ./${{ github.event.inputs.browser }}
           clean: true
-
-      # Отладка после деплоя
-      - name: Final Debug
-        run: |
-          echo "Final gh-pages directory:"
-          ls -la ./gh-pages
