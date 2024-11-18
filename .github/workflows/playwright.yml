@@ -119,7 +119,7 @@ jobs:
       - name: Debug Allure Report after Download
         run: |
           echo "Contents of ./allure-report after downloading:"
-          ls -lah ./allure-report
+          ls -lah ./allure-report/${{ github.event.inputs.browser }}
 
       - name: Download Allure Report Artifact
         uses: actions/download-artifact@v3
