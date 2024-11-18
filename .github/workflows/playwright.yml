@@ -80,22 +80,16 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "chromium" ]; then
-            REPORT_URL="https://qr-generator-chrome.vercel.app/"
-          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-            REPORT_URL="https://qr-generator-webkit.vercel.app/"
-          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-            REPORT_URL="https://qr-generator-firefox.vercel.app/"
-          fi
+            REPORT_URL="https://qr-generator-${{ github.event.inputs.browser }}.vercel.app/"
           
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "Результаты тестов для браузера '"${{ github.event.inputs.browser }}"'",
+            "text": "Tests are finished",
             "blocks": [
               {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": ":white_check_mark: Тесты завершены для браузера *'"${{ github.event.inputs.browser }}"'*. Ссылка на отчет: <'"${REPORT_URL}"'|Открыть отчет на GitHub Pages>"
+                  "text": ":white_check_mark: @here Tests are finished for *'"${{ github.event.inputs.browser }}"'*. <'"${REPORT_URL}"'|Open link>"
                 }
               }
             ]
