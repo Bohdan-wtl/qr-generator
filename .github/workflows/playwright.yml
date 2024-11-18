@@ -16,10 +16,6 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    env:
-      STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
-      STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
-      STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
 
     steps:
       # Чекаут основной ветки (для работы)
@@ -41,6 +37,10 @@ jobs:
 
       # Запуск тестов для указанного браузера
       - name: Run tests
+        env:
+          STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
+          STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
+          STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
         run: |
           if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
             docker-compose up chrome-tests || true
