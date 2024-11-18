@@ -131,7 +131,7 @@ jobs:
           ls -la
 
       - name: Change to repository root
-        run: cd /github/workspace && ls -la
+        run: cd /.
 
       - name: Print current working directory and contents
         run: |
