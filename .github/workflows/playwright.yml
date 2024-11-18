@@ -82,9 +82,9 @@ jobs:
           mkdir -p ./${{ github.event.inputs.browser }}
 
       # Копирование отчётов в директорию для текущего браузера
-#      - name: Copy Allure report to browser directory
-#        run: |
-#          cp -R allure-report/* ./gh-pages/${{ github.event.inputs.browser }}
+      - name: Copy Allure report to browser directory
+        run: |
+          cp -R allure-report/* ./gh-pages/${{ github.event.inputs.browser }}
 
       - name: Debug browser directory before deploy
         run: |
