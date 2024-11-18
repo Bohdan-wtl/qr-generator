@@ -25,13 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Debug current directory and files
-        run: |
-          echo "Current working directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
-
       # Чекаут основной ветки main
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
@@ -39,13 +32,6 @@ jobs:
           ref: gh-pages
           path: ./gh-pages
           clean: true
-
-      - name: Debug current directory and files
-        run: |
-          echo "Current working directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
 
       # Логин в Docker Registry
       - name: Log in to GitHub Container Registry
@@ -67,13 +53,6 @@ jobs:
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
             docker-compose up firefox-tests || true
           fi
-
-      - name: Debug current directory and files
-        run: |
-          echo "Current working directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
 
       - name: Copy history from gh-pages to allure-results
         run: |
