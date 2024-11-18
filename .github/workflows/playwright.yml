@@ -22,124 +22,64 @@ jobs:
       STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
 
     steps:
+      # Чекаут основной ветки (для работы)
+      - name: Checkout main branch
+        uses: actions/checkout@v2
+
+      # Чекаут ветки gh-pages (для сохранения отчетов)
       - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
         with:
           ref: gh-pages
-          path: .
+          path: ./gh-pages
 
-
-      - name: Set up Docker cache
-        uses: actions/cache@v4
-        with:
-          path: /tmp/.docker
-          key: ${{ runner.os }}-docker-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-docker-
-
+      # Установка Docker Compose
       - name: Install Docker Compose
         run: |
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-        with:
-          install: true
-
-      - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.CI_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
-      - name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v1
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          github-token: ${{ secrets.CI_TOKEN }}
-
-
+      # Запуск тестов для указанного браузера
       - name: Run tests
         run: |
           if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
             docker-compose up chrome-tests || true
           elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
             docker-compose up webkit-tests || true
-          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
+          elif [ "${{ github.event.inputs.browser }}" == "firefox" ];then
             docker-compose up firefox-tests || true
           fi
 
-#      - name: Copy history for Allure
+      # Копирование истории Allure в allure-results
+#      - name: Copy history from gh-pages to allure-results
 #        run: |
-#          sudo mkdir -p allure-results/history
-#          cp -R ./.github/${{ github.event.inputs.browser }}_reports/history/* allure-results/history/
-          
+#          mkdir -p allure-results/history
+#          if [ -d ./gh-pages/${{ github.event.inputs.browser }}_reports/history ]; then
+#            cp -R ./gh-pages/${{ github.event.inputs.browser }}_reports/history/* allure-results/history/
+#          fi
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-
+      # Генерация Allure отчёта
       - name: Generate Allure report
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
-            sudo docker-compose run chrome-tests /bin/sh -c "allure generate allure-results --clean -o allure-report"
-          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-            sudo docker-compose run webkit-tests /bin/sh -c "allure generate allure-results --clean -o allure-report"
-          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-            sudo docker-compose run firefox-tests /bin/sh -c "allure generate allure-results --clean -o allure-report"
-          fi
+          sudo docker-compose run ${{ github.event.inputs.browser }}-tests /bin/sh -c "allure generate allure-results --clean -o allure-report"
 
-      - name: Debug current directory
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
-
+      # Обновление истории Allure для браузера
       - name: Update Allure history
         run: |
-          mkdir -p ./history
-          if [ -d allure-report/history ]; then
-            cp -R allure-report/history/* ./history/
-          fi
+          mkdir -p ./gh-pages/${{ github.event.inputs.browser }}_reports/history
+          cp -R allure-report/history/* ./gh-pages/${{ github.event.inputs.browser }}_reports/history/
 
-      - name: Debug current directory
+      # Копирование Allure отчёта в подкаталог браузера
+      - name: Copy Allure report to subdirectory
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
+          mkdir -p ./gh-pages/${{ github.event.inputs.browser }}_reports
+          cp -R allure-report/* ./gh-pages/${{ github.event.inputs.browser }}_reports/
 
-      - name: Prepare subdirectory for branch ${{ github.event.inputs.browser }}
-        run: |
-          mkdir -p ./${{ github.event.inputs.browser }}_reports
-          cp -R allure-report/* ./${{ github.event.inputs.browser }}_reports/
-
+      # Деплой на GitHub Pages
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           token: ${{ secrets.CI_TOKEN }}
           branch: gh-pages
-          folder: .
-          clean: true
-
-      - name: Send notification to Slack
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        run: |
-          REPORT_URL="https://${{ github.repository_owner }}.github.io/${{ github.event.inputs.browser }}_reports"
-          curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "Tests results for browser: '"${{ github.event.inputs.browser }}"'",
-            "blocks": [
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": ":white_check_mark: Tests are finished for: *'"${{ github.event.inputs.browser }}"'*. Report link: <'"${REPORT_URL}"'|Open>"
-                }
-              }
-            ]
-          }' $SLACK_WEBHOOK_URL
+          folder: ./gh-pages
+          clean: false
