@@ -103,6 +103,7 @@ jobs:
           token: ${{ secrets.CI_TOKEN }}
           branch: gh-pages
           folder: ./gh-pages/${{ github.event.inputs.browser }}
+          clean: 'true'
 
       - name: Debug after deploy gh-pages folder
         run: |
