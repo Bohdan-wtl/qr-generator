@@ -111,25 +111,11 @@ jobs:
     needs: tests
     steps:
 
-      - name: Debug current directory
-        run: |
-          echo "Current Directory:"
-          pwd
-          echo "Listing all files and directories recursively:"
-          ls -lahR .
-
       - name: Download Allure Report Artifact
         uses: actions/download-artifact@v3
         with:
           name: pages-artifact
-          path: ./allure-report
-
-      - name: Debug current directory
-        run: |
-          echo "Current Directory:"
-          pwd
-          echo "Listing all files and directories recursively:"
-          ls -lahR .
+          path: ./allure-report/${{ github.event.inputs.browser }}
 
       - name: Deploy to GitHub Pages
         id: deployment
