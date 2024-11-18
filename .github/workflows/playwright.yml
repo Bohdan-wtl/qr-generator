@@ -66,10 +66,6 @@ jobs:
             docker-compose up firefox-tests || true
           fi
 
-      - name: Check file permissions
-        run: |
-          sudo chown -R runner:docker ${{ github.workspace }}
-
       - name: Check out branch
         uses: actions/checkout@v4
         with:
@@ -79,16 +75,16 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Copy history for Allure
-        run: |
-          sudo mkdir -p allure-results/history
-          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
-            sudo cp -R ./history/* allure-results/history/
-          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-            sudo cp -R ./history/* allure-results/history/
-          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-            sudo cp -R ./history/* allure-results/history/
-          fi
+#      - name: Copy history for Allure
+#        run: |
+#          sudo mkdir -p allure-results/history
+#          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
+#            sudo cp -R ./history/* allure-results/history/
+#          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
+#            sudo cp -R ./history/* allure-results/history/
+#          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
+#            sudo cp -R ./history/* allure-results/history/
+#          fi
 
       - name: Generate Allure report
         run: |
