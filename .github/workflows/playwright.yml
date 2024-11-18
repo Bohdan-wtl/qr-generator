@@ -86,13 +86,10 @@ jobs:
 #        run: |
 #          cp -R allure-report/* ./gh-pages/${{ github.event.inputs.browser }}
 
-      # Отладка перед деплоем
-      - name: Debug current directory and files
+      - name: Debug browser directory before deploy
         run: |
-          echo "Current working directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
+          echo "Contents of ./${{ github.event.inputs.browser}}:"
+          ls -la ./${{ github.event.inputs.browser}}
 
       # Деплой отчётов в ветку gh-pages
       - name: Deploy to GitHub Pages
