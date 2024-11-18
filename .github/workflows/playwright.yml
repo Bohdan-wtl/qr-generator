@@ -105,9 +105,7 @@ jobs:
           folder: ./gh-pages/${{ github.event.inputs.browser }}
           clean: 'true'
 
-      - name: Debug after deploy gh-pages folder
+      - name: Debug after deploy
         run: |
-          echo "Contents of gh-pages directory:"
+          echo "Deployed contents:"
           ls -la ./gh-pages
-          echo "Contents of ./gh-pages/${{ github.event.inputs.browser }}:"
-          ls -la ./gh-pages/${{ github.event.inputs.browser }}
