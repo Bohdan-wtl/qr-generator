@@ -25,7 +25,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.browser }}_reports
+          ref: main
           path: ./.github/${{ github.event.inputs.browser }}_reports
 
 
