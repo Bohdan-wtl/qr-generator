@@ -90,7 +90,8 @@ jobs:
         with:
           token: ${{ secrets.CI_TOKEN }}
           branch: gh-pages
-          folder: allure-report
+          folder: ./gh-pages/${{ github.event.inputs.browser }}
+          target-folder: ./${{ github.event.inputs.browser }}
           clean: true
 
       # Отладка после деплоя
