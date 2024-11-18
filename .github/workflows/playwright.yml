@@ -130,21 +130,11 @@ jobs:
           echo "Contents of current directory:"
           ls -la
 
-      - name: Change to repository root
-        run: cd /.
-
-      - name: Print current working directory and contents
-        run: |
-          echo "Current working directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
-
       - name: Download Allure Report Artifact
         uses: actions/download-artifact@v3
         with:
           name: pages-artifact
-          path: ./allure-report
+          path: .
 
       - name: Current dir
         run: |
