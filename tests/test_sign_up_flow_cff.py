@@ -9,7 +9,8 @@ from config import languages_dpf_urls
 class TestCFFSignUpFlow(BaseTest):
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
-    @pytest.mark.parametrize("qr_create_method", ["wifi_qr_create", "instagram_qr_create",
+    @pytest.mark.parametrize("qr_create_method", ["wifi_qr_create",
+                                                  "instagram_qr_create",
                                                   "mp3_qr_create", "coupon_qr_create", "vcard_qr_create",
                                                   "menu_menu_qr_create", "facebook_qr_create", "apps_qr_create",
                                                   "links_qr_create", "menu_pdf_qr_create", "pdf_qr_create",

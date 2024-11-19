@@ -24,7 +24,6 @@ class TestNSFSignUpFlow(BaseTest):
         self.qr_creation_page.complete_step_3()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
         self.qr_creation_page.locator.dpf_form_submit_button.click()
-        self.main_page.locator.main_logo_link.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
@@ -34,5 +33,4 @@ class TestNSFSignUpFlow(BaseTest):
         qr_create_method_func()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
         self.qr_creation_page.locator.dpf_form_submit_button.click()
-        self.main_page.locator.main_logo_link.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()

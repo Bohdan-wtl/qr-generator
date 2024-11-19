@@ -90,7 +90,7 @@ languages_nsf_urls = {
     # "es": "https://oqg-staging.test-qr.com/es/create?step=1&qr_onboarding=active_nsf",
     # "fi": "https://oqg-staging.test-qr.com/fi/create?step=1&qr_onboarding=active_nsf",
     # "fr": "https://oqg-staging.test-qr.com/fr/create?step=1&qr_onboarding=active_nsf",
-    # "he": "https://oqg-staging.test-qr.com/he/create?step=1&qr_onboarding=active_nsf",
+    #"he": "https://oqg-staging.test-qr.com/he/create?step=1&qr_onboarding=active_nsf",
     # "hi": "https://oqg-staging.test-qr.com/hi/create?step=1&qr_onboarding=active_nsf",
     # "hr": "https://oqg-staging.test-qr.com/hr/create?step=1&qr_onboarding=active_nsf",
     # "hu": "https://oqg-staging.test-qr.com/hu/create?step=1&qr_onboarding=active_nsf",
