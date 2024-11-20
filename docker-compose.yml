@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   chrome-tests:
-    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v1
+    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v2
     volumes:
       - ./:/app/workspace
     command: /bin/sh -c "ls -la && xvfb-run pytest tests -sv -n auto --alluredir=allure-results"
@@ -14,7 +14,7 @@ services:
       STAGE_ADMIN_PASSWORD: ${STAGE_ADMIN_PASSWORD}
 
   webkit-tests:
-    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v1
+    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v2
     volumes:
         - ./:/app/workspace
     command: /bin/sh -c "ls -la && xvfb-run pytest tests -sv -n auto --alluredir=allure-results"
@@ -26,7 +26,7 @@ services:
       STAGE_ADMIN_PASSWORD: ${STAGE_ADMIN_PASSWORD}
 
   firefox-tests:
-    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v1
+    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v2
     volumes:
       - ./:/app/workspace
     command: /bin/sh -c "ls -la && xvfb-run pytest tests -sv -n auto --alluredir=allure-results"
