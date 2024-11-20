@@ -1,4 +1,4 @@
-name: Docker UI Tests with Deployment
+name: Regression Tests
 on:
   workflow_dispatch:
     inputs:
