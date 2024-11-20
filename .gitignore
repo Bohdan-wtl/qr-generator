@@ -137,6 +137,7 @@ celerybeat.pid
 .venv
 env/
 venv/
+tests/test_debug.py
 ENV/
 env.bak/
 venv.bak/
