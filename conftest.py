@@ -8,8 +8,8 @@ from playwright.sync_api import sync_playwright
 from random import Random
 from config import languages_urls, languages_dpf_urls, languages_nsf_urls
 
-headless = False
-slow_mo = 0
+headless = True
+slow_mo = 2000
 
 DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 
@@ -18,7 +18,7 @@ DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 def browser(request):
     with sync_playwright() as p:
         browser_type = os.getenv("BROWSER", "chromium")
-        browser = getattr(p, browser_type).launch(headless=headless)
+        browser = getattr(p, browser_type).launch(headless=headless, slowMo=slow_mo)
         yield browser
         browser.close()
 
