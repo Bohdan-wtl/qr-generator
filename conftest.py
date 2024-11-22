@@ -6,9 +6,9 @@ import requests
 from pytest import hookimpl
 from playwright.sync_api import sync_playwright
 from random import Random
-from config import languages_urls, languages_dpf_urls, languages_nsf_urls
+from config import languages_urls, languages_dpf_urls, languages_nsf_urls, dev_languages_dpf_urls
 
-headless = True
+headless = False
 slow_mo = 2000
 
 DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
@@ -17,7 +17,7 @@ DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 @allure.title(f"Set up browser: {os.getenv('BROWSER')}")
 def browser(request):
     with sync_playwright() as p:
-        browser_type = os.getenv("BROWSER", "chromium")
+        browser_type = os.getenv("BROWSER", "webkit")
         browser = getattr(p, browser_type).launch(headless=headless, slow_mo=slow_mo)
         yield browser
         browser.close()
@@ -110,4 +110,10 @@ def navigate_to_dpf_page(request, dpf_language):
 @allure.title("Navigate to NSF funnel")
 def navigate_to_nsf_page(request, nsf_language):
     stage_url = languages_nsf_urls[nsf_language]
+    request.instance.main_page.open_page(stage_url)
+
+@pytest.fixture(scope='function')
+@allure.title("Navigate to DPF funnel")
+def navigate_to_dev_dpf_page(request, dev_languages):
+    stage_url = dev_languages_dpf_urls[dev_languages]
     request.instance.main_page.open_page(stage_url)
