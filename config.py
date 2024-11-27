@@ -44,9 +44,9 @@ languages_urls = {
 
 languages_dpf_urls = {
     #"ar": "https://oqg-staging.test-qr.com/ar/create?step=1&qr_onboarding=active_dpf",
-    "bg": "https://oqg-staging.test-qr.com/bg/create?step=1&qr_onboarding=active_dpf",
-    "cs": "https://oqg-staging.test-qr.com/cs/create?step=1&qr_onboarding=active_dpf",
-    "da": "https://oqg-staging.test-qr.com/da/create?step=1&qr_onboarding=active_dpf",
+    # "bg": "https://oqg-staging.test-qr.com/bg/create?step=1&qr_onboarding=active_dpf",
+    # "cs": "https://oqg-staging.test-qr.com/cs/create?step=1&qr_onboarding=active_dpf",
+    # "da": "https://oqg-staging.test-qr.com/da/create?step=1&qr_onboarding=active_dpf",
     "de": "https://oqg-staging.test-qr.com/de/create?step=1&qr_onboarding=active_dpf",
     "el": "https://oqg-staging.test-qr.com/el/create?step=1&qr_onboarding=active_dpf",
     "en": "https://oqg-staging.test-qr.com/create?step=1&qr_onboarding=active_dpf",

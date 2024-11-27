@@ -9,7 +9,7 @@ from random import Random
 from config import languages_urls, languages_dpf_urls, languages_nsf_urls, dev_languages_dpf_urls
 
 headless = False
-slow_mo = 2000
+slow_mo = 1500
 
 DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 
