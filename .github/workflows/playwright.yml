@@ -1,4 +1,5 @@
 name: Regression Tests
+
 on:
   workflow_dispatch:
     inputs:
@@ -20,15 +21,12 @@ jobs:
       STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
       STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
 
+    strategy:
+      matrix:
+        test_package: [tests_cff_flow, tests_default_flow, tests_dpf_flow, tests_nsf_flow]
+
     steps:
       - uses: actions/checkout@v4
-
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: ./gh-pages
-          clean: true
 
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.CI_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -39,16 +37,19 @@ jobs:
           sudo apt-get install -y docker-compose
 
       - name: Run tests
+        env:
+          TEST_PACKAGE: ${{ matrix.test_package }}
         run: |
           if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
-            docker-compose up chrome-tests || true
+            docker-compose run -e TEST_PACKAGE=${{ matrix.test_package }} chrome-tests || true
           elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-            docker-compose up webkit-tests || true
+            docker-compose run -e TEST_PACKAGE=${{ matrix.test_package }} webkit-tests || true
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-            docker-compose up firefox-tests || true
+            docker-compose run -e TEST_PACKAGE=${{ matrix.test_package }} firefox-tests || true
           fi
 
       - name: Copy history from gh-pages to allure-results
+        if: ${{ matrix.test_package == 'tests_cff_flow' }}
         run: |
           sudo mkdir -p allure-results/history
           sudo cp -R ./gh-pages/${{ github.event.inputs.browser }}/history/* allure-results/history/
@@ -80,17 +81,17 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-            REPORT_URL="https://qr-generator-${{ github.event.inputs.browser }}.vercel.app/"
+          REPORT_URL="https://qr-generator-${{ github.event.inputs.browser }}.vercel.app/"
           
-            curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "Tests are finished",
-            "blocks": [
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": ":white_check_mark: @here Tests are finished for *'"${{ github.event.inputs.browser }}"'*. <'"${REPORT_URL}"'|Open link>"
-                }
+          curl -X POST -H 'Content-type: application/json' --data '{
+          "text": "Tests are finished",
+          "blocks": [
+            {
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": ":white_check_mark: @here Tests are finished for *'"${{ github.event.inputs.browser }}"'*. <'"${REPORT_URL}"'|Open link>"
               }
-            ]
-            }' $SLACK_WEBHOOK_URL
+            }
+          ]
+          }' $SLACK_WEBHOOK_URL
