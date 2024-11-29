@@ -27,13 +27,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: ./gh-pages
-          clean: true
-
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.CI_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
@@ -59,6 +52,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: ./gh-pages
+          clean: true
 
       - name: Copy history from gh-pages to allure-results
         run: |
