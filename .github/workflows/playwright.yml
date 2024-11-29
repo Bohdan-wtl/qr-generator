@@ -23,8 +23,6 @@ jobs:
     strategy:
       matrix:
         test_package: [tests_cff_flow, tests_default_flow, tests_dpf_flow, tests_nsf_flow]
-    outputs:
-      allure-results: ${{ steps.store-results.outputs.allure-results }}
 
     steps:
       - uses: actions/checkout@v4
@@ -47,13 +45,16 @@ jobs:
             docker-compose run -e TEST_PACKAGE=${{ matrix.test_package }} webkit-tests || true
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
             docker-compose run -e TEST_PACKAGE=${{ matrix.test_package }} firefox-tests || true
-          fi
+
+      - name: Copy history from gh-pages to allure-results
+        run: |
+          sudo mkdir -p allure-results/history
+          sudo cp -R ./gh-pages/${{ github.event.inputs.browser }}/history/* allure-results/history/
 
       - name: Upload Allure results
-        id: store-results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
-          name: allure-results-${{ matrix.test_package }}
+          name: allure-results
           path: allure-results
 
   combine-results:
@@ -65,13 +66,8 @@ jobs:
       - name: Download Allure results
         uses: actions/download-artifact@v4
         with:
-          name: allure-results-${{ matrix.test_package }}
-          path: allure-results-${{ matrix.test_package }}
-
-      - name: Combine Allure results
-        run: |
-          mkdir -p combined-allure-results
-          cp -R allure-results-*/. combined-allure-results/
+          name: allure-results
+          path: allure-results
 
       - name: Generate Allure report
         run: |
