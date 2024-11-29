@@ -80,7 +80,12 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-            REPORT_URL="https://qr-generator-${{ github.event.inputs.browser }}.vercel.app/"
+            if [ "${{ github.event.inputs.browser }}" = "chrome" ]; then
+              REPORT_URL="https://chrome-pi.vercel.app"
+            elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
+              REPORT_URL="https://firefox-kohl.vercel.app"
+            elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
+              REPORT_URL="https://webkit-two.vercel.app"
           
             curl -X POST -H 'Content-type: application/json' --data '{
             "text": "Tests are finished",
