@@ -35,6 +35,12 @@ jobs:
           sudo apt-get update -y
           sudo apt-get install -y docker-compose
 
+      - name: Cache Docker Compose
+        uses: actions/cache@v4
+        with:
+          path: /usr/libexec/docker/cli-plugins/docker-compose
+          key: docker-compose-${{ runner.os }}
+
       - name: Run tests
         env:
           TEST_PACKAGE: ${{ matrix.test_package }}
@@ -52,6 +58,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Restore Docker Compose from cache
+        uses: actions/cache@v4
+        with:
+          path: /usr/libexec/docker/cli-plugins/docker-compose
+          key: docker-compose-${{ runner.os }}
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
