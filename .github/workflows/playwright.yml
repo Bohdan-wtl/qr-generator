@@ -47,6 +47,7 @@ jobs:
             docker-compose run -e TEST_PACKAGE=${{ matrix.test_package }} webkit-tests || true
           elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
             docker-compose run -e TEST_PACKAGE=${{ matrix.test_package }} firefox-tests || true
+          fi
 
       - name: Upload Allure results
         id: store-results
