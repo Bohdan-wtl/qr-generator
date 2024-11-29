@@ -7,7 +7,7 @@ from pytest import hookimpl
 from playwright.sync_api import sync_playwright
 from random import Random
 
-headless = False
+headless = True
 
 DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 
