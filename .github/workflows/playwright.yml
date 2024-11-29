@@ -86,6 +86,7 @@ jobs:
               REPORT_URL="https://firefox-kohl.vercel.app"
             elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
               REPORT_URL="https://webkit-two.vercel.app"
+            fi
           
             curl -X POST -H 'Content-type: application/json' --data '{
             "text": "Tests are finished",
