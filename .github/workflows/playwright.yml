@@ -34,6 +34,7 @@ jobs:
         run: |
           sudo apt-get update -y
           sudo apt-get install -y docker-compose
+          echo 'export PATH=$PATH:/usr/libexec/docker/cli-plugins' >> $GITHUB_ENV
 
       - name: Cache Docker Compose
         uses: actions/cache@v4
