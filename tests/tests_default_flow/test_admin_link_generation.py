@@ -1,20 +1,20 @@
 import os
 import random
-
 import allure
 import pytest
 from base.base_test import BaseTest
-from config import get_env, languages_urls, languages_dpf_urls
+from config import get_env, languages
 
 refund_alert_text = "The refund was successfully completed."
 
 
 @allure.feature(f"Admin link generation - {os.getenv('BROWSER')}")
+
+@pytest.mark.parametrize("language", languages)
 class TestAdminLinkGeneration(BaseTest):
 
     @pytest.mark.smoke
     @pytest.mark.regression
-    @pytest.mark.parametrize("language", languages_urls.keys())
     @pytest.mark.parametrize("discount_button_locator", [
         "default_pricing_button",
         "discount_70_promo_button",
@@ -22,7 +22,7 @@ class TestAdminLinkGeneration(BaseTest):
         "discount_50_one_time_button"
     ])
     @allure.title(f"Admin create payment link - {os.getenv('BROWSER')}")
-    def test_admin_create_uniq_payment_link(self, language, sign_up_fixture, discount_button_locator, fake_email):
+    def test_admin_create_uniq_payment_link(self, sign_up_fixture, discount_button_locator, fake_email):
         discount_locator = getattr(self.admin_page.locator, discount_button_locator)
         self.qr_creation_page.website_qr_create()
         self.my_qr_codes_page.locator.download_modal_close_button.click()
@@ -61,13 +61,12 @@ class TestAdminLinkGeneration(BaseTest):
         self.qr_creation_page.locator.congrats_download_button.wait_for(state="visible")
         self.qr_creation_page.expect(self.qr_creation_page.locator.congrats_download_button).to_be_visible()
 
-    @pytest.mark.parametrize("dpf_language", languages_dpf_urls.keys())
     @pytest.mark.parametrize("refund_button", [
         "full_refund_plan_button_cancel_subscription",
         "full_refund_plan_button_keep_subscription"
     ])
     @allure.title(f"Admin full refund options - {os.getenv('BROWSER')}")
-    def test_admin_full_refund_options(self, navigate_to_dpf_page, dpf_language, refund_button, fake_email):
+    def test_admin_full_refund_options(self, navigate_to_dpf_page, refund_button, fake_email):
         self.qr_creation_page.website_qr_create()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
         self.qr_creation_page.locator.dpf_form_submit_button.click()
@@ -92,13 +91,12 @@ class TestAdminLinkGeneration(BaseTest):
         self.admin_page.expect(self.admin_page.locator.refund_alert_message).to_be_visible(timeout=10000)
         self.admin_page.expect(self.admin_page.locator.refund_alert_message).to_have_text(refund_alert_text)
 
-    @pytest.mark.parametrize("dpf_language", languages_dpf_urls.keys())
     @pytest.mark.parametrize("refund_button", [
         "partial_refund_plan_button_cancel_subscription",
         "partial_refund_plan_button_keep_subscription"
     ])
     @allure.title(f"Admin partial refund options - {os.getenv('BROWSER')}")
-    def test_admin_partial_refund_options(self, navigate_to_dpf_page, dpf_language, refund_button, fake_email):
+    def test_admin_partial_refund_options(self, navigate_to_dpf_page, refund_button, fake_email):
         self.qr_creation_page.website_qr_create()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
         self.qr_creation_page.locator.dpf_form_submit_button.click()
