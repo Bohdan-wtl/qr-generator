@@ -1,23 +1,16 @@
 import os
-
 import allure
 import pytest
 from base.base_test import BaseTest
-from config import languages_urls
+from config import languages, qr_create_methods
 
 
-@pytest.mark.parametrize(f"language", languages_urls.keys())
+@pytest.mark.parametrize("language", languages)
 @allure.feature(f"Default sign up flow - {os.getenv('BROWSER')} - {os.getenv('BROWSER')}")
 class TestDefaultSignUpFlow(BaseTest):
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
-    @pytest.mark.parametrize("qr_create_method", ["wifi_qr_create", "instagram_qr_create",
-                                                  "mp3_qr_create", "coupon_qr_create",
-                                                  "menu_menu_qr_create", "facebook_qr_create", "apps_qr_create",
-                                                  "links_qr_create", "menu_pdf_qr_create", "pdf_qr_create",
-                                                  "social_media_qr_create", "whatsapp_qr_create", "video_qr_create",
-                                                  "image_qr_create", "business_qr_create", "vcard_qr_create"
-                                                  ])
+    @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     def test_default_sign_up_qr_type(self, sign_up_fixture, qr_create_method, fake_email):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()

@@ -76,21 +76,27 @@ jobs:
           target-folder: ./${{ github.event.inputs.browser }}
           clean: true
 
-      - name: Send notification to Slack
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        run: |
-            REPORT_URL="https://qr-generator-${{ github.event.inputs.browser }}.vercel.app/"
+      # - name: Send notification to Slack
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      #   run: |
+      #       if [ "${{ github.event.inputs.browser }}" = "chrome" ]; then
+      #         REPORT_URL="https://chrome-pi.vercel.app"
+      #       elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
+      #         REPORT_URL="https://firefox-kohl.vercel.app"
+      #       elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
+      #         REPORT_URL="https://webkit-two.vercel.app"
+      #       fi
           
-            curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "Tests are finished",
-            "blocks": [
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": ":white_check_mark: @here Tests are finished for *'"${{ github.event.inputs.browser }}"'*. <'"${REPORT_URL}"'|Open link>"
-                }
-              }
-            ]
-            }' $SLACK_WEBHOOK_URL
+      #       curl -X POST -H 'Content-type: application/json' --data '{
+      #       "text": "Tests are finished",
+      #       "blocks": [
+      #         {
+      #           "type": "section",
+      #           "text": {
+      #             "type": "mrkdwn",
+      #             "text": ":white_check_mark: @here Tests are finished for *'"${{ github.event.inputs.browser }}"'*. <'"${REPORT_URL}"'|Open link>"
+      #           }
+      #         }
+      #       ]
+      #       }' $SLACK_WEBHOOK_URL

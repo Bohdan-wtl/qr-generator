@@ -6,10 +6,8 @@ import requests
 from pytest import hookimpl
 from playwright.sync_api import sync_playwright
 from random import Random
-from config import languages_urls, languages_dpf_urls, languages_nsf_urls, dev_languages_dpf_urls
 
-headless = False
-slow_mo = 1200
+headless = True
 
 DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 
@@ -17,8 +15,8 @@ DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 @allure.title(f"Set up browser: {os.getenv('BROWSER')}")
 def browser(request):
     with sync_playwright() as p:
-        browser_type = os.getenv("BROWSER", "chromium")
-        browser = getattr(p, browser_type).launch(headless=headless, slow_mo=slow_mo)
+        browser_type = os.getenv("BROWSER", "webkit")
+        browser = getattr(p, browser_type).launch(headless=headless)
         yield browser
         browser.close()
 
@@ -69,11 +67,23 @@ def fake_email():
 @pytest.fixture(scope='function')
 @allure.title("Sign up")
 def sign_up_fixture(request, fake_email, language):
-    stage_url = languages_urls[language]
+    base_url = f"https://oqg-staging.test-qr.com/{language}/"
     email = fake_email
-    request.instance.main_page.open_page(f"{stage_url}/register")
+    request.instance.main_page.open_page(f"{base_url}register/")
     request.instance.register_page.sign_up(email, email)
     yield
+
+@pytest.fixture(scope='function')
+@allure.title("Navigate to DPF funnel")
+def navigate_to_dpf_page(request, language):
+    base_url = f"https://oqg-staging.test-qr.com/{language}/create?step=1&qr_onboarding=active_dpf"
+    request.instance.main_page.open_page(base_url)
+
+@pytest.fixture(scope='function')
+@allure.title("Navigate to NSF funnel")
+def navigate_to_nsf_page(request, language):
+    base_url = f"https://oqg-staging.test-qr.com/{language}/create?step=1&qr_onboarding=active_nsf"
+    request.instance.main_page.open_page(base_url)
 
 @pytest.fixture(scope='function', autouse=True)
 @allure.title("Delete user after test")
@@ -88,22 +98,3 @@ def delete_user_after_test(fake_email):
         pass
     else:
         print(f"Failed to delete user with email {fake_email}. Status code: {response.status_code}")
-
-
-@pytest.fixture(scope='function')
-@allure.title("Navigate to DPF funnel")
-def navigate_to_dpf_page(request, dpf_language):
-    stage_url = languages_dpf_urls[dpf_language]
-    request.instance.main_page.open_page(stage_url)
-
-@pytest.fixture(scope='function')
-@allure.title("Navigate to NSF funnel")
-def navigate_to_nsf_page(request, nsf_language):
-    stage_url = languages_nsf_urls[nsf_language]
-    request.instance.main_page.open_page(stage_url)
-
-@pytest.fixture(scope='function')
-@allure.title("Navigate to DPF funnel")
-def navigate_to_dev_dpf_page(request, dev_languages):
-    stage_url = dev_languages_dpf_urls[dev_languages]
-    request.instance.main_page.open_page(stage_url)
