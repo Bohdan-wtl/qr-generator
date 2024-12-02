@@ -41,7 +41,6 @@ class QrCreationPage(BasePage):
 
     @allure.step("Create Webiste QR code")
     def website_qr_create(self):
-        url = "https://oqg-staging.test-qr.com/qr-code-generator"
         self.locator.website_qr_type.click(delay=1000)
         self.locator.setup_website_qr_code_input.fill(self.faker.url())
         self.helper.set_custom_qr_code_name(qr_code_type="Website")

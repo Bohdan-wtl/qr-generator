@@ -2,6 +2,8 @@ import os
 import random
 import allure
 import pytest
+from playwright.sync_api import expect
+
 from base.base_test import BaseTest
 from config import get_env, languages
 
@@ -25,6 +27,9 @@ class TestAdminLinkGeneration(BaseTest):
     def test_admin_create_uniq_payment_link(self, sign_up_fixture, discount_button_locator, fake_email):
         discount_locator = getattr(self.admin_page.locator, discount_button_locator)
         self.qr_creation_page.website_qr_create()
+        expect(self.qr_creation_page.locator.create_button).to_be_disabled()
+        self.qr_creation_page.locator.create_button.is_enabled()
+        self.qr_creation_page.locator.create_button.click()
         self.my_qr_codes_page.locator.download_modal_close_button.click()
         self.menu_page.locator.my_account.click()
         self.my_account_page.locator.log_out_button.click()
