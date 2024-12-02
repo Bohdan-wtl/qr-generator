@@ -2,6 +2,7 @@ from datetime import datetime
 import os
 
 import allure
+import pytest
 
 from base.base_page import BasePage
 from pages.locators.my_qr_codes_locators import MyQrCodesLocators

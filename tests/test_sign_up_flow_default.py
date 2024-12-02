@@ -23,6 +23,7 @@ class TestDefaultSignUpFlow(BaseTest):
         qr_create_method_func()
         self.qr_creation_page.click_next_button_step2()
         self.qr_creation_page.complete_step_3()
+        self.qr_creation_page.create_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
 
 

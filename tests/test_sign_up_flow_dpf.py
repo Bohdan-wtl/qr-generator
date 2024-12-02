@@ -23,6 +23,7 @@ class TestDPFSignUpFlow(BaseTest):
         qr_create_method_func()
         self.qr_creation_page.click_next_button_step2()
         self.qr_creation_page.complete_step_3()
+        self.qr_creation_page.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
         self.qr_creation_page.locator.dpf_form_submit_button.click()
         self.qr_creation_page.select_dpf_plan()
