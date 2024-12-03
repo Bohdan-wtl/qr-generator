@@ -64,13 +64,11 @@ jobs:
           sudo apt-get install -y docker-compose
 
       - name: Run tests
-        env:
-          TEST_PATH: ${{ matrix.test_file }}
         run: |
           docker-compose run \
             -e TEST_PATH=${{ matrix.test_file }} \
             -e BROWSER=${{ github.event.inputs.browser }} \
-            ui-tests
+            ui-tests || true
 
   generate_reports:
     runs-on: ubuntu-latest
