@@ -86,6 +86,9 @@ jobs:
 
   generate_reports:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     needs: build_and_test
     env:
         BROWSER: ${{ github.event.inputs.browser }}
@@ -96,11 +99,17 @@ jobs:
           ref: gh-pages
           path: ./gh-pages/${{ github.event.inputs.browser }}
           clean: 'true'
+          
+
+      - name: List downloaded Allure Results
+        run: |
+          ls -R allure-results/
+
 
       - name: Download Allure Results
         uses: actions/download-artifact@v3
         with:
-          name: 'allure-results-*'
+          name: allure-results-*
           path: allure-results
 
       - name: Merge Allure Results
