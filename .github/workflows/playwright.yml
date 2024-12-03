@@ -70,6 +70,11 @@ jobs:
         run: |
           docker-compose run ui-tests || true
 
+      - name: Debug Working Directory
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Contents:"
+          ls -la
 
       - name: Sanitize artifact name
         id: sanitize
