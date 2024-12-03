@@ -70,6 +70,12 @@ jobs:
             -e BROWSER=${{ github.event.inputs.browser }} \
             ui-tests || true
 
+      - name: Upload Allure Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: allure-results-${{ matrix.test_file }}
+          path: allure-results
+
   generate_reports:
     runs-on: ubuntu-latest
     needs: build_and_test
@@ -83,6 +89,22 @@ jobs:
           path: ./gh-pages/${{ github.event.inputs.browser }}
           clean: 'true'
 
+      - name: Collect Allure Results
+        run: |
+          mkdir -p merged-results
+          cp -R build_and_test/**/allure-results/* merged-results/
+
+      - name: Download Allure Results
+        uses: actions/download-artifact@v3
+        with:
+          name: 'allure-results-*'
+          path: allure-results
+
+      - name: Merge Allure Results
+        run: |
+          mkdir -p merged-results
+          cp -R allure-results/** merged-results/
+
       - name: Allure Report Action
         uses: mgrybyk-org/allure-report-branch-action@v1
         if: always()
@@ -93,7 +115,7 @@ jobs:
           gh_pages: ./gh-pages/${{ github.event.inputs.browser }}
           list_dirs: ${{ github.ref == 'refs/heads/main' }}
           branch_cleanup_enabled: ${{ github.ref == 'refs/heads/main' }}
-          report_dir: allure-results
+          report_dir: merged-results
 
 
       - name: Deploy to GitHub Pages
