@@ -67,7 +67,7 @@ jobs:
       - name: Run tests
         run: |
           docker-compose run \
-            -e TEST_PATH=${{ matrix.test_file }} \
+            -e TEST_PATH=/app/workspace/${{ matrix.test_file }} \
             -e BROWSER=${{ github.event.inputs.browser }} \
             ui-tests || true
 
@@ -84,20 +84,6 @@ jobs:
           name: allure-results-${{ steps.sanitize.outputs.SANITIZED_NAME }}
           path: allure-results
 
-      - name: List of results
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la allure-results/
-
-      - name: Debug Artifact Download
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
-
   generate_reports:
     runs-on: ubuntu-latest
     permissions:
@@ -108,7 +94,6 @@ jobs:
     env:
         BROWSER: ${{ github.event.inputs.browser }}
     steps:
-      
       - uses: actions/checkout@v4
 
       - name: Checkout gh-pages branch
@@ -123,32 +108,10 @@ jobs:
         with:
           path: artifacts
 
-      - name: Debug Artifact Download
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la
-
-      - name: List of artifacts files
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la artifacts/
-
-
       - name: Merge Allure Results
         run: |
           mkdir -p merged-results
           find artifacts/ -type f -exec cp {} merged-results/ \;
-
-      - name: List of results
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Contents of current directory:"
-          ls -la merged-results/
 
       - name: Allure Report Action
         uses: mgrybyk-org/allure-report-branch-action@v1
@@ -169,7 +132,6 @@ jobs:
           echo "Contents of current directory:"
           ls -la
 
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
@@ -177,17 +139,6 @@ jobs:
           branch: gh-pages
           folder: gh-pages/${{ github.event.inputs.browser }}
           clean: true
-
-      - name: Comment PR with Allure Report link
-        if: ${{ always() && github.event_name == 'pull_request' && steps.allure.outputs.report_url }}
-        continue-on-error: true
-        uses: thollander/actions-comment-pull-request@v2
-        with:
-          message: |
-            ${{ steps.allure.outputs.test_result_icon }} [Allure Report](${{ steps.allure.outputs.report_url }}/${{ github.event.inputs.browser  }}/) | ${{ steps.allure.outputs.test_result_passed }}/${{ steps.allure.outputs.test_result_failed }}/${{ steps.allure.outputs.test_result_total }} | [History](${{ steps.allure.outputs.report_history_url }})
-          comment_tag: allure_allure
-          mode: recreate
-
 
       # - name: Send notification to Slack
           #   env:

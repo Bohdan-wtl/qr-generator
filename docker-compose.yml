@@ -5,10 +5,11 @@ services:
     image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v2
     volumes:
       - ./:/app/workspace
-    command: /bin/sh -c "ls -la && xvfb-run pytest ${TEST_PATH} -sv -n auto --alluredir=allure-results"
+    command: /bin/sh -c "ls -la && echo "Running tests in $TEST_PATH"; pytest $TEST_PATH && xvfb-run pytest ${TEST_PATH} -sv -n auto --alluredir=allure-results"
     working_dir: /app/workspace
     environment:
       BROWSER: "${BROWSER}"
+      TEST_PATH: "${TEST_PATH}"
       STAGE_ADMIN_LINK: "${STAGE_ADMIN_LINK}"
       STAGE_ADMIN_EMAIL: "${STAGE_ADMIN_EMAIL}"
       STAGE_ADMIN_PASSWORD: "${STAGE_ADMIN_PASSWORD}"
