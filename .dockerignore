@@ -3,5 +3,8 @@
 .idea
 .vscode
 node_modules
+__pycache__
+.pytest_cache
+.env
 allure-report
 artifacts
