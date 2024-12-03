@@ -101,19 +101,18 @@ jobs:
     env:
         BROWSER: ${{ github.event.inputs.browser }}
     steps:
-      - name: List available artifacts
-        uses: actions/github-script@v6
+
+      - name: Download Allure Results
+        uses: actions/download-artifact@v3
         with:
-          script: |
-            const artifacts = await github.actions.listWorkflowRunArtifacts({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              run_id: context.runId
-            });
-            console.log("Available artifacts:");
-            for (const artifact of artifacts.data.artifacts) {
-              console.log(`- ${artifact.name}`);
-            }
+          path: allure-results
+
+      - name: Debug Artifact Download
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls -la
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
@@ -128,12 +127,6 @@ jobs:
           pwd
           echo "Contents of current directory:"
           ls -la
-
-
-      - name: Download Allure Results
-        uses: actions/download-artifact@v3
-        with:
-          path: allure-results
 
       - name: Merge Allure Results
         run: |
