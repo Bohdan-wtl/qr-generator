@@ -54,7 +54,13 @@ jobs:
       STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
 
     steps:
-      - uses: actions/checkout@v4
+      
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: ./gh-pages/${{ github.event.inputs.browser }}
+          clean: 'true'
 
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.CI_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
