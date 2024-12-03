@@ -48,6 +48,12 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
+    env:
+      STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
+      STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
+      STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
+      BROWSER: ${{ github.event.inputs.browser }}
+      TEST_PATH: ${{ matrix.test_file }}
 
     steps:
       - uses: actions/checkout@v4
@@ -62,13 +68,7 @@ jobs:
 
       - name: Run tests
         run: |
-          docker-compose run \
-            -e TEST_PATH=${{ matrix.test_file }} \
-            -e BROWSER=${{ github.event.inputs.browser }} \
-            -e STAGE_ADMIN_LINK=${{ secrets.STAGE_ADMIN_LINK }} \
-            -e STAGE_ADMIN_EMAIL=${{ secrets.STAGE_ADMIN_EMAIL }} \
-            -e STAGE_ADMIN_PASSWORD=${{ secrets.STAGE_ADMIN_PASSWORD }} \
-            ui-tests || true
+          docker-compose run ui-tests || true
 
 
       - name: Sanitize artifact name
