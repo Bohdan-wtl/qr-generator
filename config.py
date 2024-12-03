@@ -15,7 +15,7 @@ languages = [
 ]
 
 qr_create_methods = [
-    #"wifi_qr_create",
+    "wifi_qr_create",
      # "instagram_qr_create", "mp3_qr_create", "coupon_qr_create",
     #  "menu_menu_qr_create", "facebook_qr_create", "apps_qr_create", "links_qr_create",
     #  "menu_pdf_qr_create", "pdf_qr_create", "social_media_qr_create", "whatsapp_qr_create",
