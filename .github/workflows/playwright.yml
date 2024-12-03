@@ -126,7 +126,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: gh-pages
-          path: gh-pages
+          path: ./gh-pages/${{ github.event.inputs.browser }}
           clean: 'true'
 
       - name: Debug Artifact Download
