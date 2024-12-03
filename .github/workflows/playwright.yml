@@ -108,6 +108,8 @@ jobs:
     env:
         BROWSER: ${{ github.event.inputs.browser }}
     steps:
+      
+      - uses: actions/checkout@v4
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
@@ -159,6 +161,13 @@ jobs:
           list_dirs: ${{ github.ref == 'refs/heads/main' }}
           branch_cleanup_enabled: ${{ github.ref == 'refs/heads/main' }}
           report_dir: merged-results
+
+      - name: Debug Artifact Download
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls -la
 
 
       - name: Deploy to GitHub Pages
