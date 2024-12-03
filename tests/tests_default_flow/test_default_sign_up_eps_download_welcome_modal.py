@@ -14,7 +14,7 @@ class TestDefaultSignUpFlow(BaseTest):
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     #@pytest.mark.parametrize("resolution", ["Default", "512x512", "1024x1024", "2048x2048", "4096x4096"])
-    def test_default_sign_up_qr_type(self, sign_up_fixture, qr_create_method, fake_email, resolution):
+    def test_default_sign_up_qr_type(self, sign_up_fixture, qr_create_method, fake_email):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
         self.qr_creation_page.click_next_button_step2()
@@ -30,7 +30,7 @@ class TestDefaultSignUpFlow(BaseTest):
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", ["website_qr_create", "menu_link_qr_create"])
     #@pytest.mark.parametrize("resolution", ["Default", "512x512", "1024x1024", "2048x2048", "4096x4096"])
-    def test_default_sign_up_website_qr_type(self, sign_up_fixture, qr_create_method, fake_email, resolution):
+    def test_default_sign_up_website_qr_type(self, sign_up_fixture, qr_create_method, fake_email):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
         expect(self.qr_creation_page.locator.create_button).to_be_disabled()
