@@ -91,6 +91,12 @@ jobs:
           echo "Contents of current directory:"
           ls -la
 
+      - name: Download Allure Results
+        uses: actions/download-artifact@v3
+        with:
+          name: allure-results-*
+          path: allure-results
+
   generate_reports:
     runs-on: ubuntu-latest
     permissions:
@@ -102,10 +108,8 @@ jobs:
         BROWSER: ${{ github.event.inputs.browser }}
     steps:
 
-      - name: Download Allure Results
-        uses: actions/download-artifact@v3
-        with:
-          path: allure-results
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Debug Artifact Download
         run: |
