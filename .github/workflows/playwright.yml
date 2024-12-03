@@ -64,7 +64,7 @@ jobs:
         env:
           TEST_PATH: ${{ matrix.test_file }}
         run: |
-          docker-compose run \
+          docker-compose up \
             -e TEST_PATH=${{ matrix.test_file }} \
             -e BROWSER=${{ github.event.inputs.browser }} \
             ui-tests
