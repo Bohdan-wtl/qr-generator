@@ -71,10 +71,17 @@ jobs:
             -e BROWSER=${{ github.event.inputs.browser }} \
             ui-tests || true
 
+      - name: Sanitize artifact name
+        id: sanitize
+        run: |
+          SANITIZED_NAME=$(echo "${{ matrix.test_file }}" | tr '/' '-')
+          echo "SANITIZED_NAME=$SANITIZED_NAME" >> $GITHUB_OUTPUT
+
+
       - name: Upload Allure Results
         uses: actions/upload-artifact@v3
         with:
-          name: allure-results-${{ matrix.test_file }}
+          name: allure-results-${{ steps.sanitize.outputs.SANITIZED_NAME }}
           path: allure-results
 
   generate_reports:
