@@ -13,30 +13,36 @@ on:
           - "firefox"
 
 jobs:
-  list_tests:
-    runs-on: ubuntu-latest
-    outputs:
-      test_files: ${{ steps.get_tests.outputs.test_files }}
-    steps:
-      - uses: actions/checkout@v4
+#  list_tests:
+#    runs-on: ubuntu-latest
+#    outputs:
+#      test_files: ${{ steps.get_tests.outputs.test_files }}
+#    steps:
+#      - uses: actions/checkout@v4
+#
+#      - name: Get list of test files
+#        id: get_tests
+#        run: |
+#          TEST_FILES=$(find tests/ -type f -name 'test_*.py')
+#          echo "Found test files:"
+#          echo "$TEST_FILES"
+#          TEST_FILES_JSON=$(printf '%s\n' $TEST_FILES | jq -R . | jq -s .)
+#          echo "test_files=$TEST_FILES_JSON" >> $GITHUB_OUTPUT
 
-      - name: Get list of test files
-        id: get_tests
-        run: |
-          TEST_FILES=$(find tests/ -type f -name 'test_*.py')
-          echo "Found test files:"
-          echo "$TEST_FILES"
-          TEST_FILES_JSON=$(printf '%s\n' $TEST_FILES | jq -R . | jq -s .)
-          echo "test_files=$TEST_FILES_JSON" >> $GITHUB_OUTPUT
 
 
   build_and_test:
-    needs: list_tests
+    #needs: list_tests
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        test_file: ${{ fromJson(needs.list_tests.outputs.test_files) }}
+        #test_file: ${{ fromJson(needs.list_tests.outputs.test_files) }}
+        test_file:
+          - tests/tests_default_flow/test_default_sign_up_eps_download_welcome_modal.py
+          - tests/tests_default_flow/test_another_test_file.py
+          - tests/tests_default_flow/test_default_sign_up_png_download_welcome_modal.py
+          - tests/tests_default_flow/test_default_sign_up_svg_download_welcome_modal.py
       max-parallel: 15
     permissions:
       contents: write
@@ -52,10 +58,7 @@ jobs:
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.CI_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Install Docker Compose
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y docker-compose
+      - uses: docker/setup-buildx-action@v2
 
       - name: Run tests
         env:
@@ -63,7 +66,7 @@ jobs:
         run: |
           docker-compose run \
             -e TEST_PATH=${{ matrix.test_file }} \
-            -e TEST_PATH=${{ env.TEST_PATH }} \
+            -e BROWSER=${{ github.event.inputs.browser }} \
             ui-tests
 
   generate_reports:
