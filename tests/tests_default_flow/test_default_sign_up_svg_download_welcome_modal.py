@@ -4,7 +4,7 @@ import pytest
 from playwright.sync_api import expect
 
 from base.base_test import BaseTest
-from config import languages, qr_create_methods, resolution_qr_code_images,eps_download_format
+from config import languages, qr_create_methods, svg_download_format, resolution_qr_code_images
 
 
 @pytest.mark.parametrize("language", languages)
@@ -23,7 +23,7 @@ class TestDefaultSignUpFlow(BaseTest):
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        self.my_qr_codes_page.download_parametrize_files(eps_download_format, resolution)
+        self.my_qr_codes_page.download_parametrize_files(svg_download_format, resolution)
 
 
 
@@ -37,4 +37,4 @@ class TestDefaultSignUpFlow(BaseTest):
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        self.my_qr_codes_page.download_parametrize_files(eps_download_format, resolution)
+        self.my_qr_codes_page.download_parametrize_files(svg_download_format, resolution)

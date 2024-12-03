@@ -22,3 +22,15 @@ qr_create_methods = [
     # "video_qr_create", "image_qr_create", "business_qr_create", "vcard_qr_create"
 ]
 
+
+resolution_qr_code_images = [
+    "Default", "512x512", "1024x1024", "2048x2048", "4096x4096"
+]
+resolution_qr_code_pdf = [
+    "Default", "A4", "A3", "A2", "A1", "A0"
+]
+eps_download_format = "EPS"
+jpeg_download_format = "JPEG"
+pdf_download_format = "PDF"
+png_download_format = "PNG"
+svg_download_format = "SVG"
