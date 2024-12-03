@@ -39,10 +39,8 @@ jobs:
       matrix:
         #test_file: ${{ fromJson(needs.list_tests.outputs.test_files) }}
         test_file:
-          - tests/tests_default_flow/test_default_sign_up_eps_download_welcome_modal.py
-          - tests/tests_default_flow/test_another_test_file.py
-          - tests/tests_default_flow/test_default_sign_up_png_download_welcome_modal.py
-          - tests/tests_default_flow/test_default_sign_up_svg_download_welcome_modal.py
+          - tests/tests_nsf_flow/test_nsf_sign_up_eps_download_welcome_modal.py
+          - tests/tests_nsf_flow/test_nsf_sign_up_jpeg_download_welcome_modal.py
       max-parallel: 15
     permissions:
       contents: write
