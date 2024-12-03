@@ -25,7 +25,8 @@ class MyQrCodesPage(BasePage):
         assert os.path.exists(file_path), "QR code not downloaded"
 
     @allure.step("Download QR code with parameters")
-    def download_parametrize_files(self, file_format, resolution, download_path):
+    def download_parametrize_files(self, file_format, resolution):
+        download_path = "artifacts/downloaded_qr_path_/"
         format_selector = f"//div[contains(@class,'dl-modal-option-card')]//h6[text()='{file_format}']"
         self.page.locator(format_selector).click()
         self.locator.size_of_qr_file_download_dropdown.click(force=True)

@@ -6,7 +6,7 @@ import pytest
 from playwright.sync_api import expect
 
 from base.base_test import BaseTest
-from config import languages, qr_create_methods
+from config import languages, qr_create_methods, resolution_qr_code_images, jpeg_download_format
 
 
 @pytest.mark.parametrize("language", languages)
@@ -15,7 +15,7 @@ class TestDPFSignUpFlow(BaseTest):
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
-    @pytest.mark.parametrize("resolution", ["Default", "512x512", "1024x1024", "2048x2048", "4096x4096"])
+    @pytest.mark.parametrize("resolution", resolution_qr_code_images)
     def test_dpf_sign_up_qr_type(self, navigate_to_dpf_page, qr_create_method, fake_email, resolution):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
@@ -32,12 +32,12 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        self.my_qr_codes_page.download_parametrize_files("JPEG", resolution, "artifacts/download_qr_path_jpeg/")
+        self.my_qr_codes_page.download_parametrize_files(jpeg_download_format, resolution)
 
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", ["website_qr_create", "menu_link_qr_create"])
-    @pytest.mark.parametrize("resolution", ["Default", "512x512", "1024x1024", "2048x2048", "4096x4096"])
+    @pytest.mark.parametrize("resolution", resolution_qr_code_images)
     def test_dpf_sign_up_website_qr_type(self, navigate_to_dpf_page, qr_create_method, fake_email, resolution):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
@@ -52,4 +52,4 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-        self.my_qr_codes_page.download_parametrize_files("JPEG", resolution, "artifacts/download_qr_path_jpeg/")
+        self.my_qr_codes_page.download_parametrize_files(jpeg_download_format, resolution)
