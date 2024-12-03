@@ -81,7 +81,7 @@ jobs:
       - name: Upload Allure Results
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results-${{ steps.sanitize.outputs.SANITIZED_NAME }}.zip
+          name: allure-results-${{ steps.sanitize.outputs.SANITIZED_NAME }}
           path: allure-results
 
       - name: List of results
@@ -128,25 +128,18 @@ jobs:
           echo "Contents of current directory:"
           ls -la
 
-      - name: Unzip Allure Results
-        run: |
-          mkdir -p unzipped
-          for artifact in artifacts/*; do
-            unzip -o "$artifact" -d unzipped/
-          done
-
-      - name: List of reports json files
+      - name: List of artifacts files
         run: |
           echo "Current directory:"
           pwd
           echo "Contents of current directory:"
-          ls -la unzipped/
+          ls -la artifacts/
 
 
       - name: Merge Allure Results
         run: |
           mkdir -p merged-results
-          cp -R unzipped/* merged-results/
+          find artifacts/ -type f -exec cp {} merged-results/ \;
 
       - name: List of results
         run: |
