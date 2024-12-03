@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   ui-tests:
-    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v3
+    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v4
     volumes:
       - ./allure-results:/app/workspace/allure-results
     command: /bin/sh -c "ls -la && xvfb-run pytest $TEST_PATH -sv -n auto --alluredir=allure-results && ls -la allure-results"
