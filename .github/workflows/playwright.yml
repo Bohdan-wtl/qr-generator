@@ -84,18 +84,19 @@ jobs:
           name: allure-results-${{ steps.sanitize.outputs.SANITIZED_NAME }}
           path: allure-results
 
+      - name: List of results
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls -la allure-results/
+
       - name: Debug Artifact Download
         run: |
           echo "Current directory:"
           pwd
           echo "Contents of current directory:"
           ls -la
-
-      - name: Download Allure Results
-        uses: actions/download-artifact@v4
-        with:
-          name: allure-results-*
-          path: allure-results
 
   generate_reports:
     runs-on: ubuntu-latest
@@ -108,8 +109,11 @@ jobs:
         BROWSER: ${{ github.event.inputs.browser }}
     steps:
 
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Download Allure Results
+        uses: actions/download-artifact@v4
+        with:
+          name: 'allure-results-tests-tests_default_flow-test_default_sign_up_eps_download_welcome_modal.py'
+          path: allure-results
 
       - name: Debug Artifact Download
         run: |
