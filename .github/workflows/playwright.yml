@@ -37,13 +37,7 @@ jobs:
 
       - name: Run tests
         run: |
-          if [ "${{ github.event.inputs.browser }}" == "chrome" ]; then
-            docker-compose up chrome-tests || true
-          elif [ "${{ github.event.inputs.browser }}" == "webkit" ]; then
-            docker-compose up webkit-tests || true
-          elif [ "${{ github.event.inputs.browser }}" == "firefox" ]; then
-            docker-compose up firefox-tests || true
-          fi
+          docker-compose up ${{ github.event.inputs.browser }}-tests || true
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
