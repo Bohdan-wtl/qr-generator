@@ -84,6 +84,13 @@ jobs:
           name: allure-results-${{ steps.sanitize.outputs.SANITIZED_NAME }}
           path: allure-results
 
+      - name: Debug Artifact Download
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls -la
+
   generate_reports:
     runs-on: ubuntu-latest
     permissions:
