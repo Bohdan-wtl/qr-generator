@@ -5,7 +5,7 @@ services:
     image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v3
     volumes:
       - ./allure-results:/app/workspace/allure-results
-    command: /bin/sh -c "ls -la && xvfb-run pytest $TEST_PATH --browser $BROWSER -sv -n auto --alluredir=allure-results && ls -la allure-results"
+    command: /bin/sh -c "ls -la && xvfb-run pytest $TEST_PATH -sv -n auto --alluredir=allure-results && ls -la allure-results"
     working_dir: /app/workspace
     environment:
       - BROWSER
