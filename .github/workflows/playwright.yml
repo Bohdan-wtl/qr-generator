@@ -40,7 +40,6 @@ jobs:
         #test_file: ${{ fromJson(needs.list_tests.outputs.test_files) }}
         test_file:
           - tests/tests_nsf_flow/test_nsf_sign_up_eps_download_welcome_modal.py
-          - tests/tests_nsf_flow/test_nsf_sign_up_jpeg_download_welcome_modal.py
       max-parallel: 15
     permissions:
       contents: write
@@ -71,7 +70,7 @@ jobs:
       - name: Upload Allure Results
         uses: actions/upload-artifact@v3
         with:
-          name: allure-results-${{ matrix.test_file }}
+          name: allure-results-${{ replace(matrix.test_file, '/', '-') }}
           path: allure-results
 
   generate_reports:
