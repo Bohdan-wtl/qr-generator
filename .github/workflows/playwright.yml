@@ -54,13 +54,7 @@ jobs:
       STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
 
     steps:
-      
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: ./gh-pages/${{ github.event.inputs.browser }}
-          clean: 'true'
+      - uses: actions/checkout@v4
 
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.CI_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
@@ -115,8 +109,12 @@ jobs:
         BROWSER: ${{ github.event.inputs.browser }}
     steps:
 
-      - name: Checkout branch
+      - name: Checkout gh-pages branch
         uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: ./gh-pages/${{ github.event.inputs.browser }}
+          clean: 'true'
 
       - name: Download Allure Results
         uses: actions/download-artifact@v4
