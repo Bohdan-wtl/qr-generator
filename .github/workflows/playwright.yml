@@ -109,12 +109,8 @@ jobs:
         BROWSER: ${{ github.event.inputs.browser }}
     steps:
 
-      - name: Checkout gh-pages branch
+      - name: Checkout branch
         uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: ./gh-pages/${{ github.event.inputs.browser }}
-          clean: 'true'
 
       - name: Download Allure Results
         uses: actions/download-artifact@v4
@@ -166,7 +162,7 @@ jobs:
         with:
           token: ${{ secrets.CI_TOKEN }}
           branch: gh-pages
-          folder: ./gh-pages/${{ github.event.inputs.browser }}
+          folder: gh-pages/${{ github.event.inputs.browser }}
           clean: true
 
       - name: Comment PR with Allure Report link
