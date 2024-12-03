@@ -5,10 +5,10 @@ on:
       browser:
         description: "Select browser"
         required: true
-        default: "chrome"
+        default: "chromium"
         type: choice
         options:
-          - "chrome"
+          - "chromium"
           - "webkit"
           - "firefox"
 
