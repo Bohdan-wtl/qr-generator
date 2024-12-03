@@ -1,6 +1,10 @@
 import os
+import time
+
 import allure
 import pytest
+from playwright.sync_api import expect
+
 from base.base_test import BaseTest
 from config import languages, qr_create_methods
 
@@ -11,12 +15,15 @@ class TestDPFSignUpFlow(BaseTest):
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
-    def test_dpf_sign_up_qr_type(self, navigate_to_dpf_page, qr_create_method, fake_email):
+    @pytest.mark.parametrize("resolution", ["Default", "A4", "A3", "A2", "A1", "A0"])
+    def test_dpf_sign_up_qr_type(self, navigate_to_dpf_page, qr_create_method, fake_email, resolution):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
         self.qr_creation_page.click_next_button_step2()
         self.qr_creation_page.complete_step_3()
-        self.qr_creation_page.create_button.click()
+        expect(self.qr_creation_page.locator.create_button).to_be_disabled()
+        self.qr_creation_page.locator.create_button.is_enabled()
+        self.qr_creation_page.locator.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
         self.qr_creation_page.locator.dpf_form_submit_button.click()
         self.qr_creation_page.select_dpf_plan()
@@ -25,13 +32,18 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
+        self.my_qr_codes_page.download_parametrize_files("PDF", resolution, "artifacts/download_qr_path_pdf/")
 
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", ["website_qr_create", "menu_link_qr_create"])
-    def test_dpf_sign_up_website_qr_type(self, navigate_to_dpf_page, qr_create_method, fake_email):
+    @pytest.mark.parametrize("resolution", ["Default", "A4", "A3", "A2", "A1", "A0"])
+    def test_dpf_sign_up_website_qr_type(self, navigate_to_dpf_page, qr_create_method, fake_email, resolution):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
+        expect(self.qr_creation_page.locator.create_button).to_be_disabled()
+        self.qr_creation_page.locator.create_button.is_enabled()
+        self.qr_creation_page.locator.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
         self.qr_creation_page.locator.dpf_form_submit_button.click()
         self.qr_creation_page.select_dpf_plan()
@@ -40,4 +52,4 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
-
+        self.my_qr_codes_page.download_parametrize_files("PDF", resolution, "artifacts/download_qr_path_pdf/")

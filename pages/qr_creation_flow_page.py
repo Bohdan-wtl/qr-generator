@@ -37,11 +37,10 @@ class QrCreationPage(BasePage):
         self.locator.qrcode_add_logo_step3_dropdown.scroll_into_view_if_needed()
         self.locator.qrcode_add_logo_step3_dropdown.click()
         self.helper.set_file(self.locator.qrcode_upload_logo_input, 'image')
-        self.locator.create_button.click()
+
 
     @allure.step("Create Webiste QR code")
     def website_qr_create(self):
-        url = "https://oqg-staging.test-qr.com/qr-code-generator"
         self.locator.website_qr_type.click(delay=1000)
         self.locator.setup_website_qr_code_input.fill(self.faker.url())
         self.helper.set_custom_qr_code_name(qr_code_type="Website")
@@ -55,7 +54,7 @@ class QrCreationPage(BasePage):
         self.helper.select_qrcode_corners_step3()
         self.locator.qrcode_add_logo_step3_dropdown.click()
         self.helper.set_file(self.locator.qrcode_upload_logo_input, 'image')
-        self.locator.create_button.click()
+
 
     @allure.step("Create PDF QR code")
     def pdf_qr_create(self):
@@ -239,7 +238,7 @@ class QrCreationPage(BasePage):
         self.helper.set_custom_qr_code_name(qr_code_type="MP3")
 
     @allure.step("Create Menu QR code")
-    def menu_menu_qr_create(self):
+    def menu_digital_qr_create(self):
         self.locator.menu_qr_type.click(delay=1000)
         self.locator.menu_var_popup_menu_type_button.click()
         self.helper.close_help_modal_window_st2()
@@ -304,7 +303,6 @@ class QrCreationPage(BasePage):
         self.helper.select_qrcode_corners_step3()
         self.locator.qrcode_add_logo_step3_dropdown.click()
         self.helper.set_file(self.locator.qrcode_upload_logo_input, 'image')
-        self.locator.create_button.click()
 
     @allure.step("Create Wi-Fi QR code")
     def wifi_qr_create(self):
@@ -344,10 +342,11 @@ class QrCreationPage(BasePage):
         self.locator.social_media_basic_info_title.fill(self.faker.text(max_nb_chars=30))
         self.locator.social_media_basic_info_description.fill(self.faker.text(max_nb_chars=200))
         self.helper.emulate_drag_and_drop('#files', 'image')
-        # self.helper.select_random_child_by_attribute('//div[@class= "socialIconContain"]', 'button',
-        #                                              'id')
-        # self.locator.links_qr_code_social_network_url_input.fill(self.faker.url())
-        # self.locator.links_qr_code_social_network_text_input.fill(self.faker.text(max_nb_chars=27))
+        time.sleep(5)
+        self.helper.select_random_child_by_attribute('//div[@class= "socialIconContain"]', 'button',
+                                                     'id')
+        self.locator.links_qr_code_social_network_url_input.fill(self.faker.url())
+        self.locator.links_qr_code_social_network_text_input.fill(self.faker.text(max_nb_chars=27))
         self.helper.fonts_style_select()
         self.helper.welcome_screen_set_img()
         self.helper.set_custom_qr_code_name(qr_code_type="Social Media")
