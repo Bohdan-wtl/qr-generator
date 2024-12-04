@@ -41,7 +41,7 @@ jobs:
     needs: list_tests
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 5
+      max-parallel: 1
       fail-fast: false
       matrix:
         test_file: ${{ fromJson(needs.list_tests.outputs.test_files) }}
