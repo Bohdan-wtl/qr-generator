@@ -41,10 +41,10 @@ jobs:
     needs: list_tests
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 5
       fail-fast: false
       matrix:
         test_file: ${{ fromJson(needs.list_tests.outputs.test_files) }}
-      max-parallel: 15
     permissions:
       contents: write
       pull-requests: write
