@@ -5,13 +5,13 @@ def get_env(var):
     load_dotenv()
     return os.getenv(var)
 
-languages = [ "bg", "cs"
-    #"ar",
-    #"bg",
-    # "cs", "da", "de",
-    #  "bg", "cs", "da", "de", "el", "en", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
-    #  "it", "ja", "ko", "ms", "nl", "no", "pl", "pt", "pt-br", "ro", "sk", "sl", "sr", "sv",
-    #  "th", "tr", "uk", "zh-cn", "zh-hk"
+languages = [
+    "ar",
+    "bg",
+    "cs", "da", "de",
+#      "bg", "cs", "da", "de", "el", "en", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
+#      "it", "ja", "ko", "ms", "nl", "no", "pl", "pt", "pt-br", "ro", "sk", "sl", "sr", "sv",
+#      "th", "tr", "uk", "zh-cn", "zh-hk"
 ]
 
 qr_create_methods = [
@@ -34,3 +34,32 @@ jpeg_download_format = "JPEG"
 pdf_download_format = "PDF"
 png_download_format = "PNG"
 svg_download_format = "SVG"
+
+download_params_default_modal = [
+    {"file_format": "EPS", "resolution": "Default"},
+    {"file_format": "EPS", "resolution": "512x512"},
+    {"file_format": "EPS", "resolution": "1024x1024"},
+    {"file_format": "EPS", "resolution": "2048x2048"},
+    {"file_format": "EPS", "resolution": "4096x4096"},
+    {"file_format": "PDF", "resolution": "Default"},
+    {"file_format": "PDF", "resolution": "A4"},
+    {"file_format": "PDF", "resolution": "A3"},
+    {"file_format": "PDF", "resolution": "A2"},
+    {"file_format": "PDF", "resolution": "A1"},
+    {"file_format": "PDF", "resolution": "A0"},
+    {"file_format": "JPEG", "resolution": "Default"},
+    {"file_format": "JPEG", "resolution": "512x512"},
+    {"file_format": "JPEG", "resolution": "1024x1024"},
+    {"file_format": "JPEG", "resolution": "2048x2048"},
+    {"file_format": "JPEG", "resolution": "4096x4096"},
+    {"file_format": "PNG", "resolution": "Default"},
+    {"file_format": "PNG", "resolution": "512x512"},
+    {"file_format": "PNG", "resolution": "1024x1024"},
+    {"file_format": "PNG", "resolution": "2048x2048"},
+    {"file_format": "PNG", "resolution": "4096x4096"},
+    {"file_format": "SVG", "resolution": "Default"},
+    {"file_format": "SVG", "resolution": "512x512"},
+    {"file_format": "SVG", "resolution": "1024x1024"},
+    {"file_format": "SVG", "resolution": "2048x2048"},
+    {"file_format": "SVG", "resolution": "4096x4096"},
+]
