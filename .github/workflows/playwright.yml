@@ -41,8 +41,8 @@ jobs:
     needs: list_tests
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 1
       fail-fast: false
+      max-parallel: 5
       matrix:
         test_file: ${{ fromJson(needs.list_tests.outputs.test_files) }}
     permissions:
@@ -58,15 +58,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.CI_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      - name: Install Docker Compose
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y docker-compose
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/.cache/docker
+          key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile') }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          builder: default
+          load: true
+          tags: ui-tests:latest
+          cache-from: type=local,src=/home/runner/.cache/docker
+          cache-to: type=local,dest=/home/runner/.cache/docker
 
       - name: Run tests
+        env:
+          BROWSER: ${{ env.BROWSER }}
+          TEST_PATH: ${{ env.TEST_PATH }}
+          STAGE_ADMIN_LINK: ${{ env.STAGE_ADMIN_LINK }}
+          STAGE_ADMIN_EMAIL: ${{ env.STAGE_ADMIN_EMAIL }}
+          STAGE_ADMIN_PASSWORD: ${{ env.STAGE_ADMIN_PASSWORD }}
         run: |
           docker-compose run ui-tests || true
 
