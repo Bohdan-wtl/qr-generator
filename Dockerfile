@@ -11,6 +11,6 @@ RUN apt-get update && \
 
 WORKDIR /app/workspace
 
-COPY . /app/workspace
+COPY ./requirements.txt /app/workspace
 
 RUN pip install -r requirements.txt
