@@ -60,14 +60,19 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-
-      - name: Cache Docker layers
-        uses: actions/cache@v3
         with:
-          path: /home/runner/.cache/docker
-          key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile') }}
-          restore-keys: |
-            ${{ runner.os }}-docker-
+          driver: docker-container
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          builder: default
+          load: true
+          tags: ui-tests:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Run tests
         env:
@@ -77,7 +82,7 @@ jobs:
           STAGE_ADMIN_EMAIL: ${{ env.STAGE_ADMIN_EMAIL }}
           STAGE_ADMIN_PASSWORD: ${{ env.STAGE_ADMIN_PASSWORD }}
         run: |
-          docker-compose up ui-tests || true
+          docker-compose run ui-tests || true
 
       - name: Debug Working Directory
         run: |
