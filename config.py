@@ -5,7 +5,7 @@ def get_env(var):
     load_dotenv()
     return os.getenv(var)
 
-languages = [ 'en'
+languages = [ "en",
     #"ar",
     #"bg",
     # "cs", "da", "de",
