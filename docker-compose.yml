@@ -1,41 +1,16 @@
 version: '3.7'
 
 services:
-  chrome-tests:
-    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v2
+  ui-tests:
+    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v5
     volumes:
       - ./:/app/workspace
-    command: /bin/sh -c "ls -la && xvfb-run pytest tests/${TEST_PACKAGE} -sv -n auto --alluredir=allure-results"
+      - ./allure-results:/app/workspace/allure-results
+    command: /bin/sh -c "ls -la && xvfb-run pytest $TEST_PATH -sv -n auto --alluredir=allure-results && ls -la allure-results"
     working_dir: /app/workspace
     environment:
-      BROWSER: "chromium"
-      TEST_PACKAGE: ""
-      STAGE_ADMIN_LINK: ${STAGE_ADMIN_LINK}
-      STAGE_ADMIN_EMAIL: ${STAGE_ADMIN_EMAIL}
-      STAGE_ADMIN_PASSWORD: ${STAGE_ADMIN_PASSWORD}
-
-  webkit-tests:
-    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v2
-    volumes:
-      - ./:/app/workspace
-    command: /bin/sh -c "ls -la && xvfb-run pytest tests/${TEST_PACKAGE} -sv -n auto --alluredir=allure-results"
-    working_dir: /app/workspace
-    environment:
-      BROWSER: "webkit"
-      TEST_PACKAGE: ""
-      STAGE_ADMIN_LINK: ${STAGE_ADMIN_LINK}
-      STAGE_ADMIN_EMAIL: ${STAGE_ADMIN_EMAIL}
-      STAGE_ADMIN_PASSWORD: ${STAGE_ADMIN_PASSWORD}
-
-  firefox-tests:
-    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v2
-    volumes:
-      - ./:/app/workspace
-    command: /bin/sh -c "ls -la && xvfb-run pytest tests/${TEST_PACKAGE} -sv -n auto --alluredir=allure-results"
-    working_dir: /app/workspace
-    environment:
-      BROWSER: "firefox"
-      TEST_PACKAGE: ""
-      STAGE_ADMIN_LINK: ${STAGE_ADMIN_LINK}
-      STAGE_ADMIN_EMAIL: ${STAGE_ADMIN_EMAIL}
-      STAGE_ADMIN_PASSWORD: ${STAGE_ADMIN_PASSWORD}
+      BROWSER: "${BROWSER}"
+      TEST_PATH: "${TEST_PATH}"
+      STAGE_ADMIN_LINK: "${STAGE_ADMIN_LINK}"
+      STAGE_ADMIN_EMAIL: "${STAGE_ADMIN_EMAIL}"
+      STAGE_ADMIN_PASSWORD: "${STAGE_ADMIN_PASSWORD}"

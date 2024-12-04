@@ -5,24 +5,55 @@ on:
       browser:
         description: "Select browser"
         required: true
-        default: "chrome"
+        default: "chromium"
         type: choice
         options:
-          - "chrome"
+          - "chromium"
           - "webkit"
           - "firefox"
 
 jobs:
-  build_and_test:
+  list_tests:
     runs-on: ubuntu-latest
+    outputs:
+      test_files: ${{ steps.get_tests.outputs.test_files }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Get list of test files
+        id: get_tests
+        run: |
+          set -e
+          TEST_FILES=$(find tests/ -type f -name 'test_*.py')
+          echo "Found test files:"
+          echo "$TEST_FILES"
+          TEST_FILES_JSON=$(printf '%s\n' "$TEST_FILES" | jq -R . | jq -s .)
+          echo "TEST_FILES_JSON:"
+          echo "$TEST_FILES_JSON"
+          echo "test_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$TEST_FILES_JSON" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+  build_and_test:
+    needs: list_tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        test_file: ${{ fromJson(needs.list_tests.outputs.test_files) }}
     permissions:
       contents: write
       pull-requests: write
-
     env:
       STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
       STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
       STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
+      BROWSER: ${{ github.event.inputs.browser }}
+      TEST_PATH: ${{ matrix.test_file }}
 
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +68,32 @@ jobs:
 
       - name: Run tests
         run: |
-          docker-compose up ${{ github.event.inputs.browser }}-tests || true
+          docker-compose up ui-tests || true
+
+      - name: Sanitize artifact name
+        id: sanitize
+        run: |
+          SANITIZED_NAME=$(echo "${{ matrix.test_file }}" | tr '/' '-')
+          echo "SANITIZED_NAME=$SANITIZED_NAME" >> $GITHUB_OUTPUT
+
+
+      - name: Upload Allure Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-${{ steps.sanitize.outputs.SANITIZED_NAME }}
+          path: allure-results
+
+  generate_reports:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    needs: build_and_test
+    if: ${{ always() }}
+    env:
+        BROWSER: ${{ github.event.inputs.browser }}
+    steps:
+      - uses: actions/checkout@v4
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
@@ -45,6 +101,16 @@ jobs:
           ref: gh-pages
           path: ./gh-pages/${{ github.event.inputs.browser }}
           clean: 'true'
+
+      - name: Download Allure Results
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Merge Allure Results
+        run: |
+          mkdir -p merged-results
+          find artifacts/ -type f -exec cp {} merged-results/ \;
 
       - name: Allure Report Action
         uses: mgrybyk-org/allure-report-branch-action@v1
@@ -56,40 +122,35 @@ jobs:
           gh_pages: ./gh-pages/${{ github.event.inputs.browser }}
           list_dirs: ${{ github.ref == 'refs/heads/main' }}
           branch_cleanup_enabled: ${{ github.ref == 'refs/heads/main' }}
-          report_dir: allure-results
+          report_dir: merged-results
 
+      - name: Debug Artifact Download
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls -la
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           token: ${{ secrets.CI_TOKEN }}
           branch: gh-pages
-          folder: ./gh-pages/${{ github.event.inputs.browser }}
+          folder: gh-pages/${{ github.event.inputs.browser }}
           clean: true
 
-      - name: Comment PR with Allure Report link
-        if: ${{ always() && github.event_name == 'pull_request' && steps.allure.outputs.report_url }}
-        continue-on-error: true
-        uses: thollander/actions-comment-pull-request@v2
-        with:
-          message: |
-            ${{ steps.allure.outputs.test_result_icon }} [Allure Report](${{ steps.allure.outputs.report_url }}/${{ github.event.inputs.browser  }}/) | ${{ steps.allure.outputs.test_result_passed }}/${{ steps.allure.outputs.test_result_failed }}/${{ steps.allure.outputs.test_result_total }} | [History](${{ steps.allure.outputs.report_history_url }})
-          comment_tag: allure_allure
-          mode: recreate
-
-
       # - name: Send notification to Slack
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      #   run: |
-      #       if [ "${{ github.event.inputs.browser }}" = "chrome" ]; then
-      #         REPORT_URL="https://chrome-pi.vercel.app"
-      #       elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
-      #         REPORT_URL="https://firefox-kohl.vercel.app"
-      #       elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
-      #         REPORT_URL="https://webkit-two.vercel.app"
-      #       fi
-          
+          #   env:
+          #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          #   run: |
+          #       if [ "${{ github.event.inputs.browser }}" = "chrome" ]; then
+          #         REPORT_URL="https://chrome-pi.vercel.app"
+          #       elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
+          #         REPORT_URL="https://firefox-kohl.vercel.app"
+          #       elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
+          #         REPORT_URL="https://webkit-two.vercel.app"
+          #       fi
+
       #       curl -X POST -H 'Content-type: application/json' --data '{
       #       "text": "Tests are finished",
       #       "blocks": [

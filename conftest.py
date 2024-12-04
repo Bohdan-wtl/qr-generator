@@ -51,10 +51,8 @@ def artifacts(request):
     if request.node.rep_call.failed:
         allure.attach.file(f"artifacts/screenshots/{request.node.name}.png", name="screenshot",
                            attachment_type=allure.attachment_type.PNG)
-        shutil.rmtree("artifacts/screenshots")
         allure.attach.file(f"artifacts/videos/{request.node.name}.webm", name="video",
                            attachment_type=allure.attachment_type.WEBM)
-        shutil.rmtree("artifacts/videos")
 
 
 @pytest.fixture(scope='function')
