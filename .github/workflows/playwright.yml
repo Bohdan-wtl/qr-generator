@@ -69,17 +69,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-docker-
 
-      - name: Build Docker image
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: ./Dockerfile
-          builder: default
-          load: true
-          tags: ui-tests:latest
-          cache-from: type=local,src=/home/runner/.cache/docker
-          cache-to: type=local,dest=/home/runner/.cache/docker
-
       - name: Run tests
         env:
           BROWSER: ${{ env.BROWSER }}
