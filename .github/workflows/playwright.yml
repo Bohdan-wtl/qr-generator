@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 20
       matrix:
         test_file: ${{ fromJson(needs.list_tests.outputs.test_files) }}
     permissions:

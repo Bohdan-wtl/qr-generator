@@ -1,18 +1,20 @@
 from dotenv import load_dotenv
 import os
 
+
 def get_env(var):
     load_dotenv()
     return os.getenv(var)
 
-languages = [
-    "ar",
-    "bg",
-    "cs", "da", "de", "en",
-#      "bg", "cs", "da", "de", "el", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
-#      "it", "ja", "ko", "ms", "nl", "no", "pl", "pt", "pt-br", "ro", "sk", "sl", "sr", "sv",
-#      "th", "tr", "uk", "zh-cn", "zh-hk"
-]
+
+languages = ['en'
+             #    "ar",
+             #    "bg",
+             #    "cs", "da", "de", "en",
+             #      "bg", "cs", "da", "de", "el", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
+             #      "it", "ja", "ko", "ms", "nl", "no", "pl", "pt", "pt-br", "ro", "sk", "sl", "sr", "sv",
+             #      "th", "tr", "uk", "zh-cn", "zh-hk"
+             ]
 
 qr_create_methods = [
     "wifi_qr_create",
@@ -21,7 +23,6 @@ qr_create_methods = [
     "menu_pdf_qr_create", "pdf_qr_create", "social_media_qr_create", "whatsapp_qr_create",
     "video_qr_create", "image_qr_create", "business_qr_create", "vcard_qr_create"
 ]
-
 
 resolution_qr_code_images = [
     "Default", "512x512", "1024x1024", "2048x2048", "4096x4096"
