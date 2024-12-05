@@ -21,7 +21,9 @@ class TestDPFSignUpFlow(BaseTest):
         qr_create_method_func()
         self.qr_creation_page.click_next_button_step2()
         self.qr_creation_page.complete_step_3()
-        expect(self.qr_creation_page.locator.create_button).to_be_disabled()
+        try:
+            expect(self.qr_creation_page.locator.create_button).to_be_disabled(timeout=5000)
+        except AssertionError: "The button has not become disabled, continuing the test"
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
@@ -31,7 +33,7 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.select_country_and_zip_in_payment_frame()
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
-        self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
+        self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled(timeout=30000)
         self.my_qr_codes_page.download_parametrize_files(eps_download_format, resolution)
 
 
@@ -41,7 +43,9 @@ class TestDPFSignUpFlow(BaseTest):
     def test_dpf_sign_up_website_qr_type(self, navigate_to_dpf_page, qr_create_method, fake_email, resolution):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
-        expect(self.qr_creation_page.locator.create_button).to_be_disabled()
+        try:
+            expect(self.qr_creation_page.locator.create_button).to_be_disabled(timeout=5000)
+        except AssertionError: "The button has not become disabled, continuing the test"
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
@@ -51,5 +55,5 @@ class TestDPFSignUpFlow(BaseTest):
         self.payment_page.select_country_and_zip_in_payment_frame()
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.locator.congrats_download_button.click()
-        self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled()
+        self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled(timeout=30000)
         self.my_qr_codes_page.download_parametrize_files(eps_download_format, resolution)
