@@ -32,11 +32,12 @@ class QrCreationPage(BasePage):
         self.locator.qrcode_patterns_step3_dropdown.click()
         self.helper.select_random_child_by_attribute(
             '//div[@id="acc_patterns"]//div[contains(@class,"d-flex mb-3 qr-shape customScrollbar")]', 'label', 'id')
-        self.locator.qrcode_corners_step3_dropdown.click()
-        self.helper.select_qrcode_corners_step3()
         self.locator.qrcode_add_logo_step3_dropdown.scroll_into_view_if_needed()
         self.locator.qrcode_add_logo_step3_dropdown.click()
         self.helper.set_file(self.locator.qrcode_upload_logo_input, 'image')
+        self.locator.qrcode_corners_step3_dropdown.click()
+        self.helper.select_qrcode_corners_step3()
+
 
 
     @allure.step("Create Webiste QR code")
