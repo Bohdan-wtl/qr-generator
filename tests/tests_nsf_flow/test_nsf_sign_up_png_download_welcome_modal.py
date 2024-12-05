@@ -14,7 +14,7 @@ class TestNSFSignUpFlow(BaseTest):
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
-    def test_dpf_sign_up_qr_type(self, navigate_to_nsf_page, qr_create_method, fake_email, resolution):
+    def test_nsf_sign_up_qr_type(self, navigate_to_nsf_page, qr_create_method, fake_email, resolution):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
         self.qr_creation_page.click_next_button_step2()
@@ -32,7 +32,7 @@ class TestNSFSignUpFlow(BaseTest):
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", ["website_qr_create", "menu_link_qr_create"])
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
-    def test_dpf_sign_up_website_qr_type(self, navigate_to_nsf_page, qr_create_method, fake_email, resolution):
+    def test_nsf_sign_up_website_qr_type(self, navigate_to_nsf_page, qr_create_method, fake_email, resolution):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
         qr_create_method_func()
         try:
