@@ -6,7 +6,6 @@ def get_env(var):
     load_dotenv()
     return os.getenv(var)
 
-
 languages = ['en'
              #    "ar",
              #    "bg",
@@ -19,16 +18,16 @@ languages = ['en'
 qr_create_methods = [
     "wifi_qr_create",
     "instagram_qr_create", "mp3_qr_create", "coupon_qr_create",
-    "menu_menu_qr_create", "facebook_qr_create", "apps_qr_create", "links_qr_create",
+    "menu_digital_qr_create", "facebook_qr_create", "apps_qr_create", "links_qr_create",
     "menu_pdf_qr_create", "pdf_qr_create", "social_media_qr_create", "whatsapp_qr_create",
     "video_qr_create", "image_qr_create", "business_qr_create", "vcard_qr_create"
 ]
 
 resolution_qr_code_images = [
-    "Default", "512x512", "1024x1024", "2048x2048", "4096x4096"
+    "Default"#, "512x512", "1024x1024", "2048x2048", "4096x4096"
 ]
 resolution_qr_code_pdf = [
-    "Default", "A4", "A3", "A2", "A1", "A0"
+    "Default"#, "A4", "A3", "A2", "A1", "A0"
 ]
 eps_download_format = "EPS"
 jpeg_download_format = "JPEG"
