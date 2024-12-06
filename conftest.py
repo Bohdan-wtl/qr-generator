@@ -7,7 +7,7 @@ from pytest import hookimpl
 from playwright.sync_api import sync_playwright
 from random import Random
 
-headless = True
+headless = False
 
 DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 
@@ -15,7 +15,7 @@ DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 @allure.title(f"Set up browser: {os.getenv('BROWSER')}")
 def browser(request):
     with sync_playwright() as p:
-        browser_type = os.getenv("BROWSER", "chromium")
+        browser_type = os.getenv("BROWSER", "webkit")
         browser = getattr(p, browser_type).launch(headless=headless)
         yield browser
         browser.close()
@@ -74,8 +74,9 @@ def sign_up_fixture(request, fake_email, language):
 @pytest.fixture(scope='function')
 @allure.title("Navigate to DPF funnel")
 def navigate_to_dpf_page(request, language):
-    base_url = f"https://oqg-staging.test-qr.com/{language}/create?step=1&qr_onboarding=active_dpf"
+    base_url = f"https://qci-staging.test-qr.com/{language}/create?step=1&qr_onboarding=active_dpf"
     request.instance.main_page.open_page(base_url)
+    print("Expected gen url = " + base_url)
 
 @pytest.fixture(scope='function')
 @allure.title("Navigate to NSF funnel")
