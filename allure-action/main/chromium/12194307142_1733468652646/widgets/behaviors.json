@@ -1,1 +1,0 @@
-{"total":2,"items":[{"uid":"b03b077800dd9253af10b3d3a27217b0","name":"Default sign up flow - chromium - chromium","statistic":{"failed":1,"broken":89,"skipped":0,"passed":0,"unknown":0,"total":90}},{"uid":"a40feda79604cd30d09b95576df50903","name":"DPF sign up flow - chromium","statistic":{"failed":0,"broken":36,"skipped":0,"passed":0,"unknown":0,"total":36}}]}
