@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   ui-tests:
-    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v5
+    image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v6
     volumes:
       - ./:/app/workspace
       - ./allure-results:/app/workspace/allure-results

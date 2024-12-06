@@ -15,7 +15,12 @@ DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 def browser(request):
     with sync_playwright() as p:
         browser_type = os.getenv("BROWSER", "chromium")
-        browser = getattr(p, browser_type).launch(headless=headless)
+        if browser_type == "firefox":
+            browser = getattr(p, browser_type).launch(headless=headless)
+        if browser_type == "webkit":
+            browser = getattr(p, browser_type).launch(headless=headless)
+        if browser_type == "chromium":
+            browser = getattr(p, browser_type).launch(headless=headless, channel='chrome')
         yield browser
         browser.close()
 
