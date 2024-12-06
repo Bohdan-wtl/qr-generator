@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"502deb7e7625a1939b83dec43c9710eb","name":"tests.tests_default_flow","statistic":{"failed":0,"broken":36,"skipped":0,"passed":0,"unknown":0,"total":36}},{"uid":"69aebe4da4c8cd6320f94fb65846f9a9","name":"tests.tests_frame_comperatives","statistic":{"failed":0,"broken":0,"skipped":16,"passed":0,"unknown":0,"total":16}}]}
