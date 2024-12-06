@@ -8,9 +8,10 @@ RUN apt-get update && \
     ln -s /opt/allure-2.25.0/bin/allure /usr/local/bin/allure && \
     chmod +x /usr/local/bin/allure
 
-
 WORKDIR /app/workspace
 
 COPY ./requirements.txt /app/workspace
 
 RUN pip install -r requirements.txt
+
+RUN playwright install chrome
