@@ -22,9 +22,9 @@ def browser(request):
 @pytest.fixture(scope="function")
 def context(request, browser):
     context = browser.new_context(viewport={"width": 1440, "height": 1080}, record_video_dir="artifacts/videos/")
-    context.tracing.start(screenshots=True, snapshots=True)
+    context.tracing.start(name=f"{request.node.name}.zip",screenshots=True, snapshots=True)
     yield context
-    context.tracing.stop(name=f"artifacts/traces/{request.node.name}.zip")
+    context.tracing.stop(path=f"traces/{request.node.name}.zip")
     context.close()
 
 @pytest.fixture(scope="function")
@@ -54,7 +54,7 @@ def artifacts(request):
                            attachment_type=allure.attachment_type.PNG)
         allure.attach.file(f"artifacts/videos/{request.node.name}.webm", name="video",
                            attachment_type=allure.attachment_type.WEBM)
-        allure.attach.file(f"artifacts/traces/{request.node.name}.zip", name="trace",
+        allure.attach.file(f"traces/{request.node.name}.zip", name="trace",
                            attachment_type="application/zip")
 
 
