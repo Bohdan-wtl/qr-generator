@@ -47,6 +47,7 @@ class TestDefaultSignUpFlow(BaseTest):
         self.qr_creation_page.locator.create_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled(timeout=30000)
         self.my_qr_codes_page.locator.download_modal_close_button.click()
+        self.my_qr_codes_page.locator.download_qr_code_button.click()
 
         for params in download_params_default_modal:
             with allure.step(f"Download QR code as {params['file_format']} with resolution {params['resolution']}"):

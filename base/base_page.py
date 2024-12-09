@@ -26,5 +26,9 @@ class BasePage:
     def get_url(self):
         return self.page.url
 
+    def click(self, locator):
+        self.expect(self.page.locator(locator)).to_be_enabled()
+        self.page.locator(locator).click()
+
     def title(self):
         return self.page.title()
