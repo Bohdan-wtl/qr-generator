@@ -10,6 +10,7 @@ headless = True
 
 DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 ENV_URL = "https://oqg-staging.test-qr.com/"
+
 @pytest.fixture(scope="session")
 @allure.title(f"Set up browser: {os.getenv('BROWSER')}")
 def browser(request):
