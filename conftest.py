@@ -9,7 +9,7 @@ from random import Random
 headless = True
 
 DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
-
+ENV_URL = "https://oqg-staging.test-qr.com/"
 @pytest.fixture(scope="session")
 @allure.title(f"Set up browser: {os.getenv('BROWSER')}")
 def browser(request):
@@ -73,7 +73,7 @@ def fake_email():
 @pytest.fixture(scope='function')
 @allure.title("Sign up")
 def sign_up_fixture(request, fake_email, language):
-    base_url = f"https://qci-staging.test-qr.com/{language}/"
+    base_url = f"{ENV_URL}{language}/"
     email = fake_email
     request.instance.main_page.open_page(f"{base_url}register/")
     request.instance.register_page.sign_up(email, email)
@@ -82,13 +82,13 @@ def sign_up_fixture(request, fake_email, language):
 @pytest.fixture(scope='function')
 @allure.title("Navigate to DPF funnel")
 def navigate_to_dpf_page(request, language):
-    base_url = f"https://qci-staging.test-qr.com/{language}/create?step=1&qr_onboarding=active_dpf"
+    base_url = f"{ENV_URL}{language}/create?step=1&qr_onboarding=active_dpf"
     request.instance.main_page.open_page(base_url)
 
 @pytest.fixture(scope='function')
 @allure.title("Navigate to NSF funnel")
 def navigate_to_nsf_page(request, language):
-    base_url = f"https://qci-staging.test-qr.com/{language}/create?step=1&qr_onboarding=active_nsf"
+    base_url = f"{ENV_URL}{language}/create?step=1&qr_onboarding=active_nsf"
     request.instance.main_page.open_page(base_url)
 
 @pytest.fixture(scope='function', autouse=True)
