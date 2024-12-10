@@ -74,7 +74,7 @@ def fake_email():
 @pytest.fixture(scope='function')
 @allure.title("Sign up")
 def sign_up_fixture(request, fake_email, language):
-    base_url = f"{ENV_URL}{language}/"
+    base_url = f"https://qci-staging.test-qr.com/{language}/"
     email = fake_email
     request.instance.main_page.open_page(f"{base_url}register/")
     request.instance.register_page.sign_up(email, email)
