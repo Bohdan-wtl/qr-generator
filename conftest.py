@@ -67,7 +67,7 @@ def artifacts(request):
                            attachment_type=allure.attachment_type.PNG)
         allure.attach.file(f"artifacts/videos/{request.node.name}.webm", name="video",
                            attachment_type=allure.attachment_type.WEBM)
-        allure.attach.file(f"artifacts/traces/{request.node.name}.zip", name="trace", attachment_type="application/zip")
+        allure.attach.file(f"artifacts/traces/{request.node.name}.zip", name="trace", extension="zip")
 
 
 @pytest.fixture(scope='function')
