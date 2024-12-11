@@ -11,7 +11,6 @@ from config import languages, qr_create_methods, download_params_default_modal
 @allure.feature(f"Default sign up flow - {os.getenv('BROWSER')} - {os.getenv('BROWSER')}")
 class TestDefaultSignUpFlow(BaseTest):
 
-    @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     def test_default_sign_up_qr_type(self, sign_up_fixture, qr_create_method, fake_email):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
@@ -20,7 +19,8 @@ class TestDefaultSignUpFlow(BaseTest):
         self.qr_creation_page.complete_step_3()
         try:
             expect(self.qr_creation_page.locator.create_button).to_be_disabled(timeout=5000)
-        except AssertionError: "The button has not become disabled, continuing the test"
+        except AssertionError:
+            "The button has not become disabled, continuing the test"
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.my_qr_codes_page.expect(self.my_qr_codes_page.locator.sign_up_success_image).to_be_enabled(timeout=30000)
@@ -34,10 +34,8 @@ class TestDefaultSignUpFlow(BaseTest):
                 self.my_qr_codes_page.download_parametrize_files(
                     file_format=params["file_format"],
                     resolution=params["resolution"]
-            )
+                )
 
-
-    @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", ["website_qr_create", "menu_link_qr_create"])
     def test_default_sign_up_website_qr_type(self, sign_up_fixture, qr_create_method, fake_email):
         qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
@@ -54,4 +52,4 @@ class TestDefaultSignUpFlow(BaseTest):
                 self.my_qr_codes_page.download_parametrize_files(
                     file_format=params["file_format"],
                     resolution=params["resolution"]
-            )
+                )

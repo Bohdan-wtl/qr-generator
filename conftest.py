@@ -6,10 +6,11 @@ from pytest import hookimpl
 from playwright.sync_api import sync_playwright
 from random import Random
 
-headless = True
+headless = False
 
 DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
 ENV_URL = "https://oqg-staging.test-qr.com/"
+
 
 @pytest.fixture(scope="session")
 @allure.title(f"Set up browser: {os.getenv('BROWSER')}")
@@ -25,13 +26,19 @@ def browser(request):
         yield browser
         browser.close()
 
+
 @pytest.fixture(scope="function")
 def context(request, browser):
+    trace_path = f"artifacts/traces/{request.node.name}.zip"
     context = browser.new_context(viewport={"width": 1440, "height": 1080}, record_video_dir="artifacts/videos/")
-    #context.tracing.start(name=f"{request.node.name}.zip",screenshots=True, snapshots=True)
+    context.tracing.start(name=f"{request.node.name}.zip", screenshots=True, snapshots=True)
     yield context
-    #context.tracing.stop(path=f"traces/{request.node.name}.zip")
+    context.tracing.stop(path=trace_path)
     context.close()
+    if not request.node.rep_call.failed:
+        if os.path.exists(trace_path):
+            os.remove(trace_path)
+
 
 @pytest.fixture(scope="function")
 def page(context, request):
@@ -60,8 +67,7 @@ def artifacts(request):
                            attachment_type=allure.attachment_type.PNG)
         allure.attach.file(f"artifacts/videos/{request.node.name}.webm", name="video",
                            attachment_type=allure.attachment_type.WEBM)
-        #allure.attach.file(f"traces/{request.node.name}.zip", name="trace",
-        #                   attachment_type="application/zip")
+        allure.attach.file(f"artifacts/traces/{request.node.name}.zip", name="trace", attachment_type="application/zip")
 
 
 @pytest.fixture(scope='function')
@@ -74,11 +80,12 @@ def fake_email():
 @pytest.fixture(scope='function')
 @allure.title("Sign up")
 def sign_up_fixture(request, fake_email, language):
-    base_url = f"https://qci-staging.test-qr.com/{language}/"
+    base_url = f"{ENV_URL}{language}/"
     email = fake_email
     request.instance.main_page.open_page(f"{base_url}register/")
     request.instance.register_page.sign_up(email, email)
     yield
+
 
 @pytest.fixture(scope='function')
 @allure.title("Navigate to DPF funnel")
@@ -86,11 +93,13 @@ def navigate_to_dpf_page(request, language):
     base_url = f"{ENV_URL}{language}/create?step=1&qr_onboarding=active_dpf"
     request.instance.main_page.open_page(base_url)
 
+
 @pytest.fixture(scope='function')
 @allure.title("Navigate to NSF funnel")
 def navigate_to_nsf_page(request, language):
     base_url = f"{ENV_URL}{language}/create?step=1&qr_onboarding=active_nsf"
     request.instance.main_page.open_page(base_url)
+
 
 @pytest.fixture(scope='function', autouse=True)
 @allure.title("Delete user after test")
