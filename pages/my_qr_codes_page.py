@@ -29,11 +29,11 @@ class MyQrCodesPage(BasePage):
         download_path = "artifacts/downloaded_qr_path/"
         format_selector = f"//div[contains(@class,'dl-modal-option-card')]//h6[text()='{file_format}']"
         self.page.locator(format_selector).click()
-        self.locator.size_of_qr_file_download_dropdown.click(force=True)
+        self.checked_locator(locator=self.locator.size_of_qr_file_download_dropdown).click(force=True)
         resolution_selector = f"//input[@id='{resolution}']"
         self.page.locator(resolution_selector).click()
         with self.page.expect_download() as download_info:
-            self.locator.download_button.click()
+            self.checked_locator(locator=self.locator.download_button).click()
         download = download_info.value
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"{file_format}_{resolution}_{timestamp}_{download.suggested_filename}"

@@ -11,7 +11,6 @@ class RegisterPage(BasePage):
 
     @allure.step("Sign up")
     def sign_up(self, temporary_mail, signup_password):
-        self.locator.email_input_field.is_visible()
-        self.locator.email_input_field.fill(temporary_mail)
-        self.locator.password_input_field.fill(signup_password)
-        self.locator.sign_up_confirm_button.click()
+        self.checked_locator(locator=self.locator.email_input_field).fill(temporary_mail)
+        self.checked_locator(locator=self.locator.password_input_field).fill(signup_password)
+        self.checked_locator(locator=self.locator.sign_up_confirm_button).click()

@@ -8,6 +8,11 @@ class BasePage:
     def open_page(self, url):
         self.page.goto(url)
 
+    def checked_locator(self, locator):
+        self.expect(locator).to_be_visible()
+        self.expect(locator).to_be_enabled()
+        return locator
+
     def is_visible(self, locator):
         self.expect(self.page.locator(locator)).to_be_visible()
 

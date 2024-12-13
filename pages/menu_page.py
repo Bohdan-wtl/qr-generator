@@ -10,4 +10,4 @@ class MenuPage(BasePage):
 
     @allure.step("Go to my account")
     def go_to_my_account(self):
-        self.locator.my_account.click()
+        self.checked_locator(locator=self.locator.my_account).click()

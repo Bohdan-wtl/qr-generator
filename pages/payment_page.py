@@ -11,18 +11,18 @@ class PaymentPage(BasePage):
 
     @allure.step("Make payment")
     def make_payment(self):
-        self.locator.card_number.fill("4242424242424242")
-        self.locator.expiry_date_input.fill("0127")
-        self.locator.cvc_code_input.fill("127")
-        self.locator.exit_from_payment_frame.click()
+        self.checked_locator(locator=self.locator.card_number).fill("4242424242424242")
+        self.checked_locator(locator=self.locator.expiry_date_input).fill("0127")
+        self.checked_locator(locator=self.locator.cvc_code_input).fill("127")
+        self.checked_locator(locator=self.locator.exit_from_payment_frame).click()
 
     @allure.step("Click on submit payment button")
     def click_on_submit_payment_button(self):
         self.locator.submit_payment_button.wait_for(state='visible', timeout=40000)
-        self.locator.submit_payment_button.click()
+        self.checked_locator(locator=self.locator.submit_payment_button).click()
 
     @allure.step("Select country and zip in payment frame")
     def select_country_and_zip_in_payment_frame(self):
-        self.locator.payment_country_dropdown.select_option(value="US")
-        self.locator.payment_zip_input.fill("90001")
-        self.locator.exit_from_payment_frame.click()
+        self.checked_locator(locator=self.locator.payment_country_dropdown).select_option(value="US")
+        self.checked_locator(locator=self.locator.payment_zip_input).fill("90001")
+        self.checked_locator(locator=self.locator.exit_from_payment_frame).click()
