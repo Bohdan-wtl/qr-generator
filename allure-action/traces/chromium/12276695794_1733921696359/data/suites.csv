@@ -1,3 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","50285","test_dpf_sign_up_website_qr_type[Default-menu_link_qr_create-en]","tests.tests_dpf_flow.dpf_link_dpf_flow","Wed Dec 11 12:52:16 GMT 2024","broken","Wed Dec 11 12:53:07 GMT 2024","TestDPFSignUpFlow","test_dpf_sign_up_eps_download_from_welcome_modal","",""
-"","46572","test_dpf_sign_up_website_qr_type[Default-website_qr_create-en]","tests.tests_dpf_flow.dpf_link_dpf_flow","Wed Dec 11 12:52:16 GMT 2024","broken","Wed Dec 11 12:53:03 GMT 2024","TestDPFSignUpFlow","test_dpf_sign_up_eps_download_from_welcome_modal","",""
