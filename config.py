@@ -6,13 +6,15 @@ def get_env(var):
     load_dotenv()
     return os.getenv(var)
 
-languages = [#'en'
-             #    "ar",
-             #    "bg",
-                 "cs", "da", "de",
-             #      "bg", "cs", "da", "de", "el", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
-             #      "it", "ja", "ko", "ms", "nl", "no", "pl", "pt", "pt-br", "ro", "sk", "sl", "sr", "sv",
-             #      "th", "tr", "uk", "zh-cn", "zh-hk"
+
+languages = [
+             "en",
+             "ar",
+             "bg",
+             "cs", "da", "de",
+             "bg", "cs", "da", "de", "el", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
+             "it", "ja", "ko", "ms", "nl", "no", "pl", "pt", "pt-br", "ro", "sk", "sl", "sr", "sv",
+             "th", "tr", "uk", "zh-cn", "zh-hk"
              ]
 
 qr_create_methods = [
@@ -24,10 +26,10 @@ qr_create_methods = [
 ]
 
 resolution_qr_code_images = [
-    "Default"#, "512x512", "1024x1024", "2048x2048", "4096x4096"
+    "Default"  # , "512x512", "1024x1024", "2048x2048", "4096x4096"
 ]
 resolution_qr_code_pdf = [
-    "Default"#, "A4", "A3", "A2", "A1", "A0"
+    "Default"  # , "A4", "A3", "A2", "A1", "A0"
 ]
 eps_download_format = "EPS"
 jpeg_download_format = "JPEG"
