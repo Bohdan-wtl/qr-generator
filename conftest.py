@@ -32,15 +32,15 @@ def browser(request):
 
 @pytest.fixture(scope="function")
 def context(request, browser):
-    trace_path = f"artifacts/traces/{request.node.name}.zip"
+   # trace_path = f"artifacts/traces/{request.node.name}.zip"
     context = browser.new_context(viewport={"width": 1440, "height": 1080}, record_video_dir="artifacts/videos/")
-    context.tracing.start(name=f"{request.node.name}.zip", screenshots=True, snapshots=True)
+    #context.tracing.start(name=f"{request.node.name}.zip", screenshots=True, snapshots=True)
     yield context
-    context.tracing.stop(path=trace_path)
+    #context.tracing.stop(path=trace_path)
     context.close()
-    if not request.node.rep_call.failed:
-        if os.path.exists(trace_path):
-            os.remove(trace_path)
+    # if not request.node.rep_call.failed:
+    #     if os.path.exists(trace_path):
+    #         os.remove(trace_path)
 
 
 @pytest.fixture(scope="function")
@@ -70,7 +70,7 @@ def artifacts(request):
                            attachment_type=allure.attachment_type.PNG)
         allure.attach.file(f"artifacts/videos/{request.node.name}.webm", name="video",
                            attachment_type=allure.attachment_type.WEBM)
-        allure.attach.file(f"artifacts/traces/{request.node.name}.zip", name="trace", extension="zip")
+        #allure.attach.file(f"artifacts/traces/{request.node.name}.zip", name="trace", extension="zip")
 
 
 @pytest.fixture(scope='function')
