@@ -143,13 +143,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          if [ "${{ github.event.inputs.browser }}" = "chrome" ]; then
-            REPORT_URL="https://increast-team.github.io/QR-Code-QA/allure-action/main/chromium/"
-          elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
-            REPORT_URL="https://increast-team.github.io/QR-Code-QA/allure-action/main/firefox/"
-          elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
-            REPORT_URL="https://increast-team.github.io/QR-Code-QA/allure-action/main/webkit/"
-          fi
+          REPORT_URL="https://increast-team.github.io/QR-Code-QA/allure-action/main/${{ github.event.inputs.browser }}/"
           
           curl -X POST -H 'Content-type: application/json' --data '{
           "text": "Tests are finished",
