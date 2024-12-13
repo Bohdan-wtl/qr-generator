@@ -1,23 +1,18 @@
-from base.base_page import BasePage
-
-
 class PaymentPageLocators:
 
     def __init__(self, page):
-        self.page = page
-        self.base = BasePage(page)
-        self.iframe_payment = self.base.locator("//div[@id='payment-element']/div/iframe")
+        self.iframe_payment = page.locator("//div[@id='payment-element']/div/iframe")
         self.frame_payment = self.iframe_payment.content_frame
         self.card_number = self.frame_payment.locator("//input[@id='Field-numberInput']")
         self.expiry_date_input = self.frame_payment.locator("//input[@id='Field-expiryInput']")
         self.cvc_code_input = self.frame_payment.locator("//input[@id='Field-cvcInput']")
         self.payment_country_dropdown = self.frame_payment.locator("//select[@id='Field-countryInput']")
         self.payment_zip_input = self.frame_payment.locator("//input[@id='Field-postalCodeInput']")
-        self.exit_from_payment_frame = self.base.locator("body")
-        self.submit_payment_button = self.base.locator("//button[@id='submit']")
+        self.exit_from_payment_frame = page.locator("body")
+        self.submit_payment_button = page.locator("//button[@id='submit']")
 
         # Billing info
-        self.iframe_billing = self.base.locator("//div[@id='address-element']/div/iframe")
+        self.iframe_billing = page.locator("//div[@id='address-element']/div/iframe")
         self.frame_billing = self.iframe_billing.content_frame
         self.billing_full_name_input = self.frame_billing.locator("//input[@id='Field-nameInput']")
         self.billing_country_input = self.frame_billing.locator("//input[@id='Field-countryInput']")
@@ -26,4 +21,4 @@ class PaymentPageLocators:
         self.billing_oblast_input = self.frame_billing.locator("//select[@id='Field-administrativeAreaInput']")
         self.billing_postal_code_input = self.frame_billing.locator("//input[@id='Field-postalCodeInput']")
 
-        self.billing_info_continue_button = self.base.locator("//button[@id='infoSubmit']")
+        self.billing_info_continue_button = page.locator("//button[@id='infoSubmit']")

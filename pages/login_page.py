@@ -10,7 +10,7 @@ class LogInPage(BasePage):
 
     @allure.step("Log in")
     def log_in(self, temporary_mail, signup_password):
-        self.locator.email_log_in.fill(temporary_mail)
-        self.locator.log_in_confirm_button.click()
-        self.locator.password_log_in.fill(signup_password)
-        self.locator.log_in_confirm_button.click()
+        self.checked_locator(locator=self.locator.email_log_in).fill(temporary_mail)
+        self.checked_locator(locator=self.locator.log_in_confirm_button).click()
+        self.checked_locator(locator=self.locator.password_log_in).fill(signup_password)
+        self.checked_locator(locator=self.locator.log_in_confirm_button).click()

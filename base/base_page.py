@@ -8,12 +8,9 @@ class BasePage:
     def open_page(self, url):
         self.page.goto(url)
 
-    def locator(self, selector: str, visible=True, enabled=True):
-        locator = self.page.locator(selector)
-        if visible:
-            self.expect(locator).to_be_visible()
-        if enabled:
-            self.expect(locator).to_be_enabled()
+    def checked_locator(self, locator):
+        self.expect(locator).to_be_visible()
+        self.expect(locator).to_be_enabled()
         return locator
 
     def is_visible(self, locator):
