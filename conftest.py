@@ -32,7 +32,7 @@ def browser(request):
 
 @pytest.fixture(scope="function")
 def context(request, browser):
-   # trace_path = f"artifacts/traces/{request.node.name}.zip"
+    # trace_path = f"artifacts/traces/{request.node.name}.zip"
     context = browser.new_context(viewport={"width": 1440, "height": 1080}, record_video_dir="artifacts/videos/")
     #context.tracing.start(name=f"{request.node.name}.zip", screenshots=True, snapshots=True)
     yield context

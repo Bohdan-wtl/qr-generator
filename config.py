@@ -9,12 +9,12 @@ def get_env(var):
 
 languages = [
              "en",
-             "ar",
-             "bg",
-             "cs", "da", "de",
-             "bg", "cs", "da", "de", "el", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
-             "it", "ja", "ko", "ms", "nl", "no", "pl", "pt", "pt-br", "ro", "sk", "sl", "sr", "sv",
-             "th", "tr", "uk", "zh-cn", "zh-hk"
+             # "ar",
+             # "bg",
+             # "cs", "da", "de",
+             # "bg", "cs", "da", "de", "el", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
+             # "it", "ja", "ko", "ms", "nl", "no", "pl", "pt", "pt-br", "ro", "sk", "sl", "sr", "sv",
+             # "th", "tr", "uk", "zh-cn", "zh-hk"
              ]
 
 qr_create_methods = [
