@@ -139,21 +139,21 @@ jobs:
           folder: gh-pages/${{ github.event.inputs.browser }}
           clean: true
 
-      - name: Send notification to Slack
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        run: |
-          REPORT_URL="https://increast-team.github.io/QR-Code-QA/allure-action/main/${{ github.event.inputs.browser }}/"
-          
-          curl -X POST -H 'Content-type: application/json' --data '{
-          "text": "Tests are finished",
-          "blocks": [
-            {
-              "type": "section",
-              "text": {
-                "type": "mrkdwn",
-                "text": ":white_check_mark: @here Tests are finished for *'"${{ github.event.inputs.browser }}"'*. <'"${REPORT_URL}"'|Open link>"
-              }
-            }
-          ]
-          }' $SLACK_WEBHOOK_URL
+#      - name: Send notification to Slack
+#        env:
+#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#        run: |
+#          REPORT_URL="https://increast-team.github.io/QR-Code-QA/allure-action/main/${{ github.event.inputs.browser }}/"
+#
+#          curl -X POST -H 'Content-type: application/json' --data '{
+#          "text": "Tests are finished",
+#          "blocks": [
+#            {
+#              "type": "section",
+#              "text": {
+#                "type": "mrkdwn",
+#                "text": ":white_check_mark: @here Tests are finished for *'"${{ github.event.inputs.browser }}"'*. <'"${REPORT_URL}"'|Open link>"
+#              }
+#            }
+#          ]
+#          }' $SLACK_WEBHOOK_URL
