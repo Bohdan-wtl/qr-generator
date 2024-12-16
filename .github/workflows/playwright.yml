@@ -100,7 +100,8 @@ jobs:
         with:
           ref: gh-pages
           path: ./gh-pages/${{ github.event.inputs.browser }}
-          clean: 'true'
+          clean: true
+          lfs: true
 
       - name: Download Allure Results
         uses: actions/download-artifact@v4
