@@ -95,6 +95,7 @@ def sign_up_fixture(request, fake_email, language):
 def navigate_to_dpf_page(request, language):
     base_url = f"{ENV_URL}{language}/create?step=1&qr_onboarding=active_dpf"
     request.instance.main_page.open_page(base_url)
+    print("Expected gen url = " + base_url)
 
 
 @pytest.fixture(scope='function')
