@@ -6,13 +6,12 @@ def get_env(var):
     return os.getenv(var)
 
 languages = [
-    # "ar",
-    # "bg",
-    # "cs", "da", "de",
-    "en",
-#      "bg", "cs", "da", "de", "el", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
-#      "it", "ja", "ko", "ms", "nl", "no", "pl", "pt", "pt-br", "ro", "sk", "sl", "sr", "sv",
-#      "th", "tr", "uk", "zh-cn", "zh-hk"
+    #"en", # BUG related to DPF link
+    #"ar", "bg",
+    "cs", "da", "de", # Focus grope
+    # "bg", "cs", "da", "de", "el", "es", "fi", "fr", "he", "hi", "hr", "hu", "id",
+    # "it", "ja", "ko", "ms", "nl", "no", "pl", "pt", "pt-br", "ro", "sk", "sl", "sr", "sv",
+    # "th", "tr", "uk", "zh-cn", "zh-hk"
 ]
 
 qr_create_methods = [
@@ -25,10 +24,10 @@ qr_create_methods = [
 
 
 resolution_qr_code_images = [
-    "Default"#, "512x512", "1024x1024", "2048x2048", "4096x4096"
+    "Default", "512x512", "1024x1024", "2048x2048", "4096x4096"
 ]
 resolution_qr_code_pdf = [
-    "Default"#, "A4", "A3", "A2", "A1", "A0"
+    "Default", "A4", "A3", "A2", "A1", "A0"
 ]
 eps_download_format = "EPS"
 jpeg_download_format = "JPEG"
@@ -38,29 +37,29 @@ svg_download_format = "SVG"
 
 download_params_default_modal = [
     {"file_format": "EPS", "resolution": "Default"},
-    # {"file_format": "EPS", "resolution": "512x512"},
-    # {"file_format": "EPS", "resolution": "1024x1024"},
-    # {"file_format": "EPS", "resolution": "2048x2048"},
-    # {"file_format": "EPS", "resolution": "4096x4096"},
-    # {"file_format": "PDF", "resolution": "Default"},
-    # {"file_format": "PDF", "resolution": "A4"},
-    # {"file_format": "PDF", "resolution": "A3"},
-    # {"file_format": "PDF", "resolution": "A2"},
-    # {"file_format": "PDF", "resolution": "A1"},
-    # {"file_format": "PDF", "resolution": "A0"},
-    # {"file_format": "JPEG", "resolution": "Default"},
-    # {"file_format": "JPEG", "resolution": "512x512"},
-    # {"file_format": "JPEG", "resolution": "1024x1024"},
-    # {"file_format": "JPEG", "resolution": "2048x2048"},
-    # {"file_format": "JPEG", "resolution": "4096x4096"},
-    # {"file_format": "PNG", "resolution": "Default"},
-    # {"file_format": "PNG", "resolution": "512x512"},
-    # {"file_format": "PNG", "resolution": "1024x1024"},
-    # {"file_format": "PNG", "resolution": "2048x2048"},
-    # {"file_format": "PNG", "resolution": "4096x4096"},
-    # {"file_format": "SVG", "resolution": "Default"},
-    # {"file_format": "SVG", "resolution": "512x512"},
-    # {"file_format": "SVG", "resolution": "1024x1024"},
-    # {"file_format": "SVG", "resolution": "2048x2048"},
-    # {"file_format": "SVG", "resolution": "4096x4096"}
+    {"file_format": "EPS", "resolution": "512x512"},
+    {"file_format": "EPS", "resolution": "1024x1024"},
+    {"file_format": "EPS", "resolution": "2048x2048"},
+    {"file_format": "EPS", "resolution": "4096x4096"},
+    {"file_format": "PDF", "resolution": "Default"},
+    {"file_format": "PDF", "resolution": "A4"},
+    {"file_format": "PDF", "resolution": "A3"},
+    {"file_format": "PDF", "resolution": "A2"},
+    {"file_format": "PDF", "resolution": "A1"},
+    {"file_format": "PDF", "resolution": "A0"},
+    {"file_format": "JPEG", "resolution": "Default"},
+    {"file_format": "JPEG", "resolution": "512x512"},
+    {"file_format": "JPEG", "resolution": "1024x1024"},
+    {"file_format": "JPEG", "resolution": "2048x2048"},
+    {"file_format": "JPEG", "resolution": "4096x4096"},
+    {"file_format": "PNG", "resolution": "Default"},
+    {"file_format": "PNG", "resolution": "512x512"},
+    {"file_format": "PNG", "resolution": "1024x1024"},
+    {"file_format": "PNG", "resolution": "2048x2048"},
+    {"file_format": "PNG", "resolution": "4096x4096"},
+    {"file_format": "SVG", "resolution": "Default"},
+    {"file_format": "SVG", "resolution": "512x512"},
+    {"file_format": "SVG", "resolution": "1024x1024"},
+    {"file_format": "SVG", "resolution": "2048x2048"},
+    {"file_format": "SVG", "resolution": "4096x4096"}
 ]
