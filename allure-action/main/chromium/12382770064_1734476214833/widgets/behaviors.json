@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"b03b077800dd9253af10b3d3a27217b0","name":"Default sign up flow - chromium - chromium","statistic":{"failed":0,"broken":1,"skipped":0,"passed":2,"unknown":0,"total":3}},{"uid":"1aee1df83beec6d5b78a293afad9af37","name":"Frame comparatives - chromium","statistic":{"failed":0,"broken":0,"skipped":48,"passed":0,"unknown":0,"total":48}}]}
