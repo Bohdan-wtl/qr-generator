@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      max-parallel: 5
+      max-parallel: 4
       matrix:
         test_file: ${{ fromJson(needs.list_tests.outputs.test_files) }}
     permissions:
@@ -91,7 +91,7 @@ jobs:
     needs: build_and_test
     if: ${{ always() }}
     env:
-        BROWSER: ${{ github.event.inputs.browser }}
+      BROWSER: ${{ github.event.inputs.browser }}
     steps:
       - uses: actions/checkout@v4
 
@@ -100,7 +100,8 @@ jobs:
         with:
           ref: gh-pages
           path: ./gh-pages/${{ github.event.inputs.browser }}
-          clean: 'true'
+          clean: true
+          lfs: true
 
       - name: Download Allure Results
         uses: actions/download-artifact@v4
@@ -139,27 +140,21 @@ jobs:
           folder: gh-pages/${{ github.event.inputs.browser }}
           clean: true
 
-      # - name: Send notification to Slack
-          #   env:
-          #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          #   run: |
-          #       if [ "${{ github.event.inputs.browser }}" = "chrome" ]; then
-          #         REPORT_URL="https://chrome-pi.vercel.app"
-          #       elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
-          #         REPORT_URL="https://firefox-kohl.vercel.app"
-          #       elif [ "${{ github.event.inputs.browser }}" = "webkit" ]; then
-          #         REPORT_URL="https://webkit-two.vercel.app"
-          #       fi
-
-      #       curl -X POST -H 'Content-type: application/json' --data '{
-      #       "text": "Tests are finished",
-      #       "blocks": [
-      #         {
-      #           "type": "section",
-      #           "text": {
-      #             "type": "mrkdwn",
-      #             "text": ":white_check_mark: @here Tests are finished for *'"${{ github.event.inputs.browser }}"'*. <'"${REPORT_URL}"'|Open link>"
-      #           }
-      #         }
-      #       ]
-      #       }' $SLACK_WEBHOOK_URL
+#      - name: Send notification to Slack
+#        env:
+#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+#        run: |
+#          REPORT_URL="https://increast-team.github.io/QR-Code-QA/allure-action/main/${{ github.event.inputs.browser }}/"
+#
+#          curl -X POST -H 'Content-type: application/json' --data '{
+#          "text": "Tests are finished",
+#          "blocks": [
+#            {
+#              "type": "section",
+#              "text": {
+#                "type": "mrkdwn",
+#                "text": ":white_check_mark: @here Tests are finished for *'"${{ github.event.inputs.browser }}"'*. <'"${REPORT_URL}"'|Open link>"
+#              }
+#            }
+#          ]
+#          }' $SLACK_WEBHOOK_URL

@@ -11,10 +11,10 @@ class AccountPage(BasePage):
 
     @allure.step("Logout from active session")
     def log_out_from_active_session(self):
-        self.locator.log_out_button.click()
+        self.checked_locator(locator=self.locator.log_out_button).click()
 
     @allure.step("Update password")
     def password_update(self, signup_password):
-        self.locator.password_update_input.fill(signup_password)
-        self.locator.password_update_confirm_input.fill(signup_password)
-        self.locator.password_update_submit_button.click()
+        self.checked_locator(locator=self.locator.password_update_input).fill(signup_password)
+        self.checked_locator(locator=self.locator.password_update_confirm_input).fill(signup_password)
+        self.checked_locator(locator=self.locator.password_update_submit_button).click()
