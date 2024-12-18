@@ -1,1 +1,0 @@
-{"total":2,"items":[{"uid":"d1f13738c6cfa074296eb967fceaa0fe","name":"tests.tests_download_from_default_button","statistic":{"failed":0,"broken":1,"skipped":0,"passed":2,"unknown":0,"total":3}},{"uid":"69aebe4da4c8cd6320f94fb65846f9a9","name":"tests.tests_frame_comperatives","statistic":{"failed":0,"broken":0,"skipped":48,"passed":0,"unknown":0,"total":48}}]}
