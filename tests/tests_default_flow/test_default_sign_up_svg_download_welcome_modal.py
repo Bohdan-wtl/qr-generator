@@ -9,7 +9,7 @@ from config import languages, qr_create_methods, svg_download_format, resolution
 
 @pytest.mark.parametrize("language", languages)
 @allure.feature(f"Default sign up flow - {os.getenv('BROWSER')} - {os.getenv('BROWSER')}")
-class TestDefaultSignUpFlow(BaseTest):
+class TestDefaultSignUpFlowSvg(BaseTest):
 
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)

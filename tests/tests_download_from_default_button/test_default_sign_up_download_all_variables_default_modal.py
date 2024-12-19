@@ -8,7 +8,7 @@ from config import languages, download_params_default_modal
 
 @pytest.mark.parametrize("language", languages)
 @allure.feature(f"Default sign up flow - {os.getenv('BROWSER')} - {os.getenv('BROWSER')}")
-class TestDefaultSignUpFlow(BaseTest):
+class TestDefaultSignUpFlowAll(BaseTest):
 
     @allure.title(f"QR type - {os.getenv('BROWSER')}")
     @pytest.mark.parametrize("qr_create_method", ["website_qr_create"])

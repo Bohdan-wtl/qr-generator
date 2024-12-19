@@ -10,7 +10,7 @@ import conftest
 
 @pytest.mark.parametrize("language", languages)
 @allure.feature(f"CFF sign up flow - {os.getenv('BROWSER')}")
-class TestCFFSignUpFlow(BaseTest):
+class TestCFFSignUpFlowEps(BaseTest):
 
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)

@@ -11,7 +11,7 @@ from config import languages, qr_create_methods, resolution_qr_code_images, svg_
 
 @pytest.mark.parametrize("language", languages)
 @allure.feature(f"DPF sign up flow - {os.getenv('BROWSER')}")
-class TestDPFSignUpFlow(BaseTest):
+class TestDPFSignUpFlowSvg(BaseTest):
 
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)

@@ -9,7 +9,7 @@ from config import languages, qr_create_methods, resolution_qr_code_images, png_
 
 @pytest.mark.parametrize("language", languages)
 @allure.feature(f"NSF sign up flow - {os.getenv('BROWSER')}")
-class TestNSFSignUpFlow(BaseTest):
+class TestNSFSignUpFlowPng(BaseTest):
 
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
