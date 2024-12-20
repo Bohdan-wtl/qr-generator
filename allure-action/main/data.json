@@ -2,6 +2,7 @@
   "links": [
     "..",
     "chromium",
-    "firefox"
+    "firefox",
+    "webkit"
   ]
 }
