@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"da3a96c69746a229f398a7ea4e48dbd3","name":"NSF sign up flow - chromium","statistic":{"failed":275,"broken":1,"skipped":0,"passed":84,"unknown":0,"total":360}},{"uid":"8b4c4efbacb9fec631f59611288566ea","name":"Admin link generation - chromium","statistic":{"failed":13,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":16}}]}
