@@ -1,1 +1,0 @@
-{"total":2,"items":[{"uid":"6b4490fffbab0fdfd80c4d6073a6863d","name":"tests.tests_nsf_flow","statistic":{"failed":6,"broken":1,"skipped":0,"passed":83,"unknown":0,"total":90}},{"uid":"e4cda48e1748b4b7209eb75b313834a8","name":"tests.tests_generation_unic_admin_links","statistic":{"failed":2,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":4}}]}
