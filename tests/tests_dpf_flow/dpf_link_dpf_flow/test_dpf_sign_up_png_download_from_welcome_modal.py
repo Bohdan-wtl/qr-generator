@@ -31,7 +31,9 @@ class TestDPFSignUpFlowPng(BaseTest):
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
-        self.qr_creation_page.locator.dpf_form_submit_button.click()
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_submit_button
+        ).click()
         self.qr_creation_page.select_dpf_plan()
         self.payment_page.make_payment()
         self.payment_page.select_country_and_zip_in_payment_frame()
@@ -48,7 +50,9 @@ class TestDPFSignUpFlowPng(BaseTest):
 
     @allure.story("Website QR Creation with PNG Download")
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.description("Create website QR code, complete DPF signup, and download PNG format")
+    @allure.description(
+        "Create website QR code, complete DPF signup, and download PNG format"
+    )
     @pytest.mark.parametrize(
         "qr_create_method", ["website_qr_create", "menu_link_qr_create"]
     )
@@ -67,7 +71,9 @@ class TestDPFSignUpFlowPng(BaseTest):
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
-        self.qr_creation_page.locator.dpf_form_submit_button.click()
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_submit_button
+        ).click()
         self.qr_creation_page.select_dpf_plan()
         self.payment_page.make_payment()
         self.payment_page.select_country_and_zip_in_payment_frame()

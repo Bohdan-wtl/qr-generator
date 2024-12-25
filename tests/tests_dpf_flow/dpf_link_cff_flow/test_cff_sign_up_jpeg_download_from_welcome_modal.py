@@ -12,8 +12,12 @@ from config import jpeg_download_format, qr_create_methods, resolution_qr_code_i
 @allure.story("QR Code Creation and Download")
 class TestCFFSignUpFlowJpeg(BaseTest):
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.title("Create and download QR code with {qr_create_method} method and {resolution} resolution")
-    @allure.description("Test creating QR code using different methods, completing signup flow, and downloading in JPEG format")
+    @allure.title(
+        "Create and download QR code with {qr_create_method} method and {resolution} resolution"
+    )
+    @allure.description(
+        "Test creating QR code using different methods, completing signup flow, and downloading in JPEG format"
+    )
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
     def test_cff_sign_up_qr_type(
@@ -32,7 +36,9 @@ class TestCFFSignUpFlowJpeg(BaseTest):
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
-        self.qr_creation_page.locator.dpf_form_submit_button.click()
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_submit_button
+        ).click()
         self.main_page.locator.main_logo_link.click()
         self.my_qr_codes_page.expect(
             self.my_qr_codes_page.locator.sign_up_success_image
@@ -42,8 +48,12 @@ class TestCFFSignUpFlowJpeg(BaseTest):
         )
 
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.title("Create and download website QR code with {qr_create_method} and {resolution} resolution")
-    @allure.description("Test creating website-specific QR codes, completing signup flow, and downloading in JPEG format")
+    @allure.title(
+        "Create and download website QR code with {qr_create_method} and {resolution} resolution"
+    )
+    @allure.description(
+        "Test creating website-specific QR codes, completing signup flow, and downloading in JPEG format"
+    )
     @pytest.mark.parametrize(
         "qr_create_method", ["website_qr_create", "menu_link_qr_create"]
     )
@@ -62,7 +72,9 @@ class TestCFFSignUpFlowJpeg(BaseTest):
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
-        self.qr_creation_page.locator.dpf_form_submit_button.click()
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_submit_button
+        ).click()
         self.main_page.locator.main_logo_link.click()
         self.my_qr_codes_page.expect(
             self.my_qr_codes_page.locator.sign_up_success_image

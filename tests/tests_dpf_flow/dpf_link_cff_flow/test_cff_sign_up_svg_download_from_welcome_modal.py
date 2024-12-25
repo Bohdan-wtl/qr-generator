@@ -22,7 +22,7 @@ class TestCFFSignUpFlowSvg(BaseTest):
         with allure.step(f"Creating QR code using method: {qr_create_method}"):
             qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
             qr_create_method_func()
-        
+
         with allure.step("Completing QR code creation steps"):
             self.qr_creation_page.click_next_button_step2()
             self.qr_creation_page.complete_step_3()
@@ -39,7 +39,9 @@ class TestCFFSignUpFlowSvg(BaseTest):
             self.qr_creation_page.locator.create_button.is_enabled()
             self.qr_creation_page.locator.create_button.click()
             self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
-            self.qr_creation_page.locator.dpf_form_submit_button.click()
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.dpf_form_submit_button
+            ).click()
             self.main_page.locator.main_logo_link.click()
 
         with allure.step(f"Downloading QR code with resolution: {resolution}"):
@@ -74,7 +76,9 @@ class TestCFFSignUpFlowSvg(BaseTest):
             self.qr_creation_page.locator.create_button.is_enabled()
             self.qr_creation_page.locator.create_button.click()
             self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
-            self.qr_creation_page.locator.dpf_form_submit_button.click()
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.dpf_form_submit_button
+            ).click()
 
         with allure.step("Navigating to main page and verifying success"):
             self.main_page.locator.main_logo_link.click()

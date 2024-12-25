@@ -28,8 +28,12 @@ class TestDPFSignUpFlowJpeg(BaseTest):
             "The button has not become disabled, continuing the test"
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
-        self.qr_creation_page.checked_locator(self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email))
-        self.qr_creation_page.locator.dpf_form_submit_button.click()
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_email_input
+        ).fill(fake_email)
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_submit_button
+        ).click()
         self.qr_creation_page.select_dpf_plan()
         self.payment_page.make_payment()
         self.payment_page.select_country_and_zip_in_payment_frame()
@@ -62,7 +66,9 @@ class TestDPFSignUpFlowJpeg(BaseTest):
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
-        self.qr_creation_page.locator.dpf_form_submit_button.click()
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_submit_button
+        ).click()
         self.qr_creation_page.select_dpf_plan()
         self.payment_page.make_payment()
         self.payment_page.select_country_and_zip_in_payment_frame()

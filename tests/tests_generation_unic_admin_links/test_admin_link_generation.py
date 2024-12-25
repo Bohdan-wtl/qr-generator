@@ -11,10 +11,12 @@ refund_alert_text = "The refund was successfully completed."
 @allure.epic("Admin Portal")
 @allure.feature(f"Admin Payment Link Management - {os.getenv('BROWSER')}")
 class TestAdminLinkGeneration(BaseTest):
-    
+
     @allure.story("Payment Link Generation")
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.description("Test creation of unique payment links with different discount options")
+    @allure.description(
+        "Test creation of unique payment links with different discount options"
+    )
     @pytest.mark.smoke
     @pytest.mark.regression
     @pytest.mark.parametrize(
@@ -74,11 +76,15 @@ class TestAdminLinkGeneration(BaseTest):
         self.payment_page.locator.billing_info_continue_button.click()
         self.payment_page.make_payment()
         self.payment_page.click_on_submit_payment_button()
-        self.qr_creation_page.checked_locator(self.qr_creation_page.locator.congrats_download_button)
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.congrats_download_button
+        )
 
     @allure.story("Refund Management")
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.description("Test full refund functionality with subscription handling options")
+    @allure.description(
+        "Test full refund functionality with subscription handling options"
+    )
     @pytest.mark.parametrize(
         "refund_button",
         [
@@ -97,7 +103,9 @@ class TestAdminLinkGeneration(BaseTest):
         self.qr_creation_page.checked_locator(
             self.qr_creation_page.locator.dpf_form_email_input
         ).fill(fake_email)
-        self.qr_creation_page.locator.dpf_form_submit_button.click()
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_submit_button
+        ).click()
         self.qr_creation_page.select_dpf_plan()
         self.payment_page.make_payment()
         self.payment_page.select_country_and_zip_in_payment_frame()
@@ -131,7 +139,9 @@ class TestAdminLinkGeneration(BaseTest):
 
     @allure.story("Refund Management")
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.description("Test partial refund functionality with subscription handling options")
+    @allure.description(
+        "Test partial refund functionality with subscription handling options"
+    )
     @pytest.mark.parametrize(
         "refund_button",
         [
@@ -145,11 +155,14 @@ class TestAdminLinkGeneration(BaseTest):
     ):
         self.qr_creation_page.website_qr_create()
         self.qr_creation_page.checked_locator(
-            self.qr_creation_page.locator.create_button).click()
+            self.qr_creation_page.locator.create_button
+        ).click()
         self.qr_creation_page.checked_locator(
             self.qr_creation_page.locator.dpf_form_email_input
         ).fill(fake_email)
-        self.qr_creation_page.locator.dpf_form_submit_button.click()
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_submit_button
+        ).click()
         self.qr_creation_page.select_dpf_plan()
         self.payment_page.make_payment()
         self.payment_page.select_country_and_zip_in_payment_frame()

@@ -11,9 +11,11 @@ from config import pdf_download_format, qr_create_methods, resolution_qr_code_pd
 @allure.feature(f"NSF Flow - PDF Format - {os.getenv('BROWSER')}")
 @allure.story("QR Code Creation and PDF Download")
 class TestNSFSignUpFlowPdf(BaseTest):
-    
+
     @allure.title("Create QR code with different methods and download PDF")
-    @allure.description("Test QR code creation with various methods and download PDF in different resolutions")
+    @allure.description(
+        "Test QR code creation with various methods and download PDF in different resolutions"
+    )
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_pdf)
@@ -23,22 +25,29 @@ class TestNSFSignUpFlowPdf(BaseTest):
         with allure.step(f"Creating QR code using method: {qr_create_method}"):
             qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
             qr_create_method_func()
-        
+
         with allure.step("Complete QR code creation wizard"):
             self.qr_creation_page.click_next_button_step2()
             self.qr_creation_page.complete_step_3()
-            
+
         with allure.step("Verify and click create button"):
             try:
-                expect(self.qr_creation_page.locator.create_button).to_be_disabled(timeout=5000)
+                expect(self.qr_creation_page.locator.create_button).to_be_disabled(
+                    timeout=5000
+                )
             except AssertionError:
-                allure.attach("Button State", "The button has not become disabled, continuing the test")
+                allure.attach(
+                    "Button State",
+                    "The button has not become disabled, continuing the test",
+                )
             self.qr_creation_page.locator.create_button.is_enabled()
             self.qr_creation_page.locator.create_button.click()
 
         with allure.step(f"Submit form with email: {fake_email}"):
             self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
-            self.qr_creation_page.locator.dpf_form_submit_button.click()
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.dpf_form_submit_button
+            ).click()
 
         with allure.step("Verify successful signup"):
             self.my_qr_codes_page.expect(
@@ -51,7 +60,9 @@ class TestNSFSignUpFlowPdf(BaseTest):
             )
 
     @allure.title("Create Website/Menu QR code and download PDF")
-    @allure.description("Test website and menu link QR code creation and PDF download with different resolutions")
+    @allure.description(
+        "Test website and menu link QR code creation and PDF download with different resolutions"
+    )
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize(
         "qr_create_method", ["website_qr_create", "menu_link_qr_create"]
@@ -66,15 +77,22 @@ class TestNSFSignUpFlowPdf(BaseTest):
 
         with allure.step("Verify and click create button"):
             try:
-                expect(self.qr_creation_page.locator.create_button).to_be_disabled(timeout=5000)
+                expect(self.qr_creation_page.locator.create_button).to_be_disabled(
+                    timeout=5000
+                )
             except AssertionError:
-                allure.attach("Button State", "The button has not become disabled, continuing the test")
+                allure.attach(
+                    "Button State",
+                    "The button has not become disabled, continuing the test",
+                )
             self.qr_creation_page.locator.create_button.is_enabled()
             self.qr_creation_page.locator.create_button.click()
 
         with allure.step(f"Submit form with email: {fake_email}"):
             self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
-            self.qr_creation_page.locator.dpf_form_submit_button.click()
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.dpf_form_submit_button
+            ).click()
 
         with allure.step("Verify successful signup"):
             self.my_qr_codes_page.expect(

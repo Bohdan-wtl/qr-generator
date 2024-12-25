@@ -28,7 +28,9 @@ class TestNSFSignUpFlowPng(BaseTest):
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
-        self.qr_creation_page.locator.dpf_form_submit_button.click()
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_submit_button
+        ).click()
         self.my_qr_codes_page.expect(
             self.my_qr_codes_page.locator.sign_up_success_image
         ).to_be_enabled(timeout=30000)
@@ -54,7 +56,9 @@ class TestNSFSignUpFlowPng(BaseTest):
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
-        self.qr_creation_page.locator.dpf_form_submit_button.click()
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_submit_button
+        ).click()
         self.my_qr_codes_page.expect(
             self.my_qr_codes_page.locator.sign_up_success_image
         ).to_be_enabled(timeout=30000)

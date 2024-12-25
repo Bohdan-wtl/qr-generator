@@ -29,7 +29,7 @@ class MyQrCodesPage(BasePage):
     @allure.step("Download QR code in {file_format} format with {resolution} resolution")
     def download_parametrize_files(self, file_format, resolution):
         download_path = "artifacts/downloaded_qr_path/"
-        self.checked_locator(locator=self.locator(
+        self.checked_locator(locator=self.page.locator(
             f"//div[contains(@class,'dl-modal-option-card')]//h6[text()='{file_format}']"
         )).click()
         self.locator.size_of_qr_file_download_dropdown.click(force=True)
