@@ -28,8 +28,10 @@ class TestDPFSignUpFlowPdf(BaseTest):
             )
         except AssertionError:
             "The button has not become disabled, continuing the test"
-        self.qr_creation_page.locator.create_button.is_enabled()
-        self.qr_creation_page.locator.create_button.click()
+
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.create_button
+        ).click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
         self.qr_creation_page.checked_locator(
             self.qr_creation_page.locator.dpf_form_submit_button
@@ -68,8 +70,10 @@ class TestDPFSignUpFlowPdf(BaseTest):
             )
         except AssertionError:
             "The button has not become disabled, continuing the test"
-        self.qr_creation_page.locator.create_button.is_enabled()
-        self.qr_creation_page.locator.create_button.click()
+
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.create_button
+        ).click()
         self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
         self.qr_creation_page.checked_locator(
             self.qr_creation_page.locator.dpf_form_submit_button

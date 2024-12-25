@@ -40,8 +40,10 @@ class TestNSFSignUpFlowPdf(BaseTest):
                     "Button State",
                     "The button has not become disabled, continuing the test",
                 )
-            self.qr_creation_page.locator.create_button.is_enabled()
-            self.qr_creation_page.locator.create_button.click()
+
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.create_button
+            ).click()
 
         with allure.step(f"Submit form with email: {fake_email}"):
             self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
@@ -85,8 +87,10 @@ class TestNSFSignUpFlowPdf(BaseTest):
                     "Button State",
                     "The button has not become disabled, continuing the test",
                 )
-            self.qr_creation_page.locator.create_button.is_enabled()
-            self.qr_creation_page.locator.create_button.click()
+
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.create_button
+            ).click()
 
         with allure.step(f"Submit form with email: {fake_email}"):
             self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)

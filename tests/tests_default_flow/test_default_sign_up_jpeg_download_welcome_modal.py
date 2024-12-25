@@ -13,19 +13,23 @@ class TestDefaultSignUpFlowJpeg(BaseTest):
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.story("JPEG QR Code Generation")
     @allure.title("Create {qr_create_method} QR Code with JPEG Download ({resolution})")
-    @allure.description("""
+    @allure.description(
+        """
         Full testing cycle for QR code generation with JPEG download:
         - QR code creation using specified method
         - Configuration and customization
         - Generation verification
         - JPEG format export
-    """)
+    """
+    )
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
     def test_default_sign_up_qr_type(
         self, sign_up_fixture, qr_create_method, fake_email, resolution
     ):
-        with allure.step(f"Begin {qr_create_method.replace('_', ' ')} QR code creation workflow"):
+        with allure.step(
+            f"Begin {qr_create_method.replace('_', ' ')} QR code creation workflow"
+        ):
             qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
             qr_create_method_func()
 
@@ -42,8 +46,10 @@ class TestDefaultSignUpFlowJpeg(BaseTest):
                 self.qr_creation_page.checked_locator(
                     self.qr_creation_page.locator.congrats_download_button
                 ).click()("Button State", "The button has not become disabled")
-            self.qr_creation_page.locator.create_button.is_enabled()
-            self.qr_creation_page.locator.create_button.click()
+
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.create_button
+            ).click()
 
         with allure.step(f"Save QR code as JPEG image with {resolution} quality"):
             self.my_qr_codes_page.expect(
@@ -80,8 +86,10 @@ class TestDefaultSignUpFlowJpeg(BaseTest):
                 )
             except AssertionError:
                 allure.attach("Button State", "The button has not become disabled")
-            self.qr_creation_page.locator.create_button.is_enabled()
-            self.qr_creation_page.locator.create_button.click()
+
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.create_button
+            ).click()
 
         with allure.step("Verify successful QR code generation"):
             self.my_qr_codes_page.expect(

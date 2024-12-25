@@ -6,11 +6,14 @@ from playwright.sync_api import expect
 from base.base_test import BaseTest
 from config import qr_create_methods, resolution_qr_code_images, eps_download_format
 
+
 @allure.epic("QR Code Generation")
 @allure.feature(f"Default Sign Up Flow - EPS Format - {os.getenv('BROWSER')}")
 class TestDefaultSignUpFlowEps(BaseTest):
     @allure.story("QR Code Creation with EPS Download")
-    @allure.title("Create and download QR code with {qr_create_method} method at {resolution} resolution")
+    @allure.title(
+        "Create and download QR code with {qr_create_method} method at {resolution} resolution"
+    )
     @allure.severity(allure.severity_level.NORMAL)
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
@@ -31,9 +34,14 @@ class TestDefaultSignUpFlowEps(BaseTest):
                     timeout=5000
                 )
             except AssertionError:
-                allure.attach("Button state", "The button has not become disabled, continuing the test")
-            self.qr_creation_page.locator.create_button.is_enabled()
-            self.qr_creation_page.locator.create_button.click()
+                allure.attach(
+                    "Button state",
+                    "The button has not become disabled, continuing the test",
+                )
+
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.create_button
+            ).click()
 
         with allure.step("Verify successful QR code creation"):
             self.my_qr_codes_page.expect(
@@ -46,7 +54,9 @@ class TestDefaultSignUpFlowEps(BaseTest):
             )
 
     @allure.story("Website QR Code Creation with EPS Download")
-    @allure.title("Create and download website QR code using {qr_create_method} at {resolution} resolution")
+    @allure.title(
+        "Create and download website QR code using {qr_create_method} at {resolution} resolution"
+    )
     @allure.severity(allure.severity_level.NORMAL)
     @pytest.mark.parametrize(
         "qr_create_method", ["website_qr_create", "menu_link_qr_create"]
@@ -65,9 +75,14 @@ class TestDefaultSignUpFlowEps(BaseTest):
                     timeout=5000
                 )
             except AssertionError:
-                allure.attach("Button state", "The button has not become disabled, continuing the test")
-            self.qr_creation_page.locator.create_button.is_enabled()
-            self.qr_creation_page.locator.create_button.click()
+                allure.attach(
+                    "Button state",
+                    "The button has not become disabled, continuing the test",
+                )
+
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.create_button
+            ).click()
 
         with allure.step("Verify successful QR code creation"):
             self.my_qr_codes_page.expect(

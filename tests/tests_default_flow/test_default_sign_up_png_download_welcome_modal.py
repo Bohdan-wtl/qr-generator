@@ -12,7 +12,9 @@ from config import qr_create_methods, resolution_qr_code_images, png_download_fo
 class TestDefaultSignUpFlowPng(BaseTest):
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.title("Create {qr_create_method} QR code with {resolution} PNG download")
-    @allure.description("Test creating QR code with different methods and downloading as PNG")
+    @allure.description(
+        "Test creating QR code with different methods and downloading as PNG"
+    )
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
     def test_default_sign_up_qr_type(
@@ -29,8 +31,10 @@ class TestDefaultSignUpFlowPng(BaseTest):
             )
         except AssertionError:
             "The button has not become disabled, continuing the test"
-        self.qr_creation_page.locator.create_button.is_enabled()
-        self.qr_creation_page.locator.create_button.click()
+
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.create_button
+        ).click()
         self.my_qr_codes_page.expect(
             self.my_qr_codes_page.locator.sign_up_success_image
         ).to_be_enabled(timeout=30000)
@@ -53,8 +57,10 @@ class TestDefaultSignUpFlowPng(BaseTest):
             )
         except AssertionError:
             "The button has not become disabled, continuing the test"
-        self.qr_creation_page.locator.create_button.is_enabled()
-        self.qr_creation_page.locator.create_button.click()
+
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.create_button
+        ).click()
         self.my_qr_codes_page.expect(
             self.my_qr_codes_page.locator.sign_up_success_image
         ).to_be_enabled(timeout=30000)

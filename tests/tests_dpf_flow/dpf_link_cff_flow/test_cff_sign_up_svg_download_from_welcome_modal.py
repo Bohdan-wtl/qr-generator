@@ -36,8 +36,10 @@ class TestCFFSignUpFlowSvg(BaseTest):
                 allure.attach("Button State", "The button has not become disabled")
 
         with allure.step("Submitting form with email"):
-            self.qr_creation_page.locator.create_button.is_enabled()
-            self.qr_creation_page.locator.create_button.click()
+
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.create_button
+            ).click()
             self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
             self.qr_creation_page.checked_locator(
                 self.qr_creation_page.locator.dpf_form_submit_button
@@ -73,8 +75,10 @@ class TestCFFSignUpFlowSvg(BaseTest):
                 )
             except AssertionError:
                 allure.attach("Button State", "The button has not become disabled")
-            self.qr_creation_page.locator.create_button.is_enabled()
-            self.qr_creation_page.locator.create_button.click()
+
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.create_button
+            ).click()
             self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
             self.qr_creation_page.checked_locator(
                 self.qr_creation_page.locator.dpf_form_submit_button

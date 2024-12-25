@@ -43,8 +43,10 @@ class TestCFFSignUpFlowEps(BaseTest):
                 )
 
         with allure.step("Submit form with email"):
-            self.qr_creation_page.locator.create_button.is_enabled()
-            self.qr_creation_page.locator.create_button.click()
+
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.create_button
+            ).click()
             self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
             self.qr_creation_page.checked_locator(
                 self.qr_creation_page.locator.dpf_form_submit_button
@@ -90,8 +92,10 @@ class TestCFFSignUpFlowEps(BaseTest):
                 )
 
         with allure.step("Complete signup process"):
-            self.qr_creation_page.locator.create_button.is_enabled()
-            self.qr_creation_page.locator.create_button.click()
+
+            self.qr_creation_page.checked_locator(
+                self.qr_creation_page.locator.create_button
+            ).click()
             self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
             self.qr_creation_page.checked_locator(
                 self.qr_creation_page.locator.dpf_form_submit_button
