@@ -8,9 +8,13 @@ from config import get_env
 refund_alert_text = "The refund was successfully completed."
 
 
-@allure.feature(f"Admin link generation - {os.getenv('BROWSER')}")
-@pytest.mark.smoke
+@allure.epic("Admin Portal")
+@allure.feature(f"Admin Payment Link Management - {os.getenv('BROWSER')}")
 class TestAdminLinkGeneration(BaseTest):
+    
+    @allure.story("Payment Link Generation")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.description("Test creation of unique payment links with different discount options")
     @pytest.mark.smoke
     @pytest.mark.regression
     @pytest.mark.parametrize(
@@ -22,7 +26,7 @@ class TestAdminLinkGeneration(BaseTest):
             "discount_50_one_time_button",
         ],
     )
-    @allure.title(f"Admin create payment link - {os.getenv('BROWSER')}")
+    @allure.title("Create unique payment link with {discount_button_locator}")
     def test_admin_create_uniq_payment_link(
         self, sign_up_fixture, discount_button_locator, fake_email
     ):
@@ -72,6 +76,9 @@ class TestAdminLinkGeneration(BaseTest):
         self.payment_page.click_on_submit_payment_button()
         self.qr_creation_page.checked_locator(self.qr_creation_page.locator.congrats_download_button)
 
+    @allure.story("Refund Management")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.description("Test full refund functionality with subscription handling options")
     @pytest.mark.parametrize(
         "refund_button",
         [
@@ -79,7 +86,7 @@ class TestAdminLinkGeneration(BaseTest):
             "full_refund_plan_button_keep_subscription",
         ],
     )
-    @allure.title(f"Admin full refund options - {os.getenv('BROWSER')}")
+    @allure.title("Process full refund with {refund_button}")
     def test_admin_full_refund_options(
         self, navigate_to_dpf_page, refund_button, fake_email
     ):
@@ -122,6 +129,9 @@ class TestAdminLinkGeneration(BaseTest):
             self.admin_page.locator.refund_alert_message
         ).to_have_text(refund_alert_text)
 
+    @allure.story("Refund Management")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.description("Test partial refund functionality with subscription handling options")
     @pytest.mark.parametrize(
         "refund_button",
         [
@@ -129,7 +139,7 @@ class TestAdminLinkGeneration(BaseTest):
             "partial_refund_plan_button_keep_subscription",
         ],
     )
-    @allure.title(f"Admin partial refund options - {os.getenv('BROWSER')}")
+    @allure.title("Process partial refund with {refund_button}")
     def test_admin_partial_refund_options(
         self, navigate_to_dpf_page, refund_button, fake_email
     ):

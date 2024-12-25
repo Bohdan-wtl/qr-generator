@@ -9,10 +9,14 @@ from config import pdf_download_format, qr_create_methods, resolution_qr_code_pd
 
 
 @pytest.mark.smoke
-@allure.feature(f"CFF sign up flow - {os.getenv('BROWSER')}")
+@allure.feature(f"CFF Flow - PDF Format - {os.getenv('BROWSER')}")
+@allure.story("PDF Download from Welcome Modal")
 class TestCFFSignUpFlowPdf(BaseTest):
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_pdf)
+    @allure.title("Test CFF sign up with {qr_create_method} and resolution {resolution}")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.description("Verify QR code creation and PDF download functionality with different creation methods and resolutions")
     def test_cff_sign_up_qr_type(
         self, navigate_to_dpf_page, qr_create_method, fake_email, resolution
     ):
@@ -28,9 +32,11 @@ class TestCFFSignUpFlowPdf(BaseTest):
             "The button has not become disabled, continuing the test"
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
-        self.qr_creation_page.checked_locator(self.qr_creation_page.locator.dpf_form_email_input).fill(fake_email)
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_email_input
+        ).fill(fake_email)
         self.qr_creation_page.locator.dpf_form_submit_button.click()
-        self.main_page.locator.main_logo_link.click()
+        self.main_page.checked_locator(self.main_page.locator.main_logo_link).click()
         self.my_qr_codes_page.expect(
             self.my_qr_codes_page.locator.sign_up_success_image
         ).to_be_enabled(timeout=30000)
@@ -42,6 +48,14 @@ class TestCFFSignUpFlowPdf(BaseTest):
         "qr_create_method", ["website_qr_create", "menu_link_qr_create"]
     )
     @pytest.mark.parametrize("resolution", resolution_qr_code_pdf)
+    @allure.title("Test website QR creation with {qr_create_method} and resolution {resolution}")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.description("""
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    """)
     def test_cff_sign_up_website_qr_type(
         self, navigate_to_dpf_page, qr_create_method, fake_email, resolution
     ):
@@ -55,9 +69,11 @@ class TestCFFSignUpFlowPdf(BaseTest):
             "The button has not become disabled, continuing the test"
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
-        self.qr_creation_page.checked_locator(self.qr_creation_page.locator.dpf_form_email_input).fill(fake_email)
+        self.qr_creation_page.checked_locator(
+            self.qr_creation_page.locator.dpf_form_email_input
+        ).fill(fake_email)
         self.qr_creation_page.locator.dpf_form_submit_button.click()
-        self.main_page.locator.main_logo_link.click()
+        self.main_page.checked_locator(self.main_page.locator.main_logo_link).click()
         self.my_qr_codes_page.expect(
             self.my_qr_codes_page.locator.sign_up_success_image
         ).to_be_enabled(timeout=30000)

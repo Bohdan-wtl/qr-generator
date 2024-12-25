@@ -9,10 +9,20 @@ from config import qr_create_methods, resolution_qr_code_images, svg_download_fo
 
 
 @pytest.mark.smoke
-@allure.feature(f"NSF sign up flow - {os.getenv('BROWSER')}")
+@allure.feature(f"NSF Flow - SVG Format - {os.getenv('BROWSER')}")
 class TestNSFSignUpFlowSvg(BaseTest):
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
+    @allure.title("Sign up flow test for {qr_create_method} with {resolution} resolution")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.description("""
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    """)
     def test_nsf_sign_up_qr_type(
         self, navigate_to_nsf_page, qr_create_method, fake_email, resolution
     ):
@@ -41,6 +51,17 @@ class TestNSFSignUpFlowSvg(BaseTest):
         "qr_create_method", ["website_qr_create", "menu_link_qr_create"]
     )
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
+    @allure.title("Website QR code sign up flow for {qr_create_method} with {resolution} resolution")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.story("Website QR Code Generation")
+    @allure.description("""
+        Test verifies the sign-up flow specifically for website QR codes:
+        1. Creates website/menu link QR code
+        2. Verifies create button state
+        3. Submits email form
+        4. Validates successful sign-up
+        5. Downloads QR code with specified resolution
+    """)
     def test_nsf_sign_up_website_qr_type(
         self, navigate_to_nsf_page, qr_create_method, fake_email, resolution
     ):

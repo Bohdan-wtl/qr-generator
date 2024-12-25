@@ -9,7 +9,7 @@ from config import jpeg_download_format, qr_create_methods, resolution_qr_code_i
 
 
 @pytest.mark.smoke
-@allure.feature(f"DPF sign up flow - {os.getenv('BROWSER')}")
+@allure.feature(f"DPF Flow - JPEG Format - {os.getenv('BROWSER')}")
 class TestDPFSignUpFlowJpeg(BaseTest):
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
@@ -28,7 +28,7 @@ class TestDPFSignUpFlowJpeg(BaseTest):
             "The button has not become disabled, continuing the test"
         self.qr_creation_page.locator.create_button.is_enabled()
         self.qr_creation_page.locator.create_button.click()
-        self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email)
+        self.qr_creation_page.checked_locator(self.qr_creation_page.locator.dpf_form_email_input.fill(fake_email))
         self.qr_creation_page.locator.dpf_form_submit_button.click()
         self.qr_creation_page.select_dpf_plan()
         self.payment_page.make_payment()

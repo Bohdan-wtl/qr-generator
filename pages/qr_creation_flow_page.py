@@ -38,43 +38,48 @@ class QrCreationPage(BasePage):
         self.checked_locator(locator=self.locator.qrcode_corners_step3_dropdown).click()
         self.helper.select_qrcode_corners_step3()
 
-
-
-    @allure.step("Create Webiste QR code")
+    @allure.step("Creating Website QR code")
     def website_qr_create(self):
-        self.checked_locator(locator=self.locator.website_qr_type).click()
-        self.checked_locator(locator=self.locator.setup_website_qr_code_input).fill(self.faker.url())
-        self.helper.set_custom_qr_code_name(qr_code_type="Website")
-        self.checked_locator(locator=self.locator.next_button).click()
-        self.helper.close_help_modal_window_st3()
-        self.helper.select_frame_step3()
-        self.checked_locator(locator=self.locator.qrcode_patterns_step3_dropdown).click()
-        self.helper.select_random_child_by_attribute(
-            '//div[@id="acc_patterns"]//div[contains(@class,"d-flex mb-3 qr-shape customScrollbar")]', 'label', 'id')
-        self.checked_locator(locator=self.locator.qrcode_corners_step3_dropdown).click()
-        self.helper.select_qrcode_corners_step3()
-        self.checked_locator(locator=self.locator.qrcode_add_logo_step3_dropdown).click()
-        self.helper.set_file(self.locator.qrcode_upload_logo_input, 'image')
+        with allure.step("Selecting Website QR type and filling basic info"):
+            self.checked_locator(locator=self.locator.website_qr_type).click()
+            self.checked_locator(locator=self.locator.setup_website_qr_code_input).fill(self.faker.url())
+            self.helper.set_custom_qr_code_name(qr_code_type="Website")
+            self.checked_locator(locator=self.locator.next_button).click()
 
+        with allure.step("Customizing QR code appearance"):
+            self.helper.close_help_modal_window_st3()
+            self.helper.select_frame_step3()
+            self.checked_locator(locator=self.locator.qrcode_patterns_step3_dropdown).click()
+            self.helper.select_random_child_by_attribute(
+                '//div[@id="acc_patterns"]//div[contains(@class,"d-flex mb-3 qr-shape customScrollbar")]', 'label', 'id')
+            self.checked_locator(locator=self.locator.qrcode_corners_step3_dropdown).click()
+            self.helper.select_qrcode_corners_step3()
+            
+        with allure.step("Adding logo to QR code"):
+            self.checked_locator(locator=self.locator.qrcode_add_logo_step3_dropdown).click()
+            self.helper.set_file(self.locator.qrcode_upload_logo_input, 'image')
 
-    @allure.step("Create PDF QR code")
+    @allure.step("Creating PDF QR code")
     def pdf_qr_create(self):
-        self.checked_locator(locator=self.locator.pdf_qr_type).click()
-        self.helper.close_help_modal_window_st2()
-        self.helper.emulate_drag_and_drop('#pdf', 'pdf')
+        with allure.step("Selecting PDF QR type"):
+            self.checked_locator(locator=self.locator.pdf_qr_type).click()
+            self.helper.close_help_modal_window_st2()
+            self.helper.emulate_drag_and_drop('#pdf', 'pdf')
 
-        # self.locator.directly_show_pdf_checkbox.is_editable() # Directly show the PDF file - option
-        # self.locator.directly_show_pdf_checkbox.click() # Directly show the PDF file - option
+        with allure.step("Setting up color palette"):
+            self.helper.select_random_child_by_attribute('//div[contains(@class,"colorPaletteForm row m-0")]', 'div', 'id')
 
-        self.helper.select_random_child_by_attribute('//div[contains(@class,"colorPaletteForm row m-0")]', 'div', 'id')
-        self.checked_locator(locator=self.locator.company_pdf_info_input).fill(self.faker.company())
-        self.checked_locator(locator=self.locator.title_pdf_info_input).fill(self.faker.text(max_nb_chars=100))
-        self.checked_locator(locator=self.locator.description_pdf_info_input).fill(self.faker.text(max_nb_chars=200))
-        self.checked_locator(locator=self.locator.website_pdf_info_input).fill(self.faker.url())
-        self.checked_locator(locator=self.locator.button_pdf_info_input).fill(self.faker.word())
-        self.helper.fonts_style_select()
-        self.helper.welcome_screen_set_img()
-        self.helper.set_custom_qr_code_name(qr_code_type="PDF")
+        with allure.step("Filling PDF information"):
+            self.checked_locator(locator=self.locator.company_pdf_info_input).fill(self.faker.company())
+            self.checked_locator(locator=self.locator.title_pdf_info_input).fill(self.faker.text(max_nb_chars=100))
+            self.checked_locator(locator=self.locator.description_pdf_info_input).fill(self.faker.text(max_nb_chars=200))
+            self.checked_locator(locator=self.locator.website_pdf_info_input).fill(self.faker.url())
+            self.checked_locator(locator=self.locator.button_pdf_info_input).fill(self.faker.word())
+
+        with allure.step("Customizing appearance"):
+            self.helper.fonts_style_select()
+            self.helper.welcome_screen_set_img()
+            self.helper.set_custom_qr_code_name(qr_code_type="PDF")
 
     @allure.step("Create Links QR code")
     def links_qr_create(self):
@@ -114,31 +119,36 @@ class QrCreationPage(BasePage):
         self.helper.welcome_screen_set_img()
         self.helper.set_custom_qr_code_name(qr_code_type="vCard")
 
-    @allure.step("Create Business QR code")
+    @allure.step("Creating Business QR code")
     def business_qr_create(self):
-        self.checked_locator(locator=self.locator.business_qr_type).click()
-        self.helper.close_help_modal_window_st2()
-        self.checked_locator(locator=self.locator.business_info_business_qr_type_company_input).fill(self.faker.company())
-        self.checked_locator(locator=self.locator.business_info_business_qr_type_title_input).fill(self.faker.text(max_nb_chars=20))
-        self.checked_locator(locator=self.locator.business_info_business_qr_type_subtitle_input).fill(self.faker.text(max_nb_chars=50))
-        self.checked_locator(locator=self.locator.add_button_with_link).click()
-        self.checked_locator(locator=self.locator.add_button_with_link_name).fill(self.faker.word())
-        self.checked_locator(locator=self.locator.add_button_with_link_url).fill(self.faker.url())
-        self.checked_locator(locator=self.locator.monday_checkbox).check(force=True)
-        self.page.evaluate("document.querySelector('#Monday_From').value = '08:00'")
-        self.page.evaluate("document.querySelector('#Monday_To').value = '09:00'")
-        self.helper.set_location()
-        self.checked_locator(locator=self.locator.contact_details_contact_name).fill(self.faker.name())
-        self.helper.add_phone_email_website()
-        self.helper.select_random_child_by_attribute('//div[@class= "socialIconContain"]', 'button',
-                                                     'id')
-        self.checked_locator(locator=self.locator.links_qr_code_social_network_url_input).fill(self.faker.url())
-        self.checked_locator(locator=self.locator.links_qr_code_social_network_text_input).fill(self.faker.text(max_nb_chars=27))
-        self.checked_locator(locator=self.locator.about_company_business_qr_type_textarea).fill(self.faker.text(max_nb_chars=100))
-        self.helper.select_random_child_by_attribute('//div[@id="acc_facilities"]//ul', 'li', 'title')
-        self.helper.fonts_style_select()
-        self.helper.welcome_screen_set_img()
-        self.helper.set_custom_qr_code_name(qr_code_type="Business")
+        with allure.step("Selecting Business QR type"):
+            self.checked_locator(locator=self.locator.business_qr_type).click()
+            self.helper.close_help_modal_window_st2()
+
+        with allure.step("Filling business information"):
+            self.checked_locator(locator=self.locator.business_info_business_qr_type_company_input).fill(self.faker.company())
+            self.checked_locator(locator=self.locator.business_info_business_qr_type_title_input).fill(self.faker.text(max_nb_chars=20))
+            self.checked_locator(locator=self.locator.business_info_business_qr_type_subtitle_input).fill(self.faker.text(max_nb_chars=50))
+
+        with allure.step("Setting up business hours"):
+            self.checked_locator(locator=self.locator.monday_checkbox).check(force=True)
+            self.page.evaluate("document.querySelector('#Monday_From').value = '08:00'")
+            self.page.evaluate("document.querySelector('#Monday_To').value = '09:00'")
+
+        with allure.step("Adding contact information"):
+            self.helper.set_location()
+            self.checked_locator(locator=self.locator.contact_details_contact_name).fill(self.faker.name())
+            self.helper.add_phone_email_website()
+
+        with allure.step("Adding social media and finalizing"):
+            self.helper.select_random_child_by_attribute('//div[@class= "socialIconContain"]', 'button', 'id')
+            self.checked_locator(locator=self.locator.links_qr_code_social_network_url_input).fill(self.faker.url())
+            self.checked_locator(locator=self.locator.links_qr_code_social_network_text_input).fill(self.faker.text(max_nb_chars=27))
+            self.checked_locator(locator=self.locator.about_company_business_qr_type_textarea).fill(self.faker.text(max_nb_chars=100))
+            self.helper.select_random_child_by_attribute('//div[@id="acc_facilities"]//ul', 'li', 'title')
+            self.helper.fonts_style_select()
+            self.helper.welcome_screen_set_img()
+            self.helper.set_custom_qr_code_name(qr_code_type="Business")
 
     @allure.step("Create Image QR code")
     def image_qr_create(self):

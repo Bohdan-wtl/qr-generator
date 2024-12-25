@@ -8,8 +8,12 @@ from base.base_test import BaseTest
 from config import jpeg_download_format, qr_create_methods, resolution_qr_code_images
 
 
-@allure.feature(f"CFF sign up flow - {os.getenv('BROWSER')}")
+@allure.feature(f"CFF Flow - JPEG Format - {os.getenv('BROWSER')}")
+@allure.story("QR Code Creation and Download")
 class TestCFFSignUpFlowJpeg(BaseTest):
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title("Create and download QR code with {qr_create_method} method and {resolution} resolution")
+    @allure.description("Test creating QR code using different methods, completing signup flow, and downloading in JPEG format")
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
     def test_cff_sign_up_qr_type(
@@ -37,6 +41,9 @@ class TestCFFSignUpFlowJpeg(BaseTest):
             jpeg_download_format, resolution
         )
 
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title("Create and download website QR code with {qr_create_method} and {resolution} resolution")
+    @allure.description("Test creating website-specific QR codes, completing signup flow, and downloading in JPEG format")
     @pytest.mark.parametrize(
         "qr_create_method", ["website_qr_create", "menu_link_qr_create"]
     )

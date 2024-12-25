@@ -9,8 +9,11 @@ class RegisterPage(BasePage):
         self.locator = RegisterPageLocators(page)
 
 
-    @allure.step("Sign up")
+    @allure.step("Register new user with email: {temporary_mail}")
     def sign_up(self, temporary_mail, signup_password):
-        self.checked_locator(locator=self.locator.email_input_field).fill(temporary_mail)
-        self.checked_locator(locator=self.locator.password_input_field).fill(signup_password)
-        self.checked_locator(locator=self.locator.sign_up_confirm_button).click()
+        with allure.step(f"Enter email address: {temporary_mail}"):
+            self.checked_locator(locator=self.locator.email_input_field).fill(temporary_mail)
+        with allure.step("Enter password"):
+            self.checked_locator(locator=self.locator.password_input_field).fill(signup_password)
+        with allure.step("Click sign up button to complete registration"):
+            self.checked_locator(locator=self.locator.sign_up_confirm_button).click()

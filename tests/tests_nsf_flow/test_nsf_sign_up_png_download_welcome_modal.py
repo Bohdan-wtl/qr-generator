@@ -8,7 +8,7 @@ from base.base_test import BaseTest
 from config import png_download_format, qr_create_methods, resolution_qr_code_images
 
 
-@allure.feature(f"NSF sign up flow - {os.getenv('BROWSER')}")
+@allure.feature(f"NSF Flow - PNG Format - {os.getenv('BROWSER')}")
 class TestNSFSignUpFlowPng(BaseTest):
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)

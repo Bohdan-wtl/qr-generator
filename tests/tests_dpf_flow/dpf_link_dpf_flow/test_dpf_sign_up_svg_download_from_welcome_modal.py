@@ -8,8 +8,11 @@ from base.base_test import BaseTest
 from config import qr_create_methods, resolution_qr_code_images, svg_download_format
 
 
-@allure.feature(f"DPF sign up flow - {os.getenv('BROWSER')}")
+@allure.feature(f"DPF Flow - SVG Format - {os.getenv('BROWSER')}")
 class TestDPFSignUpFlowSvg(BaseTest):
+    @allure.story("QR Code Creation with SVG Download")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.description("Create QR code, complete DPF signup, and download SVG format")
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
     def test_dpf_sign_up_qr_type(
@@ -43,6 +46,9 @@ class TestDPFSignUpFlowSvg(BaseTest):
             svg_download_format, resolution
         )
 
+    @allure.story("Website QR Creation with SVG Download")
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.description("Create website QR code, complete DPF signup, and download SVG format")
     @pytest.mark.parametrize(
         "qr_create_method", ["website_qr_create", "menu_link_qr_create"]
     )

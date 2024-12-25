@@ -9,10 +9,12 @@ class MainPage(BasePage):
         super().__init__(page)
         self.locator = MainPageLocators(page)
 
-    @allure.step("Open login page")
+    @allure.step("Navigate to login page from main menu")
     def go_to_log_in_page(self):
-        self.checked_locator(locator=self.locator.log_in_button).click()
+        with allure.step("Click login button in navigation"):
+            self.checked_locator(locator=self.locator.log_in_button).click()
 
-    @allure.step("Open sign up page")
+    @allure.step("Navigate to sign up page from main menu")
     def go_to_sign_up_page(self):
-        self.checked_locator(locator=self.locator.sign_up_button).click()
+        with allure.step("Click sign up button in navigation"):
+            self.checked_locator(locator=self.locator.sign_up_button).click()

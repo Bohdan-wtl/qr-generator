@@ -8,6 +8,7 @@ class MenuPage(BasePage):
         super().__init__(page)
         self.locator = MenuPageLocators(page)
 
-    @allure.step("Go to my account")
+    @allure.step("Navigate to account settings page")
     def go_to_my_account(self):
-        self.checked_locator(locator=self.locator.my_account).click()
+        with allure.step("Click on My Account menu option"):
+            self.checked_locator(locator=self.locator.my_account).click()

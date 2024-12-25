@@ -8,15 +8,19 @@ from config import qr_create_methods, resolution_qr_code_images, png_download_fo
 
 
 @pytest.mark.smoke
-@allure.feature(f"Default sign up flow - {os.getenv('BROWSER')}")
+@allure.feature(f"Default Sign Up Flow - PNG Format - {os.getenv('BROWSER')}")
 class TestDefaultSignUpFlowPng(BaseTest):
+    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.title("Create {qr_create_method} QR code with {resolution} PNG download")
+    @allure.description("Test creating QR code with different methods and downloading as PNG")
     @pytest.mark.parametrize("qr_create_method", qr_create_methods)
     @pytest.mark.parametrize("resolution", resolution_qr_code_images)
     def test_default_sign_up_qr_type(
         self, sign_up_fixture, qr_create_method, fake_email, resolution
     ):
-        qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
-        qr_create_method_func()
+        with allure.step(f"Create QR code using {qr_create_method}"):
+            qr_create_method_func = getattr(self.qr_creation_page, qr_create_method)
+            qr_create_method_func()
         self.qr_creation_page.click_next_button_step2()
         self.qr_creation_page.complete_step_3()
         try:
