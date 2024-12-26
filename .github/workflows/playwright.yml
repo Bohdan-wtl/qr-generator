@@ -15,7 +15,7 @@ on:
         description: 'List of languages (comma-separated)'
         required: true
         type: string
-        default: '', 
+        default: '' 
 
 jobs:
 
