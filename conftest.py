@@ -8,10 +8,10 @@ from playwright.sync_api import sync_playwright
 from pytest import hookimpl
 
 headless = False
+slow_mo = 100
 
-DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
-
-ENV_URL = "https://oqg-staging.test-qr.com/"
+DELETE_USER_URL = os.getenv("DELETE_USER_URL")
+ENV_URL = os.getenv("ENV_URL")
 
 # ENV_URL = "https://qci-staging.test-qr.com/"
 
@@ -21,14 +21,9 @@ ENV_URL = "https://oqg-staging.test-qr.com/"
 def browser(request):
     with sync_playwright() as p:
         browser_type = os.getenv("BROWSER", "chromium")
-        if browser_type == "firefox":
-            browser = getattr(p, browser_type).launch(headless=headless)
-        if browser_type == "webkit":
-            browser = getattr(p, browser_type).launch(headless=headless)
-        if browser_type == "chromium":
-            browser = getattr(p, browser_type).launch(
-                headless=headless, channel="chrome"
-            )
+        browser = getattr(p, browser_type).launch(
+            headless=headless, slow_mo=slow_mo, channel="chrome" if browser_type == "chromium" else None
+        )
         yield browser
         browser.close()
 

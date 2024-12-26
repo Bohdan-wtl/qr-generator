@@ -12,7 +12,6 @@ RUN apt-get update && \
     rm allure-${ALLURE_VERSION}.tgz && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app/workspace
 
 COPY . /app/workspace

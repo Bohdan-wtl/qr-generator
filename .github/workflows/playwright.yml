@@ -15,6 +15,7 @@ on:
         description: 'List of languages (comma-separated)'
         required: true
         type: string
+        default: '', 
 
 jobs:
 
@@ -24,29 +25,14 @@ jobs:
       test_files: ${{ steps.get_tests.outputs.test_files }}
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install jq
-        run: sudo apt-get install -y jq
-
       - name: Get list of test files
         id: get_tests
         run: |
-          set -e
-          TEST_FILES=$(find tests/ -type f -name 'test_*.py')
-          echo "Found test files:"
-          echo "$TEST_FILES"
-          TEST_FILES_JSON=$(printf '%s\n' "$TEST_FILES" | jq -R . | jq -s .)
-          echo "TEST_FILES_JSON:"
-          echo "$TEST_FILES_JSON"
-          echo "test_files<<EOF" >> $GITHUB_OUTPUT
-          echo "$TEST_FILES_JSON" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "test_files=$(find tests/ -type f -name 'test_*.py' | jq -R . | jq -s .)" >> $GITHUB_OUTPUT
 
-  run_smoke_tests:
+  run_tests:
     needs: list_tests
     runs-on: ubuntu-latest
-    outputs:
-      smoke_success: ${{ steps.check_results.outputs.success }}
     strategy:
       fail-fast: false
       max-parallel: 4
@@ -61,7 +47,6 @@ jobs:
       STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
       BROWSER: ${{ github.event.inputs.browser }}
       TEST_PATH: ${{ matrix.test_file }}
-      LANGUAGES: ''
 
     steps:
       - uses: actions/checkout@v4
@@ -85,87 +70,53 @@ jobs:
         run: |
           docker-compose run smoke-tests || echo $? > test_exit_code.txt
         continue-on-error: true
+        env:
+          LANGUAGES: ''
 
-      - name: Sanitize artifact name
-        id: sanitize
+      - name: Sanitize artifact name for smoke tests
+        id: sanitize_smoke
         run: |
           SANITIZED_NAME=$(echo "${{ matrix.test_file }}" | tr '/' '-')
           echo "SANITIZED_NAME=$SANITIZED_NAME" >> $GITHUB_OUTPUT
 
-      - name: Upload Allure Results
+      - name: Upload Allure Results for smoke tests
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results-smoke-${{ steps.sanitize.outputs.SANITIZED_NAME }}
+          name: allure-results-smoke-${{ steps.sanitize_smoke.outputs.SANITIZED_NAME }}
           path: allure-results
 
-      - name: Check test results
+      - name: Check smoke test results
         id: check_results
         if: always()
         run: |
           EXIT_CODE=$(cat test_exit_code.txt || echo "0")
           echo "Exit code from smoke tests: $EXIT_CODE"
           if [ "$EXIT_CODE" = "5" ] || [ "$EXIT_CODE" = "0" ]; then
-            # Exit code 5 (skipped tests) or 0 (success) - continue with regression
             echo "success=true" >> $GITHUB_OUTPUT
           else
-            # Exit code 1 (or any other) - fail and skip regression
             echo "success=false" >> $GITHUB_OUTPUT
-            exit 1
           fi
-
-  run_regression_tests:
-    needs: [list_tests, run_smoke_tests]
-    if: ${{ needs.run_smoke_tests.outputs.smoke_success == 'true' }}
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      max-parallel: 4
-      matrix:
-        test_file: ${{ fromJson(needs.list_tests.outputs.test_files) }}
-    permissions:
-      contents: write
-      pull-requests: write
-    env:
-      STAGE_ADMIN_LINK: ${{ secrets.STAGE_ADMIN_LINK }}
-      STAGE_ADMIN_EMAIL: ${{ secrets.STAGE_ADMIN_EMAIL }}
-      STAGE_ADMIN_PASSWORD: ${{ secrets.STAGE_ADMIN_PASSWORD }}
-      BROWSER: ${{ github.event.inputs.browser }}
-      TEST_PATH: ${{ matrix.test_file }}
-      LANGUAGES: ${{ github.event.inputs.languages }}
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.CI_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
-      - name: Cache Docker Compose
-        uses: actions/cache@v4
-        with:
-          path: /usr/local/bin/docker-compose
-          key: ${{ runner.os }}-docker-compose
-
-      - name: Install Docker Compose
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y docker-compose
 
       - name: Run regression tests
         id: regression_test
+        if: steps.check_results.outputs.success == 'true'
         run: |
           docker-compose run regression-tests
         continue-on-error: true
+        env:
+          LANGUAGES: ${{ github.event.inputs.languages }}
 
-      - name: Sanitize artifact name
-        id: sanitize
+      - name: Sanitize artifact name for regression tests
+        id: sanitize_regression
         run: |
           SANITIZED_NAME=$(echo "${{ matrix.test_file }}" | tr '/' '-')
           echo "SANITIZED_NAME=$SANITIZED_NAME" >> $GITHUB_OUTPUT
 
-      - name: Upload Allure Results
+      - name: Upload Allure Results for regression tests
         uses: actions/upload-artifact@v4
+        if: steps.check_results.outputs.success == 'true'
         with:
-          name: allure-results-regression-${{ steps.sanitize.outputs.SANITIZED_NAME }}
+          name: allure-results-regression-${{ steps.sanitize_regression.outputs.SANITIZED_NAME }}
           path: allure-results
 
   generate_reports:
@@ -173,13 +124,8 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    needs: [run_smoke_tests, run_regression_tests]
-    if: |
-      always() && 
-      (needs.run_smoke_tests.result != 'skipped') &&
-      (needs.run_regression_tests.result == 'success' || 
-       needs.run_regression_tests.result == 'skipped' ||
-       needs.run_regression_tests.result == 'failure')
+    needs: run_tests
+    if: always()
     env:
       BROWSER: ${{ github.event.inputs.browser }}
     steps:
@@ -215,6 +161,7 @@ jobs:
           list_dirs: ${{ github.ref == 'refs/heads/main' }}
           branch_cleanup_enabled: ${{ github.ref == 'refs/heads/main' }}
           report_dir: merged-results
+          max_reports: 3
 
       - name: Debug Artifact Download
         run: |
@@ -231,21 +178,31 @@ jobs:
           folder: gh-pages/${{ github.event.inputs.browser }}
           clean: true
 
-#      - name: Send notification to Slack
-#        env:
-#          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-#        run: |
-#          REPORT_URL="https://increast-team.github.io/QR-Code-QA/allure-action/main/${{ github.event.inputs.browser }}/"
-#
-#          curl -X POST -H 'Content-type: application/json' --data '{
-#          "text": "Tests are finished",
-#          "blocks": [
-#            {
-#              "type": "section",
-#              "text": {
-#                "type": "mrkdwn",
-#                "text": ":white_check_mark: @here Tests are finished for *'"${{ github.event.inputs.browser }}"'*. <'"${REPORT_URL}"'|Open link>"
-#              }
-#            }
-#          ]
-#          }' $SLACK_WEBHOOK_URL
+      - name: Send notification to Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          REPORT_URL="https://increast-team.github.io/QR-Code-QA/allure-action/main/${{ github.event.inputs.browser }}/"
+          SUMMARY_FILE=$(find gh-pages/${{ github.event.inputs.browser }}/allure-action/main/${{ github.event.inputs.browser }} -name summary.json | head -n 1)
+          if [ -z "$SUMMARY_FILE" ]; then
+            echo "summary.json file not found"
+            TOTAL_TESTS="N/A"
+            PASSED_TESTS="N/A"
+            FAILED_TESTS="N/A"
+          else
+            TOTAL_TESTS=$(jq '.statistic.total' "$SUMMARY_FILE")
+            PASSED_TESTS=$(jq '.statistic.passed' "$SUMMARY_FILE")
+            FAILED_TESTS=$(jq '.statistic.failed' "$SUMMARY_FILE")
+          fi
+          curl -X POST -H 'Content-type: application/json' --data '{
+          "text": "Tests are finished",
+          "blocks": [
+            {
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": ":clipboard: Test Results for ${{ github.event.inputs.browser }}\n*Total:* '"${TOTAL_TESTS}"'\n*Passed:* '"${PASSED_TESTS}"'\n*Failed:* '"${FAILED_TESTS}"'\n<'"${REPORT_URL}"'|:bar_chart: Open Allure Report>"
+              }
+            }
+          ]
+          }' $SLACK_WEBHOOK_URL

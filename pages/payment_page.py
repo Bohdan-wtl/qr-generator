@@ -1,3 +1,4 @@
+from turtle import delay
 import allure
 
 from base.base_page import BasePage

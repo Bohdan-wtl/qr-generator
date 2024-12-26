@@ -14,7 +14,8 @@ class TestAdminLinkGeneration(BaseTest):
 
     @allure.story("Payment Link Generation")
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.description("""
+    @allure.description(
+        """
     Test creation of unique payment links with different discount options.
     Steps:
     1. Create a QR code
@@ -23,7 +24,8 @@ class TestAdminLinkGeneration(BaseTest):
     4. Open generated link and select a plan
     5. Fill billing information and make payment
     6. Verify successful payment
-    """)
+    """
+    )
     @pytest.mark.smoke
     @pytest.mark.regression
     @pytest.mark.parametrize(
@@ -51,9 +53,9 @@ class TestAdminLinkGeneration(BaseTest):
             self.menu_page.locator.my_account.click()
             self.my_account_page.locator.log_out_button.click()
             self.my_account_page.open_page(get_env("STAGE_ADMIN_LINK"))
-            self.admin_page.checked_locator(self.admin_page.locator.admin_email_input).fill(
-                get_env("STAGE_ADMIN_EMAIL")
-            )
+            self.admin_page.checked_locator(
+                self.admin_page.locator.admin_email_input
+            ).fill(get_env("STAGE_ADMIN_EMAIL"))
             self.admin_page.locator.admin_log_in_button.click()
             self.admin_page.locator.admin_password_input.fill(
                 get_env("STAGE_ADMIN_PASSWORD")
@@ -82,10 +84,16 @@ class TestAdminLinkGeneration(BaseTest):
 
         with allure.step("Fill billing information"):
             self.payment_page.locator.billing_full_name_input.fill("John Smit")
-            self.payment_page.locator.billing_address_line1_input.fill("ser John Smit st.")
+            self.payment_page.locator.billing_address_line1_input.fill(
+                "ser John Smit st."
+            )
             self.payment_page.locator.billing_city_input.fill("LA")
-            options = self.payment_page.locator.billing_oblast_input.locator("option").all()
-            available_options = [option for option in options if not option.is_disabled()]
+            options = self.payment_page.locator.billing_oblast_input.locator(
+                "option"
+            ).all()
+            available_options = [
+                option for option in options if not option.is_disabled()
+            ]
             if available_options:
                 random_option = random.choice(available_options)
                 value = random_option.get_attribute("value")
@@ -104,7 +112,8 @@ class TestAdminLinkGeneration(BaseTest):
 
     @allure.story("Refund Management")
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.description("""
+    @allure.description(
+        """
     This test verifies the full refund functionality in the admin panel with different subscription handling options.
     Steps:
     1. Create a QR code and complete a payment
@@ -118,7 +127,8 @@ class TestAdminLinkGeneration(BaseTest):
     - Full refund while keeping the subscription active
 
     This ensures that admins can process full refunds correctly and manage subscriptions as needed.
-    """)
+    """
+    )
     @pytest.mark.parametrize(
         "refund_button",
         [
@@ -154,9 +164,9 @@ class TestAdminLinkGeneration(BaseTest):
             self.menu_page.locator.my_account.click()
             self.my_account_page.locator.log_out_button.click()
             self.my_account_page.open_page(get_env("STAGE_ADMIN_LINK"))
-            self.admin_page.checked_locator(self.admin_page.locator.admin_email_input).fill(
-                get_env("STAGE_ADMIN_EMAIL")
-            )
+            self.admin_page.checked_locator(
+                self.admin_page.locator.admin_email_input
+            ).fill(get_env("STAGE_ADMIN_EMAIL"))
             self.admin_page.locator.admin_log_in_button.click()
             self.admin_page.locator.admin_password_input.fill(
                 get_env("STAGE_ADMIN_PASSWORD")
@@ -180,7 +190,8 @@ class TestAdminLinkGeneration(BaseTest):
 
     @allure.story("Refund Management")
     @allure.severity(allure.severity_level.CRITICAL)
-    @allure.description("""
+    @allure.description(
+        """
     This test verifies the partial refund functionality in the admin panel.
     It includes the following steps:
     1. Create a QR code and complete a payment
@@ -195,7 +206,8 @@ class TestAdminLinkGeneration(BaseTest):
 
     This ensures that admins can process partial refunds correctly 
     and manage subscriptions as needed.
-    """)
+    """
+    )
     @pytest.mark.parametrize(
         "refund_button",
         [
@@ -231,9 +243,9 @@ class TestAdminLinkGeneration(BaseTest):
             self.menu_page.locator.my_account.click()
             self.my_account_page.locator.log_out_button.click()
             self.my_account_page.open_page(get_env("STAGE_ADMIN_LINK"))
-            self.admin_page.checked_locator(self.admin_page.locator.admin_email_input).fill(
-                get_env("STAGE_ADMIN_EMAIL")
-            )
+            self.admin_page.checked_locator(
+                self.admin_page.locator.admin_email_input
+            ).fill(get_env("STAGE_ADMIN_EMAIL"))
             self.admin_page.locator.admin_log_in_button.click()
             self.admin_page.locator.admin_password_input.fill(
                 get_env("STAGE_ADMIN_PASSWORD")
