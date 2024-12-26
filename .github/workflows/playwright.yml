@@ -213,7 +213,7 @@ jobs:
           report_id: ${{ github.event.inputs.browser }}
           gh_pages: ./gh-pages/${{ github.event.inputs.browser }}
           list_dirs: ${{ github.ref == 'refs/heads/main' }}
-          branch_cleanup_enabled: ${{ github.ref == 'refs/heads/main' }}
+          branch_cleanup_enabled: true
           report_dir: merged-results
           max_reports: 3
 
