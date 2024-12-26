@@ -255,7 +255,7 @@ jobs:
               "type": "section",
               "text": {
                 "type": "mrkdwn",
-                "text": ":clipboard: Test Results for ${{ github.event.inputs.browser }}\n*Total:* '"${TOTAL_TESTS}"'\n :white_check_mark: *Passed:* '"${PASSED_TESTS}"'\n :x: *Failed:* '"${FAILED_TESTS}"'\n<'"${REPORT_URL}"'|:bar_chart: Open Allure Report>"
+                "text": ":clipboard: Test Results for ${{ github.event.inputs.browser }}\n :test_tube: *Total:* '"${TOTAL_TESTS}"'\n :white_check_mark: *Passed:* '"${PASSED_TESTS}"'\n :x: *Failed:* '"${FAILED_TESTS}"'\n<'"${REPORT_URL}"'|:bar_chart: Open Allure Report>"
               }
             }
           ]
