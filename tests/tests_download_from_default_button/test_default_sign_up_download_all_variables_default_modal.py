@@ -33,7 +33,7 @@ class TestDefaultSignUpFlowAll(BaseTest):
             self.my_qr_codes_page.expect(
                 self.my_qr_codes_page.locator.sign_up_success_image
             ).to_be_enabled(timeout=30000)
-            self.my_qr_codes_page.locator.download_modal_close_button.click()
+            self.my_qr_codes_page.checked_locator(self.my_qr_codes_page.locator.download_modal_close_button).click()
 
         for params in download_params_default_modal:
             with allure.step(

@@ -9,11 +9,12 @@ from fpdf import FPDF
 from faker import Faker
 from pydub.generators import Sine
 from moviepy.editor import ColorClip
+from base.base_page import BasePage
 
 
-class QrCodeHelper:
+class QrCodeHelper(BasePage):
     def __init__(self, page, locator):
-        self.page = page
+        super().__init__(page)
         self.locator = locator
         self.faker = Faker()
         self.generated_files_dir = Path(os.getcwd()) /"artifacts"/ "generated_files"
@@ -112,19 +113,16 @@ class QrCodeHelper:
 
     @allure.step("Closing help modal window in final step")
     def close_help_modal_window_st3(self):
-        self.locator.help_modal_close_button.is_visible()
-        self.locator.help_modal_close_button.click()
+        self.checked_locator(self.locator.help_modal_close_button).click()
 
     @allure.step("Closing help modal window in intermediate step")
     def close_help_modal_window_st2(self):
-        self.locator.help_modal_close_button.wait_for(state="visible")
-        self.locator.help_modal_close_button.is_enabled()
-        self.locator.help_modal_close_button.click()
+        self.checked_locator(self.locator.help_modal_close_button).click()
         self.page.wait_for_selector(self.locator.modal_window_step2, state="hidden", timeout=5000)
 
     @allure.step("Setting custom QR code name for {qr_code_type}")
     def set_custom_qr_code_name(self, qr_code_type):
-        self.locator.custom_name_qr_code_dropdown.click()
+        self.checked_locator(self.locator.custom_name_qr_code_dropdown).click()
         custom_qr_code_name = self.locator.custom_name_qr_code_input.fill(
             f"{qr_code_type}_{str(self.faker.random_number(digits=9, fix_len=True))}")
         return custom_qr_code_name
@@ -150,7 +148,7 @@ class QrCodeHelper:
     @allure.step("Setting welcome screen image for QR code")
     def welcome_screen_set_img(self):
         image_path = self.generate_file('image')
-        self.locator.upload_welcome_screen_qr_code_dropdown.click()
+        self.checked_locator(self.locator.upload_welcome_screen_qr_code_dropdown).click()
         self.locator.upload_welcome_screen_qr_code_input.set_input_files(image_path)
 
     @allure.step("Selecting random option from available choices")
