@@ -1,3 +1,4 @@
+from turtle import delay
 import allure
 
 from base.base_page import BasePage
@@ -12,13 +13,14 @@ class PaymentPage(BasePage):
 
     @allure.step("Process payment with test credit card")
     def make_payment(self):
+        slow_mo = 1000
         with allure.step("Enter card number: 4242 4242 4242 4242"):
             self.checked_locator(locator=self.locator.card_number_label)
-            self.checked_locator(locator=self.locator.card_number).fill("4242 4242 4242 4242")
+            self.checked_locator(locator=self.locator.card_number).fill("4242 4242 4242 4242", delay=slow_mo)
         with allure.step("Enter expiry date: 01/27"):
-            self.checked_locator(locator=self.locator.expiry_date_input).fill("0127")
+            self.checked_locator(locator=self.locator.expiry_date_input).fill("0127", delay=slow_mo)
         with allure.step("Enter CVC code: 127"):
-            self.checked_locator(locator=self.locator.cvc_code_input).fill("127")
+            self.checked_locator(locator=self.locator.cvc_code_input).fill("127", delay=slow_mo)
         with allure.step("Exit payment frame"):
             self.checked_locator(locator=self.locator.exit_from_payment_frame).click()
 

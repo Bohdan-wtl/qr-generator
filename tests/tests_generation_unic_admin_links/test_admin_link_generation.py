@@ -83,11 +83,11 @@ class TestAdminLinkGeneration(BaseTest):
             )
 
         with allure.step("Fill billing information"):
-            self.payment_page.locator.billing_full_name_input.fill("John Smit")
-            self.payment_page.locator.billing_address_line1_input.fill(
+            self.payment_page.checked_locator(self.payment_page.locator.billing_full_name_input).fill("John Smit")
+            self.payment_page.checked_locator(self.payment_page.locator.billing_address_line1_input).fill(
                 "ser John Smit st."
             )
-            self.payment_page.locator.billing_city_input.fill("LA")
+            self.payment_page.checked_locator(self.payment_page.locator.billing_city_input).fill("LA")
             options = self.payment_page.locator.billing_oblast_input.locator(
                 "option"
             ).all()
@@ -98,8 +98,8 @@ class TestAdminLinkGeneration(BaseTest):
                 random_option = random.choice(available_options)
                 value = random_option.get_attribute("value")
                 self.payment_page.locator.billing_oblast_input.select_option(value)
-            self.payment_page.locator.billing_postal_code_input.fill("37800")
-            self.payment_page.locator.billing_info_continue_button.click()
+            self.payment_page.checked_locator(self.payment_page.locator.billing_postal_code_input).fill("37800")
+            self.payment_page.checked_locator(self.payment_page.locator.billing_info_continue_button).click()
 
         with allure.step("Make payment"):
             self.payment_page.make_payment()
