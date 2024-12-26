@@ -1,0 +1,1109 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","0","test_dpf_sign_up_website_qr_type[-2048x2048-menu_link_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:38 GMT 2024","broken","Thu Dec 26 07:47:38 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for facebook_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:44 GMT 2024","broken","Thu Dec 26 07:47:44 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-image_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:20 GMT 2024","broken","Thu Dec 26 07:47:20 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","1","Sign up flow test for vcard_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:35 GMT 2024","broken","Thu Dec 26 07:47:36 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for pdf_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:45 GMT 2024","broken","Thu Dec 26 07:47:45 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-wifi_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:11 GMT 2024","broken","Thu Dec 26 07:47:11 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-mp3_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:24 GMT 2024","broken","Thu Dec 26 07:47:24 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for links_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:45 GMT 2024","broken","Thu Dec 26 07:47:45 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for instagram_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:42 GMT 2024","broken","Thu Dec 26 07:47:42 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for business_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:47 GMT 2024","broken","Thu Dec 26 07:47:47 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-facebook_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:26 GMT 2024","broken","Thu Dec 26 07:47:26 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with links_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:15 GMT 2024","broken","Thu Dec 26 07:47:15 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with social_media_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:06 GMT 2024","broken","Thu Dec 26 07:47:06 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create wifi_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:46 GMT 2024","broken","Thu Dec 26 07:46:46 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for facebook_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:40 GMT 2024","broken","Thu Dec 26 07:47:40 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with vcard_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:21 GMT 2024","broken","Thu Dec 26 07:47:21 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_digital_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:02 GMT 2024","broken","Thu Dec 26 07:47:02 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_default_sign_up_website_qr_type[-4096x4096-website_qr_create]","tests.tests_default_flow","Thu Dec 26 07:46:58 GMT 2024","broken","Thu Dec 26 07:46:58 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create vcard_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:55 GMT 2024","broken","Thu Dec 26 07:46:55 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-image_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:20 GMT 2024","broken","Thu Dec 26 07:47:20 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for menu_digital_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:46 GMT 2024","broken","Thu Dec 26 07:47:46 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-menu_pdf_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:31 GMT 2024","broken","Thu Dec 26 07:47:31 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-whatsapp_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:30 GMT 2024","broken","Thu Dec 26 07:47:30 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with social_media_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:15 GMT 2024","broken","Thu Dec 26 07:47:15 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with mp3_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:23 GMT 2024","broken","Thu Dec 26 07:47:23 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for business_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:35 GMT 2024","broken","Thu Dec 26 07:47:35 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with menu_link_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:07 GMT 2024","broken","Thu Dec 26 07:47:07 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create image_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:55 GMT 2024","broken","Thu Dec 26 07:46:55 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-links_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:27 GMT 2024","broken","Thu Dec 26 07:47:27 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with website_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:09 GMT 2024","broken","Thu Dec 26 07:47:09 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for pdf_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:41 GMT 2024","broken","Thu Dec 26 07:47:41 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow specifically for website QR codes:
+        1. Creates website/menu link QR code
+        2. Verifies create button state
+        3. Submits email form
+        4. Validates successful sign-up
+        5. Downloads QR code with specified resolution
+    ","0","Website QR code sign up flow for website_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:51 GMT 2024","broken","Thu Dec 26 07:47:51 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-image_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:31 GMT 2024","broken","Thu Dec 26 07:47:31 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for coupon_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:47 GMT 2024","broken","Thu Dec 26 07:47:47 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create facebook_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:43 GMT 2024","broken","Thu Dec 26 07:46:43 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-business_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:32 GMT 2024","broken","Thu Dec 26 07:47:32 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-wifi_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:26 GMT 2024","broken","Thu Dec 26 07:47:26 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_default_sign_up_website_qr_type[-Default-website_qr_create]","tests.tests_default_flow","Thu Dec 26 07:46:52 GMT 2024","broken","Thu Dec 26 07:46:52 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create instagram_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:45 GMT 2024","broken","Thu Dec 26 07:46:45 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create pdf_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:46 GMT 2024","broken","Thu Dec 26 07:46:46 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create wifi_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:51 GMT 2024","broken","Thu Dec 26 07:46:51 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for apps_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:48 GMT 2024","broken","Thu Dec 26 07:47:48 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with menu_link_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:03 GMT 2024","broken","Thu Dec 26 07:47:03 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with pdf_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:15 GMT 2024","broken","Thu Dec 26 07:47:15 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with image_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:17 GMT 2024","broken","Thu Dec 26 07:47:17 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for image_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:46 GMT 2024","broken","Thu Dec 26 07:47:46 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with facebook_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:02 GMT 2024","broken","Thu Dec 26 07:47:02 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with video_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:17 GMT 2024","broken","Thu Dec 26 07:47:17 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create whatsapp_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:54 GMT 2024","broken","Thu Dec 26 07:46:54 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with facebook_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:02 GMT 2024","broken","Thu Dec 26 07:47:02 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+    Test creation of unique payment links with different discount options.
+    Steps:
+    1. Create a QR code
+    2. Log out and log in to admin panel
+    3. Search for user and generate discount URL
+    4. Open generated link and select a plan
+    5. Fill billing information and make payment
+    6. Verify successful payment
+    ","0","Create unique payment link with default_pricing_button","tests.tests_generation_unic_admin_links","Thu Dec 26 07:47:33 GMT 2024","broken","Thu Dec 26 07:47:33 GMT 2024","TestAdminLinkGeneration","test_admin_link_generation","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for instagram_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:47 GMT 2024","broken","Thu Dec 26 07:47:47 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with wifi_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:08 GMT 2024","broken","Thu Dec 26 07:47:08 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create whatsapp_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:48 GMT 2024","broken","Thu Dec 26 07:46:48 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with apps_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:14 GMT 2024","broken","Thu Dec 26 07:47:14 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_website_qr_type[-Default-website_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:33 GMT 2024","broken","Thu Dec 26 07:47:33 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-social_media_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:29 GMT 2024","broken","Thu Dec 26 07:47:29 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with image_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:06 GMT 2024","broken","Thu Dec 26 07:47:06 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with apps_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:03 GMT 2024","broken","Thu Dec 26 07:47:03 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for menu_digital_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:48 GMT 2024","broken","Thu Dec 26 07:47:48 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with image_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:19 GMT 2024","broken","Thu Dec 26 07:47:19 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-menu_digital_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:28 GMT 2024","broken","Thu Dec 26 07:47:28 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with pdf_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:16 GMT 2024","broken","Thu Dec 26 07:47:16 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for social_media_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:42 GMT 2024","broken","Thu Dec 26 07:47:42 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create facebook_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:50 GMT 2024","broken","Thu Dec 26 07:46:50 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with whatsapp_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:06 GMT 2024","broken","Thu Dec 26 07:47:06 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create menu_pdf_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:50 GMT 2024","broken","Thu Dec 26 07:46:50 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for wifi_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:45 GMT 2024","broken","Thu Dec 26 07:47:45 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for menu_pdf_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:40 GMT 2024","broken","Thu Dec 26 07:47:40 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-business_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:20 GMT 2024","broken","Thu Dec 26 07:47:20 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-instagram_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:23 GMT 2024","broken","Thu Dec 26 07:47:23 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create pdf_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:57 GMT 2024","broken","Thu Dec 26 07:46:57 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-vcard_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:25 GMT 2024","broken","Thu Dec 26 07:47:25 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-apps_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:15 GMT 2024","broken","Thu Dec 26 07:47:15 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with video_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:07 GMT 2024","broken","Thu Dec 26 07:47:07 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with whatsapp_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:18 GMT 2024","broken","Thu Dec 26 07:47:18 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-menu_digital_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:13 GMT 2024","broken","Thu Dec 26 07:47:13 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create instagram_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:47 GMT 2024","broken","Thu Dec 26 07:46:47 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for video_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:49 GMT 2024","broken","Thu Dec 26 07:47:49 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-mp3_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:27 GMT 2024","broken","Thu Dec 26 07:47:27 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create links_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:43 GMT 2024","broken","Thu Dec 26 07:46:43 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-business_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:32 GMT 2024","broken","Thu Dec 26 07:47:32 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-facebook_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:29 GMT 2024","broken","Thu Dec 26 07:47:29 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create image_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:54 GMT 2024","broken","Thu Dec 26 07:46:54 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for whatsapp_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:37 GMT 2024","broken","Thu Dec 26 07:47:37 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_default_sign_up_website_qr_type[-4096x4096-menu_link_qr_create]","tests.tests_default_flow","Thu Dec 26 07:46:59 GMT 2024","broken","Thu Dec 26 07:46:59 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create image_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:49 GMT 2024","broken","Thu Dec 26 07:46:49 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with pdf_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:03 GMT 2024","broken","Thu Dec 26 07:47:03 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-video_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:34 GMT 2024","broken","Thu Dec 26 07:47:34 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create facebook_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:48 GMT 2024","broken","Thu Dec 26 07:46:48 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create vcard_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:56 GMT 2024","broken","Thu Dec 26 07:46:56 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with instagram_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:11 GMT 2024","broken","Thu Dec 26 07:47:11 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-mp3_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:23 GMT 2024","broken","Thu Dec 26 07:47:23 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_pdf_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:14 GMT 2024","broken","Thu Dec 26 07:47:14 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create whatsapp_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:49 GMT 2024","broken","Thu Dec 26 07:46:49 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create instagram_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:56 GMT 2024","broken","Thu Dec 26 07:46:56 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for mp3_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:38 GMT 2024","broken","Thu Dec 26 07:47:38 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-facebook_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:25 GMT 2024","broken","Thu Dec 26 07:47:25 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with links_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:15 GMT 2024","broken","Thu Dec 26 07:47:15 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with vcard_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:01 GMT 2024","broken","Thu Dec 26 07:47:01 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for coupon_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:38 GMT 2024","broken","Thu Dec 26 07:47:38 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create mp3_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:52 GMT 2024","broken","Thu Dec 26 07:46:52 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create mp3_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:57 GMT 2024","broken","Thu Dec 26 07:46:57 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for mp3_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:47 GMT 2024","broken","Thu Dec 26 07:47:47 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with instagram_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:20 GMT 2024","broken","Thu Dec 26 07:47:20 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-image_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:31 GMT 2024","broken","Thu Dec 26 07:47:31 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with wifi_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:46:59 GMT 2024","broken","Thu Dec 26 07:46:59 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+    Test creation of unique payment links with different discount options.
+    Steps:
+    1. Create a QR code
+    2. Log out and log in to admin panel
+    3. Search for user and generate discount URL
+    4. Open generated link and select a plan
+    5. Fill billing information and make payment
+    6. Verify successful payment
+    ","0","Create unique payment link with discount_70_promo_button","tests.tests_generation_unic_admin_links","Thu Dec 26 07:47:34 GMT 2024","broken","Thu Dec 26 07:47:34 GMT 2024","TestAdminLinkGeneration","test_admin_link_generation","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create social_media_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:53 GMT 2024","broken","Thu Dec 26 07:46:53 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with vcard_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:07 GMT 2024","broken","Thu Dec 26 07:47:07 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with links_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:04 GMT 2024","broken","Thu Dec 26 07:47:04 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create wifi_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:43 GMT 2024","broken","Thu Dec 26 07:46:43 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with business_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:08 GMT 2024","broken","Thu Dec 26 07:47:08 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for facebook_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:41 GMT 2024","broken","Thu Dec 26 07:47:41 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with apps_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:14 GMT 2024","broken","Thu Dec 26 07:47:14 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for business_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:49 GMT 2024","broken","Thu Dec 26 07:47:49 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for facebook_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:48 GMT 2024","broken","Thu Dec 26 07:47:48 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with social_media_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:05 GMT 2024","broken","Thu Dec 26 07:47:05 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-apps_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:27 GMT 2024","broken","Thu Dec 26 07:47:27 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-pdf_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:28 GMT 2024","broken","Thu Dec 26 07:47:28 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with image_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:08 GMT 2024","broken","Thu Dec 26 07:47:08 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow specifically for website QR codes:
+        1. Creates website/menu link QR code
+        2. Verifies create button state
+        3. Submits email form
+        4. Validates successful sign-up
+        5. Downloads QR code with specified resolution
+    ","0","Website QR code sign up flow for website_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:51 GMT 2024","broken","Thu Dec 26 07:47:51 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for whatsapp_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:46 GMT 2024","broken","Thu Dec 26 07:47:46 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_default_sign_up_website_qr_type[-2048x2048-website_qr_create]","tests.tests_default_flow","Thu Dec 26 07:46:56 GMT 2024","broken","Thu Dec 26 07:46:56 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create menu_digital_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:58 GMT 2024","broken","Thu Dec 26 07:46:58 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with instagram_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:22 GMT 2024","broken","Thu Dec 26 07:47:22 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with vcard_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:09 GMT 2024","broken","Thu Dec 26 07:47:09 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_default_sign_up_website_qr_type[-1024x1024-menu_link_qr_create]","tests.tests_default_flow","Thu Dec 26 07:46:56 GMT 2024","broken","Thu Dec 26 07:46:56 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with wifi_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:21 GMT 2024","broken","Thu Dec 26 07:47:21 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for instagram_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:37 GMT 2024","broken","Thu Dec 26 07:47:37 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with video_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:05 GMT 2024","broken","Thu Dec 26 07:47:05 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for image_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:39 GMT 2024","broken","Thu Dec 26 07:47:39 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow specifically for website QR codes:
+        1. Creates website/menu link QR code
+        2. Verifies create button state
+        3. Submits email form
+        4. Validates successful sign-up
+        5. Downloads QR code with specified resolution
+    ","0","Website QR code sign up flow for menu_link_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:51 GMT 2024","broken","Thu Dec 26 07:47:51 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with coupon_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:12 GMT 2024","broken","Thu Dec 26 07:47:12 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create apps_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:55 GMT 2024","broken","Thu Dec 26 07:46:55 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create social_media_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:58 GMT 2024","broken","Thu Dec 26 07:46:58 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for apps_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:33 GMT 2024","broken","Thu Dec 26 07:47:33 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for whatsapp_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:49 GMT 2024","broken","Thu Dec 26 07:47:49 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-pdf_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:28 GMT 2024","broken","Thu Dec 26 07:47:28 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow specifically for website QR codes:
+        1. Creates website/menu link QR code
+        2. Verifies create button state
+        3. Submits email form
+        4. Validates successful sign-up
+        5. Downloads QR code with specified resolution
+    ","0","Website QR code sign up flow for menu_link_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:50 GMT 2024","broken","Thu Dec 26 07:47:50 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-video_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:30 GMT 2024","broken","Thu Dec 26 07:47:30 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for apps_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:45 GMT 2024","broken","Thu Dec 26 07:47:45 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for coupon_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:38 GMT 2024","broken","Thu Dec 26 07:47:38 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create links_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:46 GMT 2024","broken","Thu Dec 26 07:46:46 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_pdf_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:04 GMT 2024","broken","Thu Dec 26 07:47:04 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-social_media_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:29 GMT 2024","broken","Thu Dec 26 07:47:29 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create business_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:51 GMT 2024","broken","Thu Dec 26 07:46:51 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with whatsapp_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:07 GMT 2024","broken","Thu Dec 26 07:47:07 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create vcard_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:50 GMT 2024","broken","Thu Dec 26 07:46:50 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with links_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:02 GMT 2024","broken","Thu Dec 26 07:47:02 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create menu_pdf_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:57 GMT 2024","broken","Thu Dec 26 07:46:57 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create business_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:54 GMT 2024","broken","Thu Dec 26 07:46:54 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-mp3_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:12 GMT 2024","broken","Thu Dec 26 07:47:12 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with vcard_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:09 GMT 2024","broken","Thu Dec 26 07:47:09 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for wifi_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:47 GMT 2024","broken","Thu Dec 26 07:47:47 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with facebook_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:13 GMT 2024","broken","Thu Dec 26 07:47:13 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create pdf_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:51 GMT 2024","broken","Thu Dec 26 07:46:51 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for links_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:40 GMT 2024","broken","Thu Dec 26 07:47:40 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create coupon_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:48 GMT 2024","broken","Thu Dec 26 07:46:48 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create links_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:56 GMT 2024","broken","Thu Dec 26 07:46:56 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create menu_digital_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:49 GMT 2024","broken","Thu Dec 26 07:46:49 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_digital_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:01 GMT 2024","broken","Thu Dec 26 07:47:01 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for instagram_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:43 GMT 2024","broken","Thu Dec 26 07:47:43 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with facebook_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:00 GMT 2024","broken","Thu Dec 26 07:47:00 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-pdf_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:32 GMT 2024","broken","Thu Dec 26 07:47:32 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for video_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:47 GMT 2024","broken","Thu Dec 26 07:47:47 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create video_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:50 GMT 2024","broken","Thu Dec 26 07:46:50 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_digital_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:13 GMT 2024","broken","Thu Dec 26 07:47:13 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-menu_digital_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:25 GMT 2024","broken","Thu Dec 26 07:47:25 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with pdf_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:05 GMT 2024","broken","Thu Dec 26 07:47:05 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-facebook_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:26 GMT 2024","broken","Thu Dec 26 07:47:26 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with apps_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:12 GMT 2024","broken","Thu Dec 26 07:47:12 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-wifi_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:22 GMT 2024","broken","Thu Dec 26 07:47:22 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for vcard_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:50 GMT 2024","broken","Thu Dec 26 07:47:50 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with coupon_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:10 GMT 2024","broken","Thu Dec 26 07:47:10 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with mp3_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:10 GMT 2024","broken","Thu Dec 26 07:47:10 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-whatsapp_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:30 GMT 2024","broken","Thu Dec 26 07:47:30 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create apps_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:50 GMT 2024","broken","Thu Dec 26 07:46:50 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for social_media_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:46 GMT 2024","broken","Thu Dec 26 07:47:46 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create mp3_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:58 GMT 2024","broken","Thu Dec 26 07:46:58 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with website_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:08 GMT 2024","broken","Thu Dec 26 07:47:08 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create menu_digital_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:54 GMT 2024","broken","Thu Dec 26 07:46:54 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-links_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:27 GMT 2024","broken","Thu Dec 26 07:47:27 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-whatsapp_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:30 GMT 2024","broken","Thu Dec 26 07:47:30 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with website_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:04 GMT 2024","broken","Thu Dec 26 07:47:04 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with apps_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:03 GMT 2024","broken","Thu Dec 26 07:47:03 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with coupon_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:01 GMT 2024","broken","Thu Dec 26 07:47:01 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-pdf_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:17 GMT 2024","broken","Thu Dec 26 07:47:17 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with coupon_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:24 GMT 2024","broken","Thu Dec 26 07:47:24 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-whatsapp_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:33 GMT 2024","broken","Thu Dec 26 07:47:33 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with pdf_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:05 GMT 2024","broken","Thu Dec 26 07:47:05 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for vcard_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:46 GMT 2024","broken","Thu Dec 26 07:47:46 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for menu_pdf_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:44 GMT 2024","broken","Thu Dec 26 07:47:44 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for pdf_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:36 GMT 2024","broken","Thu Dec 26 07:47:36 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for pdf_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:41 GMT 2024","broken","Thu Dec 26 07:47:41 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with wifi_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:10 GMT 2024","broken","Thu Dec 26 07:47:10 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-coupon_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:24 GMT 2024","broken","Thu Dec 26 07:47:24 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with social_media_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:17 GMT 2024","broken","Thu Dec 26 07:47:17 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for whatsapp_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:43 GMT 2024","broken","Thu Dec 26 07:47:43 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for image_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:39 GMT 2024","broken","Thu Dec 26 07:47:39 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-social_media_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:18 GMT 2024","broken","Thu Dec 26 07:47:18 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-links_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:31 GMT 2024","broken","Thu Dec 26 07:47:31 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow specifically for website QR codes:
+        1. Creates website/menu link QR code
+        2. Verifies create button state
+        3. Submits email form
+        4. Validates successful sign-up
+        5. Downloads QR code with specified resolution
+    ","0","Website QR code sign up flow for website_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:50 GMT 2024","broken","Thu Dec 26 07:47:50 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for whatsapp_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:43 GMT 2024","broken","Thu Dec 26 07:47:43 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with links_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:03 GMT 2024","broken","Thu Dec 26 07:47:03 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create coupon_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:53 GMT 2024","broken","Thu Dec 26 07:46:53 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create whatsapp_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:52 GMT 2024","broken","Thu Dec 26 07:46:52 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-apps_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:26 GMT 2024","broken","Thu Dec 26 07:47:26 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with website_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:05 GMT 2024","broken","Thu Dec 26 07:47:05 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create social_media_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:47 GMT 2024","broken","Thu Dec 26 07:46:47 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_website_qr_type[-1024x1024-website_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:36 GMT 2024","broken","Thu Dec 26 07:47:36 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","1","Create menu_pdf_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:52 GMT 2024","broken","Thu Dec 26 07:46:52 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for mp3_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:37 GMT 2024","broken","Thu Dec 26 07:47:37 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with apps_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:01 GMT 2024","broken","Thu Dec 26 07:47:01 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for wifi_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:41 GMT 2024","broken","Thu Dec 26 07:47:41 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for video_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:38 GMT 2024","broken","Thu Dec 26 07:47:38 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create video_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:54 GMT 2024","broken","Thu Dec 26 07:46:54 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create mp3_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:46 GMT 2024","broken","Thu Dec 26 07:46:46 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","1","Create apps_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:49 GMT 2024","broken","Thu Dec 26 07:46:49 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with business_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:01 GMT 2024","broken","Thu Dec 26 07:47:01 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for video_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:43 GMT 2024","broken","Thu Dec 26 07:47:43 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with instagram_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:09 GMT 2024","broken","Thu Dec 26 07:47:09 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create vcard_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:45 GMT 2024","broken","Thu Dec 26 07:46:45 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with image_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:19 GMT 2024","broken","Thu Dec 26 07:47:19 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with coupon_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:01 GMT 2024","broken","Thu Dec 26 07:47:01 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create coupon_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:47 GMT 2024","broken","Thu Dec 26 07:46:47 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+    Test creation of unique payment links with different discount options.
+    Steps:
+    1. Create a QR code
+    2. Log out and log in to admin panel
+    3. Search for user and generate discount URL
+    4. Open generated link and select a plan
+    5. Fill billing information and make payment
+    6. Verify successful payment
+    ","0","Create unique payment link with discount_50_one_time_button","tests.tests_generation_unic_admin_links","Thu Dec 26 07:47:35 GMT 2024","broken","Thu Dec 26 07:47:35 GMT 2024","TestAdminLinkGeneration","test_admin_link_generation","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for vcard_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:41 GMT 2024","broken","Thu Dec 26 07:47:41 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow specifically for website QR codes:
+        1. Creates website/menu link QR code
+        2. Verifies create button state
+        3. Submits email form
+        4. Validates successful sign-up
+        5. Downloads QR code with specified resolution
+    ","0","Website QR code sign up flow for menu_link_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:51 GMT 2024","broken","Thu Dec 26 07:47:51 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_website_qr_type[-Default-menu_link_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:34 GMT 2024","broken","Thu Dec 26 07:47:34 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with vcard_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:19 GMT 2024","broken","Thu Dec 26 07:47:19 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-instagram_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:23 GMT 2024","broken","Thu Dec 26 07:47:23 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_website_qr_type[-2048x2048-website_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:37 GMT 2024","broken","Thu Dec 26 07:47:37 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for menu_pdf_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:48 GMT 2024","broken","Thu Dec 26 07:47:48 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_website_qr_type[-512x512-website_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:35 GMT 2024","broken","Thu Dec 26 07:47:35 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create video_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:53 GMT 2024","broken","Thu Dec 26 07:46:53 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-instagram_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:11 GMT 2024","broken","Thu Dec 26 07:47:11 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-vcard_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:22 GMT 2024","broken","Thu Dec 26 07:47:22 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create facebook_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:59 GMT 2024","broken","Thu Dec 26 07:46:59 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow specifically for website QR codes:
+        1. Creates website/menu link QR code
+        2. Verifies create button state
+        3. Submits email form
+        4. Validates successful sign-up
+        5. Downloads QR code with specified resolution
+    ","0","Website QR code sign up flow for menu_link_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:51 GMT 2024","broken","Thu Dec 26 07:47:51 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_pdf_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:16 GMT 2024","broken","Thu Dec 26 07:47:16 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-wifi_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:22 GMT 2024","broken","Thu Dec 26 07:47:22 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for apps_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:42 GMT 2024","broken","Thu Dec 26 07:47:42 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with social_media_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:17 GMT 2024","broken","Thu Dec 26 07:47:17 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create video_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:48 GMT 2024","broken","Thu Dec 26 07:46:48 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with links_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:13 GMT 2024","broken","Thu Dec 26 07:47:13 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create social_media_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:48 GMT 2024","broken","Thu Dec 26 07:46:48 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-video_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:19 GMT 2024","broken","Thu Dec 26 07:47:19 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_pdf_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:03 GMT 2024","broken","Thu Dec 26 07:47:03 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-menu_pdf_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:27 GMT 2024","broken","Thu Dec 26 07:47:27 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create social_media_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:51 GMT 2024","broken","Thu Dec 26 07:46:51 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-coupon_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:24 GMT 2024","broken","Thu Dec 26 07:47:24 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-apps_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:30 GMT 2024","broken","Thu Dec 26 07:47:30 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for mp3_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:43 GMT 2024","broken","Thu Dec 26 07:47:43 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for social_media_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:42 GMT 2024","broken","Thu Dec 26 07:47:42 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-business_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:32 GMT 2024","broken","Thu Dec 26 07:47:32 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_website_qr_type[-1024x1024-menu_link_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:37 GMT 2024","broken","Thu Dec 26 07:47:37 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with menu_link_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:06 GMT 2024","broken","Thu Dec 26 07:47:06 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with menu_link_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:10 GMT 2024","broken","Thu Dec 26 07:47:10 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with business_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:09 GMT 2024","broken","Thu Dec 26 07:47:09 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_digital_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:13 GMT 2024","broken","Thu Dec 26 07:47:13 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with mp3_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:11 GMT 2024","broken","Thu Dec 26 07:47:11 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for vcard_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:44 GMT 2024","broken","Thu Dec 26 07:47:44 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with business_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:20 GMT 2024","broken","Thu Dec 26 07:47:20 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with menu_link_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:04 GMT 2024","broken","Thu Dec 26 07:47:04 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-menu_pdf_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:28 GMT 2024","broken","Thu Dec 26 07:47:28 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with mp3_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:00 GMT 2024","broken","Thu Dec 26 07:47:00 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with instagram_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:11 GMT 2024","broken","Thu Dec 26 07:47:11 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_website_qr_type[-4096x4096-menu_link_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:32 GMT 2024","broken","Thu Dec 26 07:47:32 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-links_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:27 GMT 2024","broken","Thu Dec 26 07:47:27 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create menu_digital_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:47:00 GMT 2024","broken","Thu Dec 26 07:47:00 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-social_media_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:29 GMT 2024","broken","Thu Dec 26 07:47:29 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for social_media_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:36 GMT 2024","broken","Thu Dec 26 07:47:36 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with wifi_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:10 GMT 2024","broken","Thu Dec 26 07:47:10 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-apps_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:26 GMT 2024","broken","Thu Dec 26 07:47:26 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-coupon_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:13 GMT 2024","broken","Thu Dec 26 07:47:13 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-image_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:31 GMT 2024","broken","Thu Dec 26 07:47:31 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for mp3_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:44 GMT 2024","broken","Thu Dec 26 07:47:44 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-facebook_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:14 GMT 2024","broken","Thu Dec 26 07:47:14 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create apps_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:47:00 GMT 2024","broken","Thu Dec 26 07:47:00 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create links_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:49 GMT 2024","broken","Thu Dec 26 07:46:49 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_pdf_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:15 GMT 2024","broken","Thu Dec 26 07:47:15 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create links_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:51 GMT 2024","broken","Thu Dec 26 07:46:51 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create pdf_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:52 GMT 2024","broken","Thu Dec 26 07:46:52 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for image_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:49 GMT 2024","broken","Thu Dec 26 07:47:49 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create vcard_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:52 GMT 2024","broken","Thu Dec 26 07:46:52 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-menu_pdf_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:16 GMT 2024","broken","Thu Dec 26 07:47:16 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for coupon_qr_create with 2048x2048 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:45 GMT 2024","broken","Thu Dec 26 07:47:45 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create instagram_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:52 GMT 2024","broken","Thu Dec 26 07:46:52 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create mp3_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:48 GMT 2024","broken","Thu Dec 26 07:46:48 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-vcard_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:21 GMT 2024","broken","Thu Dec 26 07:47:21 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_pdf_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:04 GMT 2024","broken","Thu Dec 26 07:47:04 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for menu_pdf_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:35 GMT 2024","broken","Thu Dec 26 07:47:35 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+    Test creation of unique payment links with different discount options.
+    Steps:
+    1. Create a QR code
+    2. Log out and log in to admin panel
+    3. Search for user and generate discount URL
+    4. Open generated link and select a plan
+    5. Fill billing information and make payment
+    6. Verify successful payment
+    ","0","Create unique payment link with discount_8_99_monthly_button","tests.tests_generation_unic_admin_links","Thu Dec 26 07:47:34 GMT 2024","broken","Thu Dec 26 07:47:34 GMT 2024","TestAdminLinkGeneration","test_admin_link_generation","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with video_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:19 GMT 2024","broken","Thu Dec 26 07:47:19 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with video_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:18 GMT 2024","broken","Thu Dec 26 07:47:18 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_default_sign_up_website_qr_type[-1024x1024-website_qr_create]","tests.tests_default_flow","Thu Dec 26 07:46:55 GMT 2024","broken","Thu Dec 26 07:46:55 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow specifically for website QR codes:
+        1. Creates website/menu link QR code
+        2. Verifies create button state
+        3. Submits email form
+        4. Validates successful sign-up
+        5. Downloads QR code with specified resolution
+    ","0","Website QR code sign up flow for website_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:51 GMT 2024","broken","Thu Dec 26 07:47:51 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with video_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:07 GMT 2024","broken","Thu Dec 26 07:47:07 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create wifi_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:55 GMT 2024","broken","Thu Dec 26 07:46:55 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with facebook_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:14 GMT 2024","broken","Thu Dec 26 07:47:14 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_default_sign_up_website_qr_type[-Default-menu_link_qr_create]","tests.tests_default_flow","Thu Dec 26 07:46:53 GMT 2024","broken","Thu Dec 26 07:46:53 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create menu_pdf_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:46 GMT 2024","broken","Thu Dec 26 07:46:46 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for apps_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:39 GMT 2024","broken","Thu Dec 26 07:47:39 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create video_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:59 GMT 2024","broken","Thu Dec 26 07:46:59 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_website_qr_type[-4096x4096-website_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:39 GMT 2024","broken","Thu Dec 26 07:47:39 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create pdf_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:47 GMT 2024","broken","Thu Dec 26 07:46:47 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_digital_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:11 GMT 2024","broken","Thu Dec 26 07:47:11 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with menu_digital_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:24 GMT 2024","broken","Thu Dec 26 07:47:24 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-coupon_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:24 GMT 2024","broken","Thu Dec 26 07:47:24 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-wifi_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:22 GMT 2024","broken","Thu Dec 26 07:47:22 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for pdf_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:48 GMT 2024","broken","Thu Dec 26 07:47:48 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with pdf_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:16 GMT 2024","broken","Thu Dec 26 07:47:16 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create business_qr_create QR code with 2048x2048 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:56 GMT 2024","broken","Thu Dec 26 07:46:56 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create facebook_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:55 GMT 2024","broken","Thu Dec 26 07:46:55 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create business_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:43 GMT 2024","broken","Thu Dec 26 07:46:43 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with social_media_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:04 GMT 2024","broken","Thu Dec 26 07:47:04 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_default_sign_up_website_qr_type[-2048x2048-menu_link_qr_create]","tests.tests_default_flow","Thu Dec 26 07:46:57 GMT 2024","broken","Thu Dec 26 07:46:57 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for wifi_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:36 GMT 2024","broken","Thu Dec 26 07:47:36 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for facebook_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:33 GMT 2024","broken","Thu Dec 26 07:47:33 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with business_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:07 GMT 2024","broken","Thu Dec 26 07:47:07 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-business_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:21 GMT 2024","broken","Thu Dec 26 07:47:21 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_default_sign_up_website_qr_type[-512x512-menu_link_qr_create]","tests.tests_default_flow","Thu Dec 26 07:46:54 GMT 2024","broken","Thu Dec 26 07:46:54 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create image_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:50 GMT 2024","broken","Thu Dec 26 07:46:50 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with website_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:06 GMT 2024","broken","Thu Dec 26 07:47:06 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with image_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:08 GMT 2024","broken","Thu Dec 26 07:47:08 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create apps_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:45 GMT 2024","broken","Thu Dec 26 07:46:45 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for menu_digital_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:39 GMT 2024","broken","Thu Dec 26 07:47:39 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for menu_digital_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:39 GMT 2024","broken","Thu Dec 26 07:47:39 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","4","test_default_sign_up_website_qr_type[-512x512-website_qr_create]","tests.tests_default_flow","Thu Dec 26 07:46:54 GMT 2024","broken","Thu Dec 26 07:46:54 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-video_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:31 GMT 2024","broken","Thu Dec 26 07:47:31 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-mp3_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:23 GMT 2024","broken","Thu Dec 26 07:47:23 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-links_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:16 GMT 2024","broken","Thu Dec 26 07:47:16 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create image_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:47:00 GMT 2024","broken","Thu Dec 26 07:47:00 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create whatsapp_qr_create QR code with 1024x1024 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:59 GMT 2024","broken","Thu Dec 26 07:46:59 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","1","Sign up flow test for menu_pdf_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:41 GMT 2024","broken","Thu Dec 26 07:47:41 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for links_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:48 GMT 2024","broken","Thu Dec 26 07:47:48 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for social_media_qr_create with 4096x4096 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:49 GMT 2024","broken","Thu Dec 26 07:47:49 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create wifi_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:57 GMT 2024","broken","Thu Dec 26 07:46:57 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for video_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:43 GMT 2024","broken","Thu Dec 26 07:47:43 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-Default-whatsapp_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:18 GMT 2024","broken","Thu Dec 26 07:47:18 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create business_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:50 GMT 2024","broken","Thu Dec 26 07:46:50 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow specifically for website QR codes:
+        1. Creates website/menu link QR code
+        2. Verifies create button state
+        3. Submits email form
+        4. Validates successful sign-up
+        5. Downloads QR code with specified resolution
+    ","0","Website QR code sign up flow for menu_link_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:50 GMT 2024","broken","Thu Dec 26 07:47:50 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create menu_digital_qr_create QR code with Default PNG download","tests.tests_default_flow","Thu Dec 26 07:46:47 GMT 2024","broken","Thu Dec 26 07:46:47 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for links_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:42 GMT 2024","broken","Thu Dec 26 07:47:42 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with whatsapp_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:16 GMT 2024","broken","Thu Dec 26 07:47:16 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with coupon_qr_create and resolution A0","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:12 GMT 2024","broken","Thu Dec 26 07:47:12 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_website_qr_type[-512x512-menu_link_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:35 GMT 2024","broken","Thu Dec 26 07:47:35 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-vcard_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:32 GMT 2024","broken","Thu Dec 26 07:47:32 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with instagram_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:00 GMT 2024","broken","Thu Dec 26 07:47:00 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create coupon_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:59 GMT 2024","broken","Thu Dec 26 07:46:59 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with menu_link_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:08 GMT 2024","broken","Thu Dec 26 07:47:08 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create menu_pdf_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:47 GMT 2024","broken","Thu Dec 26 07:46:47 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow specifically for website QR codes:
+        1. Creates website/menu link QR code
+        2. Verifies create button state
+        3. Submits email form
+        4. Validates successful sign-up
+        5. Downloads QR code with specified resolution
+    ","0","Website QR code sign up flow for website_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:50 GMT 2024","broken","Thu Dec 26 07:47:50 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-video_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:30 GMT 2024","broken","Thu Dec 26 07:47:30 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-instagram_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:23 GMT 2024","broken","Thu Dec 26 07:47:23 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with wifi_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:20 GMT 2024","broken","Thu Dec 26 07:47:20 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for instagram_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:37 GMT 2024","broken","Thu Dec 26 07:47:37 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create coupon_qr_create QR code with 512x512 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:57 GMT 2024","broken","Thu Dec 26 07:46:57 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for coupon_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:39 GMT 2024","broken","Thu Dec 26 07:47:39 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-menu_digital_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:25 GMT 2024","broken","Thu Dec 26 07:47:25 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-instagram_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:26 GMT 2024","broken","Thu Dec 26 07:47:26 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for business_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:40 GMT 2024","broken","Thu Dec 26 07:47:40 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for business_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:44 GMT 2024","broken","Thu Dec 26 07:47:44 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with whatsapp_qr_create and resolution A3","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:05 GMT 2024","broken","Thu Dec 26 07:47:05 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-social_media_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:33 GMT 2024","broken","Thu Dec 26 07:47:33 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with facebook_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:12 GMT 2024","broken","Thu Dec 26 07:47:12 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for wifi_qr_create with 512x512 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:36 GMT 2024","broken","Thu Dec 26 07:47:36 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for image_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:43 GMT 2024","broken","Thu Dec 26 07:47:43 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-vcard_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:21 GMT 2024","broken","Thu Dec 26 07:47:21 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-2048x2048-pdf_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:29 GMT 2024","broken","Thu Dec 26 07:47:29 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for links_qr_create with Default resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:34 GMT 2024","broken","Thu Dec 26 07:47:34 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-4096x4096-coupon_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:28 GMT 2024","broken","Thu Dec 26 07:47:28 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with mp3_qr_create and resolution A1","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:21 GMT 2024","broken","Thu Dec 26 07:47:21 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+        Test verifies the sign-up flow with different QR code types:
+        1. Creates QR code with specified method
+        2. Completes all required steps
+        3. Verifies email submission
+        4. Checks successful sign-up
+        5. Downloads QR code in SVG format
+    ","0","Sign up flow test for menu_digital_qr_create with 1024x1024 resolution","tests.tests_nsf_flow","Thu Dec 26 07:47:40 GMT 2024","broken","Thu Dec 26 07:47:40 GMT 2024","TestNSFSignUpFlowSvg","test_nsf_sign_up_svg_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with business_qr_create and resolution A2","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:18 GMT 2024","broken","Thu Dec 26 07:47:18 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Test creating QR code with different methods and downloading as PNG","0","Create instagram_qr_create QR code with 4096x4096 PNG download","tests.tests_default_flow","Thu Dec 26 07:46:58 GMT 2024","broken","Thu Dec 26 07:46:58 GMT 2024","TestDefaultSignUpFlowPng","test_default_sign_up_png_download_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with whatsapp_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:18 GMT 2024","broken","Thu Dec 26 07:47:18 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"Verify QR code creation and PDF download functionality with different creation methods and resolutions","0","Test CFF sign up with mp3_qr_create and resolution A4","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:12 GMT 2024","broken","Thu Dec 26 07:47:12 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"
+    Verify QR code creation for website and menu links:
+    - Create QR code using specified method
+    - Complete sign up process
+    - Download PDF with different resolutions
+    ","0","Test website QR creation with website_qr_create and resolution Default","tests.tests_dpf_flow.dpf_link_cff_flow","Thu Dec 26 07:47:02 GMT 2024","broken","Thu Dec 26 07:47:02 GMT 2024","TestCFFSignUpFlowPdf","test_cff_sign_up_pdf_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-1024x1024-menu_digital_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:25 GMT 2024","broken","Thu Dec 26 07:47:25 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
+"","0","test_dpf_sign_up_qr_type[-512x512-menu_pdf_qr_create]","tests.tests_dpf_flow.dpf_link_dpf_flow","Thu Dec 26 07:47:28 GMT 2024","broken","Thu Dec 26 07:47:28 GMT 2024","TestDPFSignUpFlowJpeg","test_dpf_sign_up_jpeg_download_from_welcome_modal","",""
