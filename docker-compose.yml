@@ -7,7 +7,7 @@ services:
     volumes:
       - ./:/app/workspace
       - ./allure-results:/app/workspace/allure-results
-    command: /bin/sh -c "ls -la && xvfb-run pytest -m regression -sv -n 4 --alluredir=allure-results"
+    command: /bin/sh -c "ls -la && xvfb-run pytest -m regression $TEST_PATH -sv -n 4 --alluredir=allure-results"
     working_dir: /app/workspace
     environment:
       BROWSER: "${BROWSER}"
@@ -15,17 +15,19 @@ services:
       STAGE_ADMIN_EMAIL: "${STAGE_ADMIN_EMAIL}"
       STAGE_ADMIN_PASSWORD: "${STAGE_ADMIN_PASSWORD}"
       LANGUAGES: "${LANGUAGES}"
+      TEST_PATH: "${TEST_PATH}"
 
   smoke-tests:
     image: ghcr.io/bohdan-wtl/qr-generator/ui-tests:v6
     volumes:
       - ./:/app/workspace
       - ./allure-results:/app/workspace/allure-results
-    command: /bin/sh -c "ls -la && xvfb-run pytest -m smoke -sv -n 4 --alluredir=allure-results"
+    command: /bin/sh -c "ls -la && xvfb-run pytest -m smoke $TEST_PATH -sv -n 4 --alluredir=allure-results"
     working_dir: /app/workspace
     environment:
       BROWSER: "${BROWSER}"
       STAGE_ADMIN_LINK: "${STAGE_ADMIN_LINK}"
       STAGE_ADMIN_EMAIL: "${STAGE_ADMIN_EMAIL}"
+      TEST_PATH: "${TEST_PATH}"
       STAGE_ADMIN_PASSWORD: "${STAGE_ADMIN_PASSWORD}"
       LANGUAGES: ""
