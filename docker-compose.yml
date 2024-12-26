@@ -7,7 +7,7 @@ services:
     volumes:
       - ./:/app/workspace
       - ./allure-results:/app/workspace/allure-results
-    command: xvfb-run pytest -m regression -sv -n 4 --alluredir=allure-results
+    command: /bin/sh -c "ls -la && pxvfb-run pytest -m regression -sv -n 4 --alluredir=allure-results"
     working_dir: /app/workspace
     environment:
       BROWSER: "${BROWSER}"
@@ -21,7 +21,7 @@ services:
     volumes:
       - ./:/app/workspace
       - ./allure-results:/app/workspace/allure-results
-    command: xvfb-run pytest -m smoke -sv -n 4 --alluredir=allure-results
+    command: /bin/sh -c "ls -la && pxvfb-run pytest -m smoke -sv -n 4 --alluredir=allure-results"
     working_dir: /app/workspace
     environment:
       BROWSER: "${BROWSER}"
