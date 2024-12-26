@@ -28,7 +28,16 @@ jobs:
       - name: Get list of test files
         id: get_tests
         run: |
-          echo "test_files=$(find tests/ -type f -name 'test_*.py' | jq -R . | jq -s .)" >> $GITHUB_OUTPUT
+          set -e
+          TEST_FILES=$(find tests/ -type f -name 'test_*.py')
+          echo "Found test files:"
+          echo "$TEST_FILES"
+          TEST_FILES_JSON=$(printf '%s\n' "$TEST_FILES" | jq -R . | jq -s .)
+          echo "TEST_FILES_JSON:"
+          echo "$TEST_FILES_JSON"
+          echo "test_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$TEST_FILES_JSON" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
   run_tests:
     needs: list_tests
