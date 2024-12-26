@@ -10,8 +10,9 @@ from pytest import hookimpl
 headless = False
 slow_mo = 100
 
-DELETE_USER_URL = os.getenv("DELETE_USER_URL")
-ENV_URL = os.getenv("ENV_URL")
+DELETE_USER_URL = "https://oqg-staging.test-qr.com/api/test-user-delete"
+
+ENV_URL = "https://oqg-staging.test-qr.com/"
 
 # ENV_URL = "https://qci-staging.test-qr.com/"
 
