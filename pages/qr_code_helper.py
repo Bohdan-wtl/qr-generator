@@ -129,16 +129,16 @@ class QrCodeHelper(BasePage):
 
     @allure.step("Customizing QR code fonts and text styles")
     def fonts_style_select(self):
-        self.locator.update_fonts_qr_code_dropdown.click()
+        self.checked_locator(self.locator.update_fonts_qr_code_dropdown).click()
         self.locator.fonts_title_dropdown.scroll_into_view_if_needed()
-        self.locator.fonts_title_dropdown.click(force=True)
+        self.checked_locator(self.locator.fonts_title_dropdown).click(force=True)
         self.page.wait_for_selector("//div[@id='dropdown_title']/button", state="attached")
         title_options = self.page.query_selector_all("//div[@id='dropdown_title']/button")
         random_title_font = random.choice(title_options)
         random_title_font.scroll_into_view_if_needed()
         random_title_font.click(force=True)
         self.page.wait_for_timeout(1000)
-        self.locator.fonts_texts_dropdown.click()
+        self.checked_locator(self.locator.fonts_texts_dropdown).click()
         text_options = self.page.query_selector_all("//div[@id='dropdown_text']/button")
         random_text_font = random.choice(text_options)
         random_text_font.scroll_into_view_if_needed()
@@ -149,18 +149,17 @@ class QrCodeHelper(BasePage):
     def welcome_screen_set_img(self):
         image_path = self.generate_file('image')
         self.checked_locator(self.locator.upload_welcome_screen_qr_code_dropdown).click()
-        self.locator.upload_welcome_screen_qr_code_input.set_input_files(image_path)
+        self.checked_locator(self.locator.upload_welcome_screen_qr_code_input).set_input_files(image_path)
 
     @allure.step("Selecting random option from available choices")
     def select_random_option(self, locators):
         random_locator = random.choice(locators)
-        self.page.locator(random_locator).click()
+        self.checked_locator(self.locator(random_locator)).click()
         return random_locator
 
     @allure.step("Selecting QR code frame design in step 3")
     def select_frame_step3(self):
-        self.locator.frame_step3_dropdown.is_enabled()
-        self.locator.frame_step3_dropdown.click()
+        self.checked_locator(self.locator.frame_step3_dropdown).click()
         self.select_random_child_by_attribute("#acc_frame .frameWrapper", "button", "id")
 
     @allure.step("Customizing QR code corner design in step 3")
@@ -173,23 +172,23 @@ class QrCodeHelper(BasePage):
 
     @allure.step("Adding contact information: phone, email and website details")
     def add_phone_email_website(self):
-        self.locator.contact_details_qr_code_add_phone_btn.scroll_into_view_if_needed()
-        self.locator.contact_details_qr_code_add_phone_btn.click()
-        self.locator.contact_details_qr_code_add_phone_label.fill(self.faker.word())
-        self.locator.contact_details_qr_code_add_phone_number.fill(self.faker.basic_phone_number())
-        self.locator.contact_details_qr_code_add_email_btn.scroll_into_view_if_needed()
-        self.locator.contact_details_qr_code_add_email_btn.click()
-        self.locator.contact_details_qr_code_add_email_label.fill(self.faker.word())
-        self.locator.contact_details_qr_code_add_email_address.fill(self.faker.email())
-        self.locator.contact_details_qr_code_add_website_btn.scroll_into_view_if_needed()
-        self.locator.contact_details_qr_code_add_website_btn.click()
-        self.locator.contact_details_qr_code_add_website_label.fill(self.faker.word())
-        self.locator.contact_details_qr_code_add_website_url.fill(self.faker.url())
+        self.checked_locator(self.locator.contact_details_qr_code_add_phone_btn).scroll_into_view_if_needed()
+        self.checked_locator(self.locator.contact_details_qr_code_add_phone_btn).click()
+        self.checked_locator(self.locator.contact_details_qr_code_add_phone_label).fill(self.faker.word())
+        self.checked_locator(self.locator.contact_details_qr_code_add_phone_number).fill(self.faker.basic_phone_number())
+        self.checked_locator(self.locator.contact_details_qr_code_add_email_btn).scroll_into_view_if_needed()
+        self.checked_locator(self.locator.contact_details_qr_code_add_email_btn).click()
+        self.checked_locator(self.locator.contact_details_qr_code_add_email_label).fill(self.faker.word())
+        self.checked_locator(self.locator.contact_details_qr_code_add_email_address).fill(self.faker.email())
+        self.checked_locator(self.locator.contact_details_qr_code_add_website_btn).scroll_into_view_if_needed()
+        self.checked_locator(self.locator.contact_details_qr_code_add_website_btn).click()
+        self.checked_locator(self.locator.contact_details_qr_code_add_website_label).fill(self.faker.word())
+        self.checked_locator(self.locator.contact_details_qr_code_add_website_url).fill(self.faker.url())
 
     @allure.step("Setting location information for QR code")
     def set_location(self):
-        self.locator.location_qr_code_search_address.click()
-        self.locator.location_qr_code_search_address.fill(self.faker.city())
+        self.checked_locator(self.locator.location_qr_code_search_address).click()
+        self.checked_locator(self.locator.location_qr_code_search_address).fill(self.faker.city())
         self.page.keyboard.press("ArrowDown")
         self.page.keyboard.press("Enter")
 
