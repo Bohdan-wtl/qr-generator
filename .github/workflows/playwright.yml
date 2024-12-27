@@ -247,6 +247,7 @@ jobs:
             TOTAL_TESTS=$(jq '.statistic.total' "$SUMMARY_FILE")
             PASSED_TESTS=$(jq '.statistic.passed' "$SUMMARY_FILE")
             FAILED_TESTS=$(jq '.statistic.failed' "$SUMMARY_FILE")
+            BROKEN_TESTS=$(jq '.statistic.broken' "$SUMMARY_FILE")
           fi
           curl -X POST -H 'Content-type: application/json' --data '{
           "text": "Tests are finished",
@@ -255,7 +256,12 @@ jobs:
               "type": "section",
               "text": {
                 "type": "mrkdwn",
-                "text": ":clipboard: Test Results for ${{ github.event.inputs.browser }}\n :test_tube: *Total:* '"${TOTAL_TESTS}"'\n :white_check_mark: *Passed:* '"${PASSED_TESTS}"'\n :x: *Failed:* '"${FAILED_TESTS}"'\n<'"${REPORT_URL}"'|:bar_chart: Open Allure Report>"
+                "text": ":clipboard: Test Results for ${{ github.event.inputs.browser }}\n
+                         :test_tube: *Total:* ${TOTAL_TESTS}\n
+                         :white_check_mark: *Passed:* ${PASSED_TESTS}\n
+                         :pill: *Unexpected result:* ${BROKEN_TESTS}\n
+                         :x: *Failed:* ${FAILED_TESTS}\n
+                         <${REPORT_URL}|:bar_chart: Open Allure Report>"
               }
             }
           ]
