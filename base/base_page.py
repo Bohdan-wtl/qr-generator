@@ -15,10 +15,12 @@ class BasePage:
         return locator
 
     def is_visible(self, locator):
-        self.expect(self.page.locator(locator)).to_be_visible()
+        self.expect(locator).to_be_visible()
+        return locator
 
     def is_invisible(self, locator):
-        self.expect(self.page.locator(locator)).to_be_hidden()
+        self.expect(locator).not_to_be_visible()
+        return True
 
     def get_text(self, locator):
         return self.page.locator(locator).text_content()

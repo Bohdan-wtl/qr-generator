@@ -5,6 +5,9 @@ class PaymentPageLocators:
         self.card_number = self.frame_payment.locator(
             "//input[@id='Field-numberInput']"
         )
+        self.card_number_error_label = self.frame_payment.locator("//p[@id='Field-numberError']")
+        self.exp_date_error_label = self.frame_payment.locator("//p[@id='Field-expiryError']")
+        self.cvc_code_error_label = self.frame_payment.locator("//p[@id='Field-cvcError']")
         self.card_number_label = self.frame_payment.locator(
             "//div[@data-field='number']/label"
         )

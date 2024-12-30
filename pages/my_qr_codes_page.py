@@ -32,11 +32,12 @@ class MyQrCodesPage(BasePage):
         self.checked_locator(locator=self.page.locator(
             f"//div[contains(@class,'dl-modal-option-card')]//h6[text()='{file_format}']"
         )).click()
-        self.locator.size_of_qr_file_download_dropdown.click(force=True)
+        self.checked_locator(self.locator.size_of_qr_file_download_dropdown).click(force=True)
         self.page.locator(f"//input[@id='{resolution}']").click()
         with self.page.expect_download() as download_info:
-            self.checked_locator(self.locator.download_button).click()
+            self.checked_locator(self.locator.download_button).click(force=True)
         download = download_info.value
+        assert download is not None, "Download did not start"
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = (
             f"{file_format}_{resolution}_{timestamp}_{download.suggested_filename}"
@@ -44,6 +45,7 @@ class MyQrCodesPage(BasePage):
         file_path = os.path.join(download_path, file_name)
         download.save_as(file_path)
         assert os.path.exists(file_path), "QR code not downloaded"
+
 
     @allure.step("Open QR code link for code named: {qr_name}")
     def open_qr_link(self, qr_name):
