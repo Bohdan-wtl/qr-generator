@@ -1,4 +1,4 @@
-name: Lighthouse
+name: Lighthouse Desktop Check
 on: workflow_dispatch
 
 jobs:
@@ -9,13 +9,25 @@ jobs:
     - run: mkdir -p ${{ github.workspace }}/tmp/artifacts
 
     - name: Lighthouse
+      id: lighthouseCheck
       uses: foo-software/lighthouse-check-action@master
       with:
         outputDirectory: ${{ github.workspace }}/tmp/artifacts
         urls: 'https://oqg-staging.test-qr.com/,https://oqg-staging.test-qr.com/register'
+        device: 'desktop'
+        chromeFlags: '--window-size=1920,1080'
+
+    - name: Verify Lighthouse Check results
+      uses: foo-software/lighthouse-check-status-action@master
+      with:
+        lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
+        minAccessibilityScore: "90"
+        minBestPracticesScore: "80"
+        minPerformanceScore: "70"
+        minSeoScore: "90"
 
     - name: Upload artifacts
       uses: actions/upload-artifact@master
       with:
-        name: Lighthouse reports
+        name: Lighthouse Desktop Reports
         path: ${{ github.workspace }}/tmp/artifacts
