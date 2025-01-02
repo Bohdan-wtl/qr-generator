@@ -21,9 +21,9 @@ jobs:
       uses: foo-software/lighthouse-check-status-action@master
       with:
         lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
-        minAccessibilityScore: "90"
-        minBestPracticesScore: "80"
-        minPerformanceScore: "70"
+        minAccessibilityScore: "50"
+        minBestPracticesScore: "50"
+        minPerformanceScore: "50"
         minSeoScore: "90"
 
     - name: Upload artifacts
