@@ -10,6 +10,7 @@ jobs:
     - name: Lighthouse
       uses: foo-software/lighthouse-check-action@master
       with:
+        outputDirectory: ${{ github.workspace }}/tmp/artifacts
         urls: 'https://oqg-staging.test-qr.com/,https://oqg-staging.test-qr.com/register'
 
     - name: Upload artifacts
