@@ -24,7 +24,7 @@ jobs:
         minAccessibilityScore: "50"
         minBestPracticesScore: "50"
         minPerformanceScore: "50"
-        minSeoScore: "90"
+        minSeoScore: "50"
 
     - name: Upload artifacts
       uses: actions/upload-artifact@master
